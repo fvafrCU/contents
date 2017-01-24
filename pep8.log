@@ -1,0 +1,33 @@
+contents.py:4:28: W291 trailing whitespace
+contents.py:6:78: W291 trailing whitespace
+contents.py:8:70: W291 trailing whitespace
+contents.py:9:80: W291 trailing whitespace
+contents.py:12:48: W291 trailing whitespace
+contents.py:14:38: W291 trailing whitespace
+contents.py:15:46: W291 trailing whitespace
+contents.py:16:9: W291 trailing whitespace
+contents.py:19:1: E265 block comment should start with '# '
+contents.py:116:1: E265 block comment should start with '# '
+contents.py:133:1: E265 block comment should start with '# '
+contents.py:141:9: E265 block comment should start with '# '
+contents.py:141:52: W291 trailing whitespace
+contents.py:145:13: E265 block comment should start with '# '
+contents.py:145:71: W291 trailing whitespace
+contents.py:146:13: E265 block comment should start with '# '
+contents.py:146:74: W291 trailing whitespace
+contents.py:147:13: E265 block comment should start with '# '
+contents.py:147:76: W291 trailing whitespace
+contents.py:148:13: E265 block comment should start with '# '
+contents.py:148:70: W291 trailing whitespace
+contents.py:152:9: E265 block comment should start with '# '
+contents.py:153:9: E265 block comment should start with '# '
+contents.py:154:9: E265 block comment should start with '# '
+contents.py:163:1: E265 block comment should start with '# '
+contents.py:165:5: E265 block comment should start with '# '
+contents.py:167:5: E265 block comment should start with '# '
+contents.py:171:5: E265 block comment should start with '# '
+contents.py:177:5: E265 block comment should start with '# '
+contents.py:185:5: E265 block comment should start with '# '
+contents.py:194:13: E265 block comment should start with '# '
+contents.py:196:17: E265 block comment should start with '# '
+contents.py:201:17: E265 block comment should start with '# '

@@ -1,0 +1,135 @@
+************* Module contents
+C:  4, 0: Trailing whitespace (trailing-whitespace)
+C:  6, 0: Trailing whitespace (trailing-whitespace)
+C:  8, 0: Trailing whitespace (trailing-whitespace)
+C:  9, 0: Trailing whitespace (trailing-whitespace)
+C: 12, 0: Trailing whitespace (trailing-whitespace)
+C: 14, 0: Trailing whitespace (trailing-whitespace)
+C: 15, 0: Trailing whitespace (trailing-whitespace)
+C: 16, 0: Trailing whitespace (trailing-whitespace)
+C: 37, 0: Unnecessary parens after 'print' keyword (superfluous-parens)
+C:130, 0: Unnecessary parens after 'return' keyword (superfluous-parens)
+C:141, 0: Trailing whitespace (trailing-whitespace)
+C:145, 0: Trailing whitespace (trailing-whitespace)
+C:146, 0: Trailing whitespace (trailing-whitespace)
+C:147, 0: Trailing whitespace (trailing-whitespace)
+C:148, 0: Trailing whitespace (trailing-whitespace)
+C:158, 0: Unnecessary parens after 'return' keyword (superfluous-parens)
+C:188, 0: Wrong continued indentation.
+                        ".html"])
+                        ^| (bad-continuation)
+C:190, 0: Wrong continued indentation.
+                        ".pdf"])
+                        ^| (bad-continuation)
+C:192, 0: Wrong continued indentation.
+                        ".tex"])
+                        ^| (bad-continuation)
+C:199, 0: Wrong continued indentation.
+                                    full_base_name + ".tex"])
+                                    ^| (bad-continuation)
+W:123, 0: Anomalous backslash in string: '\s'. String constant might be missing an r prefix. (anomalous-backslash-in-string)
+W:151, 0: Anomalous backslash in string: '\s'. String constant might be missing an r prefix. (anomalous-backslash-in-string)
+W:161, 0: Redefining built-in '__doc__' (redefined-builtin)
+C:160, 0: Invalid constant name "_parser" (invalid-name)
+C:166, 4: Invalid constant name "args" (invalid-name)
+C:168, 4: Invalid constant name "lines_matched" (invalid-name)
+C:172, 4: Invalid constant name "markdown_lines" (invalid-name)
+C:178, 4: Invalid constant name "base_name" (invalid-name)
+C:179, 4: Invalid constant name "full_base_name" (invalid-name)
+C:180, 4: Invalid constant name "md_file_name" (invalid-name)
+C:181, 4: Invalid constant name "md_file" (invalid-name)
+
+
+Report
+======
+81 statements analysed.
+
+Raw metrics
+-----------
+
++----------+-------+------+---------+-----------+
+|type      |number |%     |previous |difference |
++==========+=======+======+=========+===========+
+|code      |130    |62.80 |128      |+2.00      |
++----------+-------+------+---------+-----------+
+|docstring |41     |19.81 |42       |-1.00      |
++----------+-------+------+---------+-----------+
+|comment   |10     |4.83  |10       |=          |
++----------+-------+------+---------+-----------+
+|empty     |26     |12.56 |26       |=          |
++----------+-------+------+---------+-----------+
+
+
+
+Messages by category
+--------------------
+
++-----------+-------+---------+-----------+
+|type       |number |previous |difference |
++===========+=======+=========+===========+
+|convention |28     |29       |-1.00      |
++-----------+-------+---------+-----------+
+|refactor   |0      |0        |=          |
++-----------+-------+---------+-----------+
+|warning    |3      |3        |=          |
++-----------+-------+---------+-----------+
+|error      |0      |0        |=          |
++-----------+-------+---------+-----------+
+
+
+
+Messages
+--------
+
++------------------------------+------------+
+|message id                    |occurrences |
++==============================+============+
+|trailing-whitespace           |13          |
++------------------------------+------------+
+|invalid-name                  |8           |
++------------------------------+------------+
+|bad-continuation              |4           |
++------------------------------+------------+
+|superfluous-parens            |3           |
++------------------------------+------------+
+|anomalous-backslash-in-string |2           |
++------------------------------+------------+
+|redefined-builtin             |1           |
++------------------------------+------------+
+
+
+
+Global evaluation
+-----------------
+Your code has been rated at 6.17/10 (previous run: 6.00/10, +0.17)
+
+Duplication
+-----------
+
++-------------------------+------+---------+-----------+
+|                         |now   |previous |difference |
++=========================+======+=========+===========+
+|nb duplicated lines      |0     |0        |=          |
++-------------------------+------+---------+-----------+
+|percent duplicated lines |0.000 |0.000    |=          |
++-------------------------+------+---------+-----------+
+
+
+
+Statistics by type
+------------------
+
++---------+-------+-----------+-----------+------------+---------+
+|type     |number |old number |difference |%documented |%badname |
++=========+=======+===========+===========+============+=========+
+|module   |1      |1          |=          |100.00      |0.00     |
++---------+-------+-----------+-----------+------------+---------+
+|class    |1      |1          |=          |100.00      |0.00     |
++---------+-------+-----------+-----------+------------+---------+
+|method   |0      |0          |=          |0           |0        |
++---------+-------+-----------+-----------+------------+---------+
+|function |4      |4          |=          |100.00      |0.00     |
++---------+-------+-----------+-----------+------------+---------+
+
+
+
