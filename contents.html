@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module contents</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>contents</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/nik/git/cyclops/fvafrcu/contents/contents.py">/home/nik/git/cyclops/fvafrcu/contents/contents.py</a></font></td></tr></table>
+    <p><tt>#######%&nbsp;%&nbsp;markdown&nbsp;comments&nbsp;for&nbsp;various&nbsp;source&nbsp;files<br>
+#######%&nbsp;%&nbsp;Dominik&nbsp;Cullmann&nbsp;&nbsp;<br>
+#######%<br>
+#######%&nbsp;extract&nbsp;markdown-like&nbsp;comments&nbsp;from&nbsp;(source&nbsp;code)&nbsp;file,&nbsp;convert&nbsp;them&nbsp;<br>
+#######%&nbsp;to&nbsp;valid&nbsp;markdown&nbsp;and&nbsp;run&nbsp;pandoc&nbsp;on&nbsp;it.<br>
+#######%&nbsp;Since&nbsp;the&nbsp;comment&nbsp;characters&nbsp;for&nbsp;different&nbsp;languages&nbsp;differ,&nbsp;<br>
+#######%&nbsp;this&nbsp;program&nbsp;can&nbsp;be&nbsp;adjusted&nbsp;to&nbsp;use&nbsp;the&nbsp;comment&nbsp;character&nbsp;used&nbsp;in&nbsp;your&nbsp;<br>
+#######%&nbsp;file&nbsp;by&nbsp;command&nbsp;line&nbsp;arguments.<br>
+#######%<br>
+#######%&nbsp;copyright:&nbsp;2014-2017,&nbsp;Dominik&nbsp;Cullmann&nbsp;&nbsp;<br>
+#######%&nbsp;license:&nbsp;BSD&nbsp;2-Clause<br>
+#######%&nbsp;maintainer:&nbsp;Dominik&nbsp;cullmann&nbsp;&nbsp;<br>
+#######%&nbsp;email:&nbsp;dominik.cullmann@forst.bwl.de&nbsp;&nbsp;<br>
+#######%&nbsp;<br>
+usage:&nbsp;pydoc.py&nbsp;[-h]&nbsp;[-o&nbsp;NAME_POSTFIX]&nbsp;[-e&nbsp;NAME_PREFIX]&nbsp;[-c&nbsp;COMMENT_CHARACTER]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-m&nbsp;MAGIC_CHARACTER]&nbsp;[-v]&nbsp;[-x]&nbsp;[-p]&nbsp;[-n]&nbsp;[-l]&nbsp;[--no-latex]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;file<br>
+&nbsp;<br>
+convert&nbsp;markdown-style&nbsp;comments&nbsp;from&nbsp;a&nbsp;file&nbsp;to&nbsp;markdown&nbsp;and&nbsp;html&nbsp;via&nbsp;pandoc.<br>
+&nbsp;<br>
+positional&nbsp;arguments:<br>
+&nbsp;&nbsp;file&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;file&nbsp;to&nbsp;convert&nbsp;comments&nbsp;from.<br>
+&nbsp;<br>
+optional&nbsp;arguments:<br>
+&nbsp;&nbsp;-h,&nbsp;--help&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;show&nbsp;this&nbsp;help&nbsp;message&nbsp;and&nbsp;exit<br>
+&nbsp;&nbsp;-o&nbsp;NAME_POSTFIX,&nbsp;--postfix&nbsp;NAME_POSTFIX<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Change&nbsp;the&nbsp;postfix&nbsp;added&nbsp;to&nbsp;the&nbsp;files&nbsp;created.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(default:&nbsp;_contents)<br>
+&nbsp;&nbsp;-e&nbsp;NAME_PREFIX,&nbsp;--prefix&nbsp;NAME_PREFIX<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Change&nbsp;the&nbsp;prefix&nbsp;added&nbsp;to&nbsp;the&nbsp;files&nbsp;created.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(default:&nbsp;)<br>
+&nbsp;&nbsp;-c&nbsp;COMMENT_CHARACTER,&nbsp;--comment&nbsp;COMMENT_CHARACTER<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Change&nbsp;the&nbsp;comment&nbsp;character.&nbsp;(default:&nbsp;#)<br>
+&nbsp;&nbsp;-m&nbsp;MAGIC_CHARACTER,&nbsp;--magic&nbsp;MAGIC_CHARACTER<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Change&nbsp;the&nbsp;magic&nbsp;character.&nbsp;(default:&nbsp;%)<br>
+&nbsp;&nbsp;-v,&nbsp;--version&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;show&nbsp;program's&nbsp;version&nbsp;number&nbsp;and&nbsp;exit<br>
+&nbsp;&nbsp;-x,&nbsp;--example&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Give&nbsp;an&nbsp;example&nbsp;and&nbsp;exit.<br>
+&nbsp;&nbsp;-p,&nbsp;--pandoc&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Run&nbsp;pandoc&nbsp;on&nbsp;the&nbsp;md&nbsp;file&nbsp;created.&nbsp;(default:&nbsp;False)<br>
+&nbsp;&nbsp;-n,&nbsp;--no-pandoc&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Do&nbsp;not&nbsp;run&nbsp;pandoc&nbsp;on&nbsp;the&nbsp;md&nbsp;file&nbsp;created.&nbsp;(default:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;False)<br>
+&nbsp;&nbsp;-l,&nbsp;--latex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Run&nbsp;LaTex&nbsp;on&nbsp;the&nbsp;tex&nbsp;file&nbsp;created&nbsp;via&nbsp;pandoc.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(default:&nbsp;False)<br>
+&nbsp;&nbsp;--no-latex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Run&nbsp;LaTex&nbsp;on&nbsp;the&nbsp;tex&nbsp;file&nbsp;created&nbsp;via&nbsp;pandoc.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(default:&nbsp;False)<br>
+&nbsp;<br>
+markdown&nbsp;style&nbsp;comments&nbsp;are&nbsp;headed&nbsp;by&nbsp;one&nbsp;or&nbsp;more&nbsp;comment&nbsp;characters&nbsp;giving<br>
+the&nbsp;markdown&nbsp;heading&nbsp;level&nbsp;and&nbsp;a&nbsp;magic&nbsp;character&nbsp;marking&nbsp;it&nbsp;as<br>
+markdown.<br>
+try&nbsp;--example&nbsp;for&nbsp;an&nbsp;example</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="argparse.html">argparse</a><br>
+<a href="os.html">os</a><br>
+</td><td width="25%" valign=top><a href="re.html">re</a><br>
+<a href="subprocess.html">subprocess</a><br>
+</td><td width="25%" valign=top><a href="sys.html">sys</a><br>
+<a href="textwrap.html">textwrap</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="argparse.html#ArgumentDefaultsHelpFormatter">argparse.ArgumentDefaultsHelpFormatter</a>(<a href="argparse.html#HelpFormatter">argparse.HelpFormatter</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="contents.html#CustomFormatter">CustomFormatter</a>(<a href="argparse.html#ArgumentDefaultsHelpFormatter">argparse.ArgumentDefaultsHelpFormatter</a>, <a href="argparse.html#RawDescriptionHelpFormatter">argparse.RawDescriptionHelpFormatter</a>)
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="argparse.html#RawDescriptionHelpFormatter">argparse.RawDescriptionHelpFormatter</a>(<a href="argparse.html#HelpFormatter">argparse.HelpFormatter</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="contents.html#CustomFormatter">CustomFormatter</a>(<a href="argparse.html#ArgumentDefaultsHelpFormatter">argparse.ArgumentDefaultsHelpFormatter</a>, <a href="argparse.html#RawDescriptionHelpFormatter">argparse.RawDescriptionHelpFormatter</a>)
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="CustomFormatter">class <strong>CustomFormatter</strong></a>(<a href="argparse.html#ArgumentDefaultsHelpFormatter">argparse.ArgumentDefaultsHelpFormatter</a>, <a href="argparse.html#RawDescriptionHelpFormatter">argparse.RawDescriptionHelpFormatter</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>just&nbsp;a&nbsp;<a href="#CustomFormatter">CustomFormatter</a><br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="contents.html#CustomFormatter">CustomFormatter</a></dd>
+<dd><a href="argparse.html#ArgumentDefaultsHelpFormatter">argparse.ArgumentDefaultsHelpFormatter</a></dd>
+<dd><a href="argparse.html#RawDescriptionHelpFormatter">argparse.RawDescriptionHelpFormatter</a></dd>
+<dd><a href="argparse.html#HelpFormatter">argparse.HelpFormatter</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods inherited from <a href="argparse.html#HelpFormatter">argparse.HelpFormatter</a>:<br>
+<dl><dt><a name="CustomFormatter-__init__"><strong>__init__</strong></a>(self, prog, indent_increment=2, max_help_position=24, width=None)</dt></dl>
+
+<dl><dt><a name="CustomFormatter-add_argument"><strong>add_argument</strong></a>(self, action)</dt></dl>
+
+<dl><dt><a name="CustomFormatter-add_arguments"><strong>add_arguments</strong></a>(self, actions)</dt></dl>
+
+<dl><dt><a name="CustomFormatter-add_text"><strong>add_text</strong></a>(self, text)</dt></dl>
+
+<dl><dt><a name="CustomFormatter-add_usage"><strong>add_usage</strong></a>(self, usage, actions, groups, prefix=None)</dt></dl>
+
+<dl><dt><a name="CustomFormatter-end_section"><strong>end_section</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="CustomFormatter-format_help"><strong>format_help</strong></a>(self)</dt><dd><tt>#&nbsp;=======================<br>
+#&nbsp;Help-formatting&nbsp;methods<br>
+#&nbsp;=======================</tt></dd></dl>
+
+<dl><dt><a name="CustomFormatter-start_section"><strong>start_section</strong></a>(self, heading)</dt><dd><tt>#&nbsp;========================<br>
+#&nbsp;Message&nbsp;building&nbsp;methods<br>
+#&nbsp;========================</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="argparse.html#HelpFormatter">argparse.HelpFormatter</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-convert"><strong>convert</strong></a>(lines, comment_character, magic_character)</dt><dd><tt>convert&nbsp;matching&nbsp;lines&nbsp;to&nbsp;markdown</tt></dd></dl>
+ <dl><dt><a name="-extract_md"><strong>extract_md</strong></a>(file_name, comment_character, magic_character)</dt><dd><tt>extract&nbsp;all&nbsp;lines&nbsp;starting&nbsp;with&nbsp;a&nbsp;combination&nbsp;of&nbsp;comment_character&nbsp;and<br>
+magic_character.</tt></dd></dl>
+ <dl><dt><a name="-is_tool"><strong>is_tool</strong></a>(name)</dt><dd><tt>test&nbsp;if&nbsp;a&nbsp;program&nbsp;is&nbsp;installed</tt></dd></dl>
+ <dl><dt><a name="-make_parser"><strong>make_parser</strong></a>()</dt><dd><tt>use&nbsp;a&nbsp;parser&nbsp;function&nbsp;to&nbsp;add&nbsp;argparse&nbsp;help&nbsp;to&nbsp;docstring<br>
+taken&nbsp;from&nbsp;<a href="http://stackoverflow.com/questions/22793577/">http://stackoverflow.com/questions/22793577/</a><br>
+display-argparse-help-within-pydoc</tt></dd></dl>
+</td></tr></table>
+</body></html>

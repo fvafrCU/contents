@@ -1,8 +1,21 @@
-install: contents.py
-	cp contents.py ~/bin/
+#% define variables
+##% user set variables
+modul := contents
 
-pep8.log: contents.py
-	pep8 contents.py > pep8.log
+##% derived variables
+file := ${modul}.py
 
-pylint.log: contents.py
-	pylint contents.py > pylint.log
+#% make targets
+install: ${file}
+	cp ${file} ~/bin/
+
+##%  analyse code
+pep8.log: ${file}
+	pep8 ${file} > pep8.log
+
+pylint.log: ${file}
+	pylint ${file} > pylint.log
+
+##% create documentation
+contents.html: ${file}
+	python3 -m pydoc -w ${modul}
