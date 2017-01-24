@@ -1,4 +1,13 @@
 #!/usr/bin/env python3
+## @package contents
+#  extract markdown-like comments from a file and convert them to markdown.
+#
+# extract markdown-like comments from (source code) file, convert them 
+# to valid markdown and run pandoc on it.
+# Since the comment characters for different languages differ, 
+# this program can be adjusted to use the comment character used in your 
+# file by command line arguments.
+
 """
 #######% % markdown comments for various source files
 #######% % Dominik Cullmann  
@@ -24,7 +33,8 @@ import textwrap
 import os
 import sys
 
-
+## test if a program is installed
+# @param name The name of the program to be tested for.
 def is_tool(name):
     """
     test if a program is installed
@@ -42,14 +52,22 @@ def is_tool(name):
     return True
 
 
+## Just a CustomFormatter
+#
+# Internally used only.
 class CustomFormatter(argparse.ArgumentDefaultsHelpFormatter,
                       argparse.RawDescriptionHelpFormatter):
     """
-    just a CustomFormatter
+    Just a CustomFormatter.
     """
     pass
 
 
+## use a custom parser function
+#
+# use a parser function to add argparse help to docstring
+# taken from http://stackoverflow.com/questions/22793577/
+# display-argparse-help-within-pydoc
 def make_parser():
     """
     use a parser function to add argparse help to docstring
@@ -114,6 +132,14 @@ try --example for an example
 
 
 #% define parser
+## extract matching lines
+#
+# extract all lines starting with a combination of comment_character and
+# magic_character from a file.
+#@ param file_name The file from which the lines are to be extracted.
+#@ param comment_character The comment character of the files language ("#" for
+# example.
+#@ magic_character The magic character marking lines as markdown comments.
 def extract_md(file_name, comment_character, magic_character):
     """
     extract all lines starting with a combination of comment_character and
@@ -131,9 +157,16 @@ def extract_md(file_name, comment_character, magic_character):
 
 
 #% define converter
+## convert lines to markdown
+#
+# remove whitespace and magic characters from lines and output valid markdown.,
+#@ param file_name The file from which the lines are to be extracted.
+#@ param comment_character The comment character of the files language ("#" for
+# example.
+#@ magic_character The magic character marking lines as markdown comments.
 def convert(lines, comment_character, magic_character):
     """
-    convert matching lines to markdown
+    convert lines to markdown
     """
     converted_lines = []
     for line in lines:

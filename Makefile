@@ -19,3 +19,6 @@ pylint.log: ${file}
 ##% create documentation
 contents.html: ${file}
 	python3 -m pydoc -w ${modul}
+
+doxygen: ${file}
+	doxygen .doxygen.conf
