@@ -53,8 +53,8 @@ valid markdown and run pandoc on it. Since the comment characters for
 different languages differ, this program can be adjusted to use the
 comment character used in your file by command line arguments.
 
-copyright: 2014-2017, Dominik Cullmann\\license: BSD 2-Clause
-maintainer: Dominik cullmann\\email: dominik.cullmann@forst.bwl.de
+copyright: 2014-2017, Dominik Cullmann license: BSD 2-Clause maintainer:
+Dominik cullmann email: dominik.cullmann@forst.bwl.de
 
 \section{import modules}\label{import-modules}
 
@@ -79,10 +79,7 @@ would end up to be simple text.\\empty lines (ending markdown
 paragraphs) are not written by file.write(), so we replace them by
 newlines.
 
-\section{main}\label{main}
-
-\subsection{parse command line
-arguments}\label{parse-command-line-arguments}
+\section{write file contents}\label{write-file-contents}
 
 \subsection{get matchting lines}\label{get-matchting-lines}
 
@@ -98,5 +95,10 @@ markdown}\label{convert-matched-lines-to-markdown}
 \paragraph{\ldots{} tex it}\label{tex-it}
 
 \paragraph{\ldots{} warn otherwise}\label{warn-otherwise}
+
+\section{main}\label{main}
+
+\subsection{parse command line
+arguments}\label{parse-command-line-arguments}
 
 \end{document}

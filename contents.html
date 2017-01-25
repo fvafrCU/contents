@@ -1,17 +1,18 @@
 <p>extract markdown-like comments from (source code) file, convert them to valid markdown and run pandoc on it. Since the comment characters for different languages differ, this program can be adjusted to use the comment character used in your file by command line arguments.</p>
-<p>copyright: 2014-2017, Dominik Cullmann<br />license: BSD 2-Clause maintainer: Dominik cullmann<br />email: dominik.cullmann@forst.bwl.de</p>
+<p>copyright: 2014-2017, Dominik Cullmann license: BSD 2-Clause maintainer: Dominik cullmann email: dominik.cullmann@forst.bwl.de</p>
 <h1 id="import-modules"><span class="header-section-number">1</span> import modules</h1>
 <h2 id="this-is-an-example-markdown-comment-of-heading-level-2"><span class="header-section-number">1.1</span> <em>This</em> is an example markdown comment of heading level 2</h2>
 <p><strong>This</strong> is an example of a markdown paragraph: markdown recognizes only six levels of heading, so we use seven levels to mark &quot;normal&quot; text. Here you can use the full <a href="http://daringfireball.net/projects/markdown/syntax">markdown syntax</a>. <em>Note</em> the trailing line: markdown needs an empty line to end a paragraph.</p>
 <h1 id="define-parser"><span class="header-section-number">2</span> define parser</h1>
 <h1 id="define-converter"><span class="header-section-number">3</span> define converter</h1>
 <p>remove 7 or more heading levels.<br />remove the first occurence of the magic_character (the header definition of pandoc&quot;s markdown uses the percent sign, if that is the magic pattern, all pandoc standard headers would end up to be simple text.<br />empty lines (ending markdown paragraphs) are not written by file.write(), so we replace them by newlines.</p>
-<h1 id="main"><span class="header-section-number">4</span> main</h1>
-<h2 id="parse-command-line-arguments"><span class="header-section-number">4.1</span> parse command line arguments</h2>
-<h2 id="get-matchting-lines"><span class="header-section-number">4.2</span> get matchting lines</h2>
-<h2 id="convert-matched-lines-to-markdown"><span class="header-section-number">4.3</span> convert matched lines to markdown</h2>
-<h2 id="write-md-file"><span class="header-section-number">4.4</span> write md file</h2>
-<h2 id="run-pandoc"><span class="header-section-number">4.5</span> run pandoc</h2>
-<h3 id="if-on-posix..."><span class="header-section-number">4.5.1</span> If on posix...</h3>
-<h4 id="tex-it"><span class="header-section-number">4.5.1.1</span> ... tex it</h4>
-<h4 id="warn-otherwise"><span class="header-section-number">4.5.1.2</span> ... warn otherwise</h4>
+<h1 id="write-file-contents"><span class="header-section-number">4</span> write file contents</h1>
+<h2 id="get-matchting-lines"><span class="header-section-number">4.1</span> get matchting lines</h2>
+<h2 id="convert-matched-lines-to-markdown"><span class="header-section-number">4.2</span> convert matched lines to markdown</h2>
+<h2 id="write-md-file"><span class="header-section-number">4.3</span> write md file</h2>
+<h2 id="run-pandoc"><span class="header-section-number">4.4</span> run pandoc</h2>
+<h3 id="if-on-posix..."><span class="header-section-number">4.4.1</span> If on posix...</h3>
+<h4 id="tex-it"><span class="header-section-number">4.4.1.1</span> ... tex it</h4>
+<h4 id="warn-otherwise"><span class="header-section-number">4.4.1.2</span> ... warn otherwise</h4>
+<h1 id="main"><span class="header-section-number">5</span> main</h1>
+<h2 id="parse-command-line-arguments"><span class="header-section-number">5.1</span> parse command line arguments</h2>

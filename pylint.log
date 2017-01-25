@@ -1,48 +1,34 @@
 ************* Module contents
-C:  4, 0: Trailing whitespace (trailing-whitespace)
-C:  6, 0: Trailing whitespace (trailing-whitespace)
-C:  8, 0: Trailing whitespace (trailing-whitespace)
-C:  9, 0: Trailing whitespace (trailing-whitespace)
-C: 12, 0: Trailing whitespace (trailing-whitespace)
-C: 14, 0: Trailing whitespace (trailing-whitespace)
-C: 15, 0: Trailing whitespace (trailing-whitespace)
-C: 16, 0: Trailing whitespace (trailing-whitespace)
-C: 37, 0: Unnecessary parens after 'print' keyword (superfluous-parens)
-C:130, 0: Unnecessary parens after 'return' keyword (superfluous-parens)
-C:141, 0: Trailing whitespace (trailing-whitespace)
-C:145, 0: Trailing whitespace (trailing-whitespace)
-C:146, 0: Trailing whitespace (trailing-whitespace)
-C:147, 0: Trailing whitespace (trailing-whitespace)
-C:148, 0: Trailing whitespace (trailing-whitespace)
-C:158, 0: Unnecessary parens after 'return' keyword (superfluous-parens)
-C:188, 0: Wrong continued indentation.
+C: 47, 0: Unnecessary parens after 'print' keyword (superfluous-parens)
+C:155, 0: Unnecessary parens after 'return' keyword (superfluous-parens)
+C:173, 0: Trailing whitespace (trailing-whitespace)
+C:180, 0: Trailing whitespace (trailing-whitespace)
+C:190, 0: Unnecessary parens after 'return' keyword (superfluous-parens)
+C:229, 0: Wrong continued indentation.
                         ".html"])
                         ^| (bad-continuation)
-C:190, 0: Wrong continued indentation.
+C:231, 0: Wrong continued indentation.
                         ".pdf"])
                         ^| (bad-continuation)
-C:192, 0: Wrong continued indentation.
+C:233, 0: Wrong continued indentation.
                         ".tex"])
                         ^| (bad-continuation)
-C:199, 0: Wrong continued indentation.
+C:240, 0: Wrong continued indentation.
                                     full_base_name + ".tex"])
                                     ^| (bad-continuation)
-W:123, 0: Anomalous backslash in string: '\s'. String constant might be missing an r prefix. (anomalous-backslash-in-string)
-W:151, 0: Anomalous backslash in string: '\s'. String constant might be missing an r prefix. (anomalous-backslash-in-string)
-W:161, 0: Redefining built-in '__doc__' (redefined-builtin)
-C:160, 0: Invalid constant name "_parser" (invalid-name)
-C:166, 4: Invalid constant name "args" (invalid-name)
-C:168, 4: Invalid constant name "lines_matched" (invalid-name)
-C:172, 4: Invalid constant name "markdown_lines" (invalid-name)
-C:178, 4: Invalid constant name "base_name" (invalid-name)
-C:179, 4: Invalid constant name "full_base_name" (invalid-name)
-C:180, 4: Invalid constant name "md_file_name" (invalid-name)
-C:181, 4: Invalid constant name "md_file" (invalid-name)
+C:246, 0: Unnecessary parens after 'return' keyword (superfluous-parens)
+W:148, 0: Anomalous backslash in string: '\s'. String constant might be missing an r prefix. (anomalous-backslash-in-string)
+W:183, 0: Anomalous backslash in string: '\s'. String constant might be missing an r prefix. (anomalous-backslash-in-string)
+W:249, 0: Redefining built-in '__doc__' (redefined-builtin)
+R:203, 0: Too many arguments (7/5) (too-many-arguments)
+C:248, 0: Invalid constant name "_parser" (invalid-name)
+C:254, 4: Invalid constant name "args" (invalid-name)
+C:255, 4: Invalid constant name "ret" (invalid-name)
 
 
 Report
 ======
-81 statements analysed.
+84 statements analysed.
 
 Raw metrics
 -----------
@@ -50,13 +36,13 @@ Raw metrics
 +----------+-------+------+---------+-----------+
 |type      |number |%     |previous |difference |
 +==========+=======+======+=========+===========+
-|code      |130    |62.80 |130      |=          |
+|code      |139    |52.65 |139      |=          |
 +----------+-------+------+---------+-----------+
-|docstring |41     |19.81 |41       |=          |
+|docstring |44     |16.67 |44       |=          |
 +----------+-------+------+---------+-----------+
-|comment   |10     |4.83  |10       |=          |
+|comment   |55     |20.83 |55       |=          |
 +----------+-------+------+---------+-----------+
-|empty     |26     |12.56 |26       |=          |
+|empty     |26     |9.85  |26       |=          |
 +----------+-------+------+---------+-----------+
 
 
@@ -67,9 +53,9 @@ Messages by category
 +-----------+-------+---------+-----------+
 |type       |number |previous |difference |
 +===========+=======+=========+===========+
-|convention |28     |28       |=          |
+|convention |13     |31       |-18.00     |
 +-----------+-------+---------+-----------+
-|refactor   |0      |0        |=          |
+|refactor   |1      |1        |=          |
 +-----------+-------+---------+-----------+
 |warning    |3      |3        |=          |
 +-----------+-------+---------+-----------+
@@ -84,15 +70,17 @@ Messages
 +------------------------------+------------+
 |message id                    |occurrences |
 +==============================+============+
-|trailing-whitespace           |13          |
-+------------------------------+------------+
-|invalid-name                  |8           |
+|superfluous-parens            |4           |
 +------------------------------+------------+
 |bad-continuation              |4           |
 +------------------------------+------------+
-|superfluous-parens            |3           |
+|invalid-name                  |3           |
++------------------------------+------------+
+|trailing-whitespace           |2           |
 +------------------------------+------------+
 |anomalous-backslash-in-string |2           |
++------------------------------+------------+
+|too-many-arguments            |1           |
 +------------------------------+------------+
 |redefined-builtin             |1           |
 +------------------------------+------------+
@@ -101,7 +89,7 @@ Messages
 
 Global evaluation
 -----------------
-Your code has been rated at 6.17/10 (previous run: 6.17/10, +0.00)
+Your code has been rated at 7.98/10 (previous run: 5.83/10, +2.14)
 
 Duplication
 -----------
@@ -128,7 +116,7 @@ Statistics by type
 +---------+-------+-----------+-----------+------------+---------+
 |method   |0      |0          |=          |0           |0        |
 +---------+-------+-----------+-----------+------------+---------+
-|function |4      |4          |=          |100.00      |0.00     |
+|function |5      |5          |=          |100.00      |0.00     |
 +---------+-------+-----------+-----------+------------+---------+
 
 

@@ -2,27 +2,27 @@
 ## @package contents
 #  extract markdown-like comments from a file and convert them to markdown.
 #
-# extract markdown-like comments from (source code) file, convert them 
+# extract markdown-like comments from (source code) file, convert them
 # to valid markdown and run pandoc on it.
-# Since the comment characters for different languages differ, 
-# this program can be adjusted to use the comment character used in your 
+# Since the comment characters for different languages differ,
+# this program can be adjusted to use the comment character used in your
 # file by command line arguments.
 
 """
 #######% % markdown comments for various source files
-#######% % Dominik Cullmann  
+#######% % Dominik Cullmann
 #######%
-#######% extract markdown-like comments from (source code) file, convert them 
+#######% extract markdown-like comments from (source code) file, convert them
 #######% to valid markdown and run pandoc on it.
-#######% Since the comment characters for different languages differ, 
-#######% this program can be adjusted to use the comment character used in your 
+#######% Since the comment characters for different languages differ,
+#######% this program can be adjusted to use the comment character used in your
 #######% file by command line arguments.
 #######%
-#######% copyright: 2014-2017, Dominik Cullmann  
+#######% copyright: 2014-2017, Dominik Cullmann
 #######% license: BSD 2-Clause
-#######% maintainer: Dominik cullmann  
-#######% email: dominik.cullmann@forst.bwl.de  
-#######% 
+#######% maintainer: Dominik cullmann
+#######% email: dominik.cullmann@forst.bwl.de
+#######%
 """
 
 #% import modules
@@ -104,7 +104,7 @@ try --example for an example
     parser.add_argument("-x", "--example", action="version",
                         help="Give an example and exit.",
                         version=("""
-##% *This* is an example markdown comment of heading level 2 
+##% *This* is an example markdown comment of heading level 2
 #######% **This** is an example of a markdown paragraph: markdown recognizes
 #######% only six levels of heading, so we use seven levels to mark
 #######% "normal" text.
@@ -174,9 +174,9 @@ def convert(lines, comment_character, magic_character):
         line = re.sub(comment_character + "{7,}", "", line)
         line = line.replace(comment_character, "#")
         if magic_character != "":
-            #######% remove the first occurence of the magic_character 
-            #######% (the header definition of pandoc"s markdown uses the 
-            #######% percent sign, if that is the magic pattern, all pandoc 
+            #######% remove the first occurence of the magic_character
+            #######% (the header definition of pandoc"s markdown uses the
+            #######% percent sign, if that is the magic pattern, all pandoc
             #######% standard headers would end up to be simple text.  
             line = re.sub(magic_character, "", line, count=1)
             # get rid of leading blanks
@@ -189,40 +189,49 @@ def convert(lines, comment_character, magic_character):
         converted_lines.append(line)
     return(converted_lines)
 
-_parser = make_parser()
-__doc__ += _parser.format_help()
-
-#% main
-if __name__ == "__main__":
-    ##% parse command line arguments
-    args = _parser.parse_args()
+#% write file contents
+## Write Table of Contents
+#
+#@ param file_name The file from which the lines are to be extracted.
+#@ param comment_character The comment character of the files language ("#" for
+# example.
+#@ magic_character The magic character marking lines as markdown comments.
+#@ postfix Set the content's file postfix.
+#@ prefix Set the content's file prefix.
+#@ run_pandoc Run pandoc on the the contents file?
+#@ compile_latex Compile the LaTeX file?
+def contents(file_name, comment_character, magic_character, postfix,
+             prefix, run_pandoc, compile_latex):
+    """
+    Write table of contents to file
+    """
     ##% get matchting lines
-    lines_matched = extract_md(file_name=args.file_name,
-                               comment_character=args.comment_character,
-                               magic_character=args.magic_character)
+    lines_matched = extract_md(file_name=file_name,
+                               comment_character=comment_character,
+                               magic_character=magic_character)
     ##% convert matched lines to markdown
     markdown_lines = convert(lines=lines_matched,
-                             comment_character=args.comment_character,
-                             magic_character=args.magic_character)
+                             comment_character=comment_character,
+                             magic_character=magic_character)
     if all(line == "\n" for line in markdown_lines):
         sys.exit(2)
     ##% write md file
-    base_name = os.path.basename(os.path.splitext(args.file_name)[0])
-    full_base_name = args.name_prefix + base_name + args.name_postfix
+    base_name = os.path.basename(os.path.splitext(file_name)[0])
+    full_base_name = prefix + base_name + postfix
     md_file_name = full_base_name + ".md"
     md_file = open(md_file_name, "w")
     for markdown_line in markdown_lines:
         md_file.write(markdown_line)
     md_file.close()
     ##% run pandoc
-    if is_tool("pandoc") & args.run_pandoc:
+    if is_tool("pandoc") & run_pandoc:
         subprocess.call(["pandoc", "-N", md_file_name, "-o", full_base_name +
                         ".html"])
         subprocess.call(["pandoc", "-N", md_file_name, "-o", full_base_name +
                         ".pdf"])
         subprocess.call(["pandoc", "-sN", md_file_name, "-o", full_base_name +
                         ".tex"])
-        if args.compile_latex:
+        if compile_latex:
             ###% If on posix...
             if os.name == "posix":
                 ####% ... tex it
@@ -234,4 +243,21 @@ if __name__ == "__main__":
                 print("you are not running posix, see how to compile\n" +
                       full_base_name + ".tex"
                       "\nconsulting your operating system's documentation.")
-    sys.exit(0)
+    return(0)
+
+_parser = make_parser()
+__doc__ += _parser.format_help()
+
+#% main
+if __name__ == "__main__":
+    ##% parse command line arguments
+    args = _parser.parse_args()
+    ##% write table of contents to file
+    ret = contents(file_name=args.file_name,
+                   comment_character=args.comment_character,
+                   magic_character=args.magic_character,
+                   postfix=args.name_postfix,
+                   prefix=args.name_prefix,
+                   run_pandoc=args.run_pandoc,
+                   compile_latex=args.compile_latex)
+    sys.exit(ret)
