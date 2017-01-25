@@ -88,7 +88,7 @@ try --example for an example
     parser.add_argument("file_name", metavar="file",
                         help="The name of the file to convert comments from.")
     parser.add_argument("-o", "--postfix", dest="name_postfix",
-                        default="_contents",
+                        default="",
                         help="Change the postfix added to the files created.")
     parser.add_argument("-e", "--prefix", dest="name_prefix",
                         default="",
@@ -104,8 +104,7 @@ try --example for an example
     parser.add_argument("-x", "--example", action="version",
                         help="Give an example and exit.",
                         version=("""
-##% *This* is an example markdown comment of heading level 2 for a \
-## markdown comment.
+##% *This* is an example markdown comment of heading level 2 
 #######% **This** is an example of a markdown paragraph: markdown recognizes
 #######% only six levels of heading, so we use seven levels to mark
 #######% "normal" text.
@@ -208,7 +207,7 @@ if __name__ == "__main__":
     if all(line == "\n" for line in markdown_lines):
         sys.exit(2)
     ##% write md file
-    base_name = os.path.basename(args.file_name)
+    base_name = os.path.basename(os.path.splitext(args.file_name)[0])
     full_base_name = args.name_prefix + base_name + args.name_postfix
     md_file_name = full_base_name + ".md"
     md_file = open(md_file_name, "w")
