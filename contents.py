@@ -33,7 +33,7 @@ import textwrap
 import os
 import sys
 
-## test if a program is installed
+## Test if a Program is Installed
 # @param name The name of the program to be tested for.
 def is_tool(name):
     """
@@ -52,27 +52,27 @@ def is_tool(name):
     return True
 
 
-## Just a CustomFormatter
+## Just a Custom Formatter
 #
 # Internally used only.
 class CustomFormatter(argparse.ArgumentDefaultsHelpFormatter,
                       argparse.RawDescriptionHelpFormatter):
     """
-    Just a CustomFormatter.
+    Just a custom formatter.
     """
     pass
 
 
-## use a custom parser function
+## Use a Custom Parser Function
 #
-# use a parser function to add argparse help to docstring
+# Use a parser function to add argparse help to docstring
 # taken from http://stackoverflow.com/questions/22793577/
-# display-argparse-help-within-pydoc
+# display-argparse-help-within-pydoc.
 def make_parser():
     """
-    use a parser function to add argparse help to docstring
+    Use a parser function to add argparse help to docstring
     taken from http://stackoverflow.com/questions/22793577/
-    display-argparse-help-within-pydoc
+    display-argparse-help-within-pydoc.
     """
 
     parser = argparse.ArgumentParser(formatter_class=CustomFormatter,
@@ -132,9 +132,9 @@ try --example for an example
 
 
 #% define parser
-## extract matching lines
+## Extract Matching Lines
 #
-# extract all lines starting with a combination of comment_character and
+# Extract all lines starting with a combination of comment_character and
 # magic_character from a file.
 #@ param file_name The file from which the lines are to be extracted.
 #@ param comment_character The comment character of the files language ("#" for
@@ -157,9 +157,9 @@ def extract_md(file_name, comment_character, magic_character):
 
 
 #% define converter
-## convert lines to markdown
+## Convert Lines to Markdown
 #
-# remove whitespace and magic characters from lines and output valid markdown.,
+# Remove whitespace and magic characters from lines and output valid markdown.
 #@ param file_name The file from which the lines are to be extracted.
 #@ param comment_character The comment character of the files language ("#" for
 # example.
