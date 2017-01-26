@@ -19,7 +19,10 @@
 % use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 % use microtype if available
-\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
 \ifxetex
   \usepackage[setpagesize=false, % page size defined by xetex
               unicode=false, % unicode breaks when used with xetex
@@ -40,10 +43,23 @@
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{6pt plus 2pt minus 1pt}
 \setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{5}
 
 \title{markdown comments for various source files}
 \author{Dominik Cullmann}
+\date{}
+
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
 
 \begin{document}
 \maketitle
@@ -58,8 +74,9 @@ Dominik cullmann email: dominik.cullmann@forst.bwl.de
 
 \section{import modules}\label{import-modules}
 
-\subsection{\emph{This} is an example markdown comment of heading level
-2}\label{this-is-an-example-markdown-comment-of-heading-level-2}
+\subsection{\texorpdfstring{\emph{This} is an example markdown comment
+of heading level
+2}{This is an example markdown comment of heading level 2}}\label{this-is-an-example-markdown-comment-of-heading-level-2}
 
 \textbf{This} is an example of a markdown paragraph: markdown recognizes
 only six levels of heading, so we use seven levels to mark ``normal''
@@ -72,12 +89,13 @@ end a paragraph.
 
 \section{define converter}\label{define-converter}
 
-remove 7 or more heading levels.\\remove the first occurence of the
-magic\_character (the header definition of pandoc``s markdown uses the
-percent sign, if that is the magic pattern, all pandoc standard headers
-would end up to be simple text.\\empty lines (ending markdown
-paragraphs) are not written by file.write(), so we replace them by
-newlines.
+remove 7 or more heading levels.\\
+remove the first occurence of the magic\_character (the header
+definition of pandoc``s markdown uses the percent sign, if that is the
+magic pattern, all pandoc standard headers would end up to be simple
+text.\\
+empty lines (ending markdown paragraphs) are not written by
+file.write(), so we replace them by newlines.
 
 \section{write file contents}\label{write-file-contents}
 
@@ -100,5 +118,8 @@ markdown}\label{convert-matched-lines-to-markdown}
 
 \subsection{parse command line
 arguments}\label{parse-command-line-arguments}
+
+\subsection{write table of contents to
+file}\label{write-table-of-contents-to-file}
 
 \end{document}

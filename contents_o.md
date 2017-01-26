@@ -42,3 +42,4 @@ file.write(), so we replace them by newlines.
 #### ... warn otherwise
 # main
 ## parse command line arguments
+## write table of contents to file
