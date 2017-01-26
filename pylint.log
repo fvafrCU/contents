@@ -1,12 +1,8 @@
-************* Module contents
-C: 48, 0: Unnecessary parens after 'print' keyword (superfluous-parens)
-W:137, 0: Anomalous backslash in string: '\s'. String constant might be missing an r prefix. (anomalous-backslash-in-string)
-W:171, 0: Anomalous backslash in string: '\s'. String constant might be missing an r prefix. (anomalous-backslash-in-string)
 
 
 Report
 ======
-92 statements analysed.
+93 statements analysed.
 
 Messages by category
 --------------------
@@ -14,33 +10,20 @@ Messages by category
 +-----------+-------+---------+-----------+
 |type       |number |previous |difference |
 +===========+=======+=========+===========+
-|convention |1      |1        |=          |
+|convention |0      |0        |=          |
 +-----------+-------+---------+-----------+
 |refactor   |0      |0        |=          |
 +-----------+-------+---------+-----------+
-|warning    |2      |2        |=          |
+|warning    |0      |1        |-1.00      |
 +-----------+-------+---------+-----------+
 |error      |0      |0        |=          |
 +-----------+-------+---------+-----------+
 
 
 
-Messages
---------
-
-+------------------------------+------------+
-|message id                    |occurrences |
-+==============================+============+
-|anomalous-backslash-in-string |2           |
-+------------------------------+------------+
-|superfluous-parens            |1           |
-+------------------------------+------------+
-
-
-
 Global evaluation
 -----------------
-Your code has been rated at 9.67/10 (previous run: 9.67/10, +0.00)
+Your code has been rated at 10.00/10 (previous run: 9.89/10, +0.11)
 
 Statistics by type
 ------------------
@@ -65,13 +48,13 @@ Raw metrics
 +----------+-------+------+---------+-----------+
 |type      |number |%     |previous |difference |
 +==========+=======+======+=========+===========+
-|code      |147    |53.45 |147      |=          |
+|code      |148    |53.62 |148      |=          |
 +----------+-------+------+---------+-----------+
-|docstring |43     |15.64 |43       |=          |
+|docstring |43     |15.58 |43       |=          |
 +----------+-------+------+---------+-----------+
-|comment   |58     |21.09 |61       |-3.00      |
+|comment   |58     |21.01 |58       |=          |
 +----------+-------+------+---------+-----------+
-|empty     |27     |9.82  |27       |=          |
+|empty     |27     |9.78  |27       |=          |
 +----------+-------+------+---------+-----------+
 
 

@@ -26,6 +26,7 @@
 """
 
 #% import modules
+from __future__ import print_function
 import re
 import subprocess
 import argparse
@@ -134,7 +135,7 @@ def extract_md(file_name, comment_character, magic_character):
     Extract Matching Lines
     """
     matching_lines = []
-    markdown_regex = re.compile("\s*" + comment_character + "+" +
+    markdown_regex = re.compile(r"\s*" + comment_character + "+" +
                                 magic_character)
     infile = open(file_name, "r")
     for line in infile:
@@ -168,7 +169,7 @@ def convert(lines, comment_character, magic_character):
             # standard headers would end up to be simple text.
             line = re.sub(magic_character, "", line, count=1)
             # get rid of leading blanks
-            line = re.sub("^\s*", "", line)
+            line = re.sub(r"^\s*", "", line)
         # empty lines (ending markdown paragraphs) are not written by
         # file.write(), so we replace them by newlines.
         if line == " " or line == "":
