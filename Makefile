@@ -14,7 +14,7 @@ all: doc analyse ${modul}${postfix}.pdf
 ${modul}${postfix}.pdf: ${file} install
 	${file} ${file} --pandoc --postfix ${postfix}
 
-${modul}${postfix}: ${file} install
+${modul}${postfix}.md: ${file} install
 	${file} ${file} --postfix ${postfix}
 
 install: ${file}
