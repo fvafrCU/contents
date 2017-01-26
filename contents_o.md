@@ -22,24 +22,7 @@ Here you can use the full
 *Note* the trailing line: markdown needs an empty line to end a
 paragraph.
 
-# define parser
-# define converter
-remove 7 or more heading levels.  
-remove the first occurence of the magic_character
-(the header definition of pandoc"s markdown uses the
-percent sign, if that is the magic pattern, all pandoc
-standard headers would end up to be simple text.  
-empty lines (ending markdown paragraphs) are not written by
-file.write(), so we replace them by newlines.
-
-# write file contents
-## get matchting lines
-## convert matched lines to markdown
-## write md file
-## run pandoc
-### If on posix...
-#### ... tex it
-#### ... warn otherwise
 # main
 ## parse command line arguments
-## write table of contents to file
+## read markdown from file
+## get markdown file name

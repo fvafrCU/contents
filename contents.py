@@ -33,11 +33,12 @@ import textwrap
 import os
 import sys
 
+
 ## Test if a Program is Installed
 # @param name The name of the program to be tested for.
 def is_tool(name):
     """
-    test if a program is installed
+    Test if a Program is Installed
     """
     try:
         devnull = open(os.devnull)
@@ -58,7 +59,7 @@ def is_tool(name):
 class CustomFormatter(argparse.ArgumentDefaultsHelpFormatter,
                       argparse.RawDescriptionHelpFormatter):
     """
-    Just a custom formatter.
+    Just a custom formatter
     """
     pass
 
@@ -126,23 +127,25 @@ try --example for an example
     parser.add_argument("--no-latex", dest="compile_latex",
                         help="Run LaTex on the tex file created via pandoc.",
                         action="store_false")
+    parser.add_argument("--formats", dest="pandoc_formats",
+                        default=('tex', 'html', 'pdf'),
+                        help="Change the comment character.")
     parser.set_defaults(run_pandoc=False, compile_latex=False)
     return parser
 
 
-#% define parser
 ## Extract Matching Lines
 #
 # Extract all lines starting with a combination of comment_character and
 # magic_character from a file.
-#@ param file_name The file from which the lines are to be extracted.
-#@ param comment_character The comment character of the files language ("#" for
+# @param file_name The file from which the lines are to be extracted.
+# @param comment_character The comment character of the files language ("#" for
 # example.
-#@ magic_character The magic character marking lines as markdown comments.
+# @param magic_character The magic character marking lines as markdown
+#  comments.
 def extract_md(file_name, comment_character, magic_character):
     """
-    extract all lines starting with a combination of comment_character and
-    magic_character.
+    Extract Matching Lines
     """
     matching_lines = []
     markdown_regex = re.compile("\s*" + comment_character + "+" +
@@ -155,109 +158,138 @@ def extract_md(file_name, comment_character, magic_character):
     return(matching_lines)
 
 
-#% define converter
 ## Convert Lines to Markdown
 #
 # Remove whitespace and magic characters from lines and output valid markdown.
-#@ param file_name The file from which the lines are to be extracted.
-#@ param comment_character The comment character of the files language ("#" for
-# example.
-#@ magic_character The magic character marking lines as markdown comments.
+# @param lines The lines to be converted.
+# @param comment_character The comment character of the files language.
+# @param magic_character The magic character marking lines as markdown
+#  comments.
 def convert(lines, comment_character, magic_character):
     """
-    convert lines to markdown
+    Convert Lines to Markdown
     """
     converted_lines = []
     for line in lines:
         line = line.lstrip()
-        #########% remove 7 or more heading levels.  
+        # remove 7 or more heading levels.
         line = re.sub(comment_character + "{7,}", "", line)
         line = line.replace(comment_character, "#")
         if magic_character != "":
-            #######% remove the first occurence of the magic_character
-            #######% (the header definition of pandoc"s markdown uses the
-            #######% percent sign, if that is the magic pattern, all pandoc
-            #######% standard headers would end up to be simple text.  
+            # remove the first occurence of the magic_character
+            # (the header definition of pandoc's markdown uses the
+            # percent sign, if that was the magic pattern, all pandoc
+            # standard headers would end up to be simple text.
             line = re.sub(magic_character, "", line, count=1)
             # get rid of leading blanks
             line = re.sub("^\s*", "", line)
-        #######% empty lines (ending markdown paragraphs) are not written by
-        #######% file.write(), so we replace them by newlines.
-        #######%
+        # empty lines (ending markdown paragraphs) are not written by
+        # file.write(), so we replace them by newlines.
         if line == " " or line == "":
             line = "\n"
         converted_lines.append(line)
     return(converted_lines)
 
-#% write file contents
-## Write Table of Contents
+
+## Get Table of Contents
 #
-#@ param file_name The file from which the lines are to be extracted.
-#@ param comment_character The comment character of the files language ("#" for
-# example.
-#@ magic_character The magic character marking lines as markdown comments.
-#@ postfix Set the content's file postfix.
-#@ prefix Set the content's file prefix.
-#@ run_pandoc Run pandoc on the the contents file?
-#@ compile_latex Compile the LaTeX file?
-def contents(file_name, comment_character, magic_character, postfix,
-             prefix, run_pandoc, compile_latex):
+# Just a wrapper to extract_md() and convert().
+# @param file_name The file from which the lines are to be extracted.
+# @param comment_character The comment character of the files language ("#" for
+#  example.
+# @param magic_character The magic character marking lines as markdown
+#  comments.
+def toc(file_name, comment_character, magic_character):
     """
-    Write table of contents to file
+    Get Table of Contents
     """
-    ##% get matchting lines
     lines_matched = extract_md(file_name=file_name,
                                comment_character=comment_character,
                                magic_character=magic_character)
-    ##% convert matched lines to markdown
-    markdown_lines = convert(lines=lines_matched,
-                             comment_character=comment_character,
-                             magic_character=magic_character)
-    if all(line == "\n" for line in markdown_lines):
-        sys.exit(2)
-    ##% write md file
+    converted_lines = convert(lines=lines_matched,
+                              comment_character=comment_character,
+                              magic_character=magic_character)
+    return(converted_lines)
+
+
+## Modify a Path
+#
+# Add a postfix and a prefix to the basename of a path and optionally change
+# it's extension.
+# @param file_name The file to be modified.
+# @param postfix Set the content's file postfix.
+# @param prefix Set the content's file prefix.
+# @param extension Set a new file extension.
+def modify_path(file_name, postfix="", prefix="", extension=None):
+    """
+    Modify a Path
+    """
+    if extension is None:
+        extension = os.path.splitext(file_name)[1]
     base_name = os.path.basename(os.path.splitext(file_name)[0])
-    full_base_name = prefix + base_name + postfix
-    md_file_name = full_base_name + ".md"
-    md_file = open(md_file_name, "w")
-    for markdown_line in markdown_lines:
-        md_file.write(markdown_line)
-    md_file.close()
-    ##% run pandoc
-    if is_tool("pandoc") & run_pandoc:
-        subprocess.call(["pandoc", "-N", md_file_name, "-o", full_base_name +
-                        ".html"])
-        subprocess.call(["pandoc", "-N", md_file_name, "-o", full_base_name +
-                        ".pdf"])
-        subprocess.call(["pandoc", "-sN", md_file_name, "-o", full_base_name +
-                        ".tex"])
+    ext_base_name = prefix + base_name + postfix
+    ext = extension.lstrip(".")
+    name = os.path.join(os.path.dirname(file_name), ext_base_name) + "." + ext
+    return(name)
+
+
+## Run Pandoc on a File.
+# @param file_name The file from which the lines are to be extracted.
+# @param formats The pandoc output formats to be used, could be ("tex", "pdf").
+# @param compile_latex Compile the LaTeX file?
+def pandoc(file_name, compile_latex=False, formats="tex"):
+    """
+    Run Pandoc on a File
+    """
+    status = 1
+
+    if is_tool("pandoc"):
+        for form in formats:
+            subprocess.call(["pandoc", "-sN", file_name, "-o",
+                            modify_path(file_name=file_name, extension=form)])
+        status = 0
         if compile_latex:
-            ###% If on posix...
+            status = 1
+            tex_file_name = modify_path(file_name=file_name, extension="tex")
             if os.name == "posix":
-                ####% ... tex it
                 if is_tool("texi2pdf"):
                     subprocess.call(["texi2pdf", "--batch", "--clean",
-                                    full_base_name + ".tex"])
+                                    tex_file_name])
+                    status = 0
             else:
-                ####% ... warn otherwise
                 print("you are not running posix, see how to compile\n" +
-                      full_base_name + ".tex"
+                      tex_file_name +
                       "\nconsulting your operating system's documentation.")
-    return(0)
+    return(status)
 
+#TODO: get rid of that special parser
+## my own parser
 _parser = make_parser()
 __doc__ += _parser.format_help()
 
 #% main
 if __name__ == "__main__":
     ##% parse command line arguments
-    args = _parser.parse_args()
-    ##% write table of contents to file
-    ret = contents(file_name=args.file_name,
-                   comment_character=args.comment_character,
-                   magic_character=args.magic_character,
-                   postfix=args.name_postfix,
-                   prefix=args.name_prefix,
-                   run_pandoc=args.run_pandoc,
-                   compile_latex=args.compile_latex)
-    sys.exit(ret)
+    ## parsed command line arguments
+    ARGS = _parser.parse_args()
+    ##% read markdown from file
+    ## markdown read from file
+    MARKDOWN_LINES = toc(file_name=ARGS.file_name,
+                         comment_character=ARGS.comment_character,
+                         magic_character=ARGS.magic_character)
+    ##% get markdown file name
+    ## file name for markdown output
+    MD_FILE_NAME = modify_path(file_name=ARGS.file_name,
+                               postfix=ARGS.name_postfix,
+                               prefix=ARGS.name_prefix,
+                               extension="md")
+
+    ## the file handler of markdown output
+    MD_FILE = open(MD_FILE_NAME, "w")
+    MD_FILE.writelines(MARKDOWN_LINES)
+    MD_FILE.close()
+    if ARGS.run_pandoc:
+        pandoc(file_name=MD_FILE_NAME, compile_latex=ARGS.compile_latex,
+               ## doxygen misses that this is part of a functions argument list
+               formats=ARGS.pandoc_formats)
+    sys.exit(0)

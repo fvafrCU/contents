@@ -85,41 +85,13 @@ text. Here you can use the full
 syntax}. \emph{Note} the trailing line: markdown needs an empty line to
 end a paragraph.
 
-\section{define parser}\label{define-parser}
-
-\section{define converter}\label{define-converter}
-
-remove 7 or more heading levels.\\
-remove the first occurence of the magic\_character (the header
-definition of pandoc``s markdown uses the percent sign, if that is the
-magic pattern, all pandoc standard headers would end up to be simple
-text.\\
-empty lines (ending markdown paragraphs) are not written by
-file.write(), so we replace them by newlines.
-
-\section{write file contents}\label{write-file-contents}
-
-\subsection{get matchting lines}\label{get-matchting-lines}
-
-\subsection{convert matched lines to
-markdown}\label{convert-matched-lines-to-markdown}
-
-\subsection{write md file}\label{write-md-file}
-
-\subsection{run pandoc}\label{run-pandoc}
-
-\subsubsection{If on posix\ldots{}}\label{if-on-posix}
-
-\paragraph{\ldots{} tex it}\label{tex-it}
-
-\paragraph{\ldots{} warn otherwise}\label{warn-otherwise}
-
 \section{main}\label{main}
 
 \subsection{parse command line
 arguments}\label{parse-command-line-arguments}
 
-\subsection{write table of contents to
-file}\label{write-table-of-contents-to-file}
+\subsection{read markdown from file}\label{read-markdown-from-file}
+
+\subsection{get markdown file name}\label{get-markdown-file-name}
 
 \end{document}

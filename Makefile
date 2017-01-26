@@ -36,4 +36,5 @@ ${modul}.html: ${file}
 	python3 -m pydoc -w ${modul}
 
 doxygen: ${file}
-	doxygen .doxygen.conf
+	doxygen .doxygen.conf > doxygen.log 2>&1 
+	! grep "warning:" doxygen.log 

@@ -25,6 +25,7 @@
 #######%<br>
 usage:&nbsp;pydoc.py&nbsp;[-h]&nbsp;[-o&nbsp;NAME_POSTFIX]&nbsp;[-e&nbsp;NAME_PREFIX]&nbsp;[-c&nbsp;COMMENT_CHARACTER]<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-m&nbsp;MAGIC_CHARACTER]&nbsp;[-v]&nbsp;[-x]&nbsp;[-p]&nbsp;[-n]&nbsp;[-l]&nbsp;[--no-latex]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[--formats&nbsp;PANDOC_FORMATS]<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;file<br>
 &nbsp;<br>
 convert&nbsp;markdown-style&nbsp;comments&nbsp;from&nbsp;a&nbsp;file&nbsp;to&nbsp;markdown&nbsp;and&nbsp;html&nbsp;via&nbsp;pandoc.<br>
@@ -53,6 +54,9 @@ optional&nbsp;arguments:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(default:&nbsp;False)<br>
 &nbsp;&nbsp;--no-latex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Run&nbsp;LaTex&nbsp;on&nbsp;the&nbsp;tex&nbsp;file&nbsp;created&nbsp;via&nbsp;pandoc.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(default:&nbsp;False)<br>
+&nbsp;&nbsp;--formats&nbsp;PANDOC_FORMATS<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Change&nbsp;the&nbsp;comment&nbsp;character.&nbsp;(default:&nbsp;('tex',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'html',&nbsp;'pdf'))<br>
 &nbsp;<br>
 markdown&nbsp;style&nbsp;comments&nbsp;are&nbsp;headed&nbsp;by&nbsp;one&nbsp;or&nbsp;more&nbsp;comment&nbsp;characters&nbsp;giving<br>
 the&nbsp;markdown&nbsp;heading&nbsp;level&nbsp;and&nbsp;a&nbsp;magic&nbsp;character&nbsp;marking&nbsp;it&nbsp;as<br>
@@ -99,7 +103,7 @@ try&nbsp;--example&nbsp;for&nbsp;an&nbsp;example</tt></p>
 <font color="#000000" face="helvetica, arial"><a name="CustomFormatter">class <strong>CustomFormatter</strong></a>(<a href="argparse.html#ArgumentDefaultsHelpFormatter">argparse.ArgumentDefaultsHelpFormatter</a>, <a href="argparse.html#RawDescriptionHelpFormatter">argparse.RawDescriptionHelpFormatter</a>)</font></td></tr>
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt>Just&nbsp;a&nbsp;custom&nbsp;formatter.<br>&nbsp;</tt></td></tr>
+<td colspan=2><tt>Just&nbsp;a&nbsp;custom&nbsp;formatter<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%"><dl><dt>Method resolution order:</dt>
 <dd><a href="contents.html#CustomFormatter">CustomFormatter</a></dd>
@@ -145,13 +149,14 @@ Data descriptors inherited from <a href="argparse.html#HelpFormatter">argparse.H
 <font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
     
 <tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><dl><dt><a name="-contents"><strong>contents</strong></a>(file_name, comment_character, magic_character, postfix, prefix, run_pandoc, compile_latex)</dt><dd><tt>Write&nbsp;table&nbsp;of&nbsp;contents&nbsp;to&nbsp;file</tt></dd></dl>
- <dl><dt><a name="-convert"><strong>convert</strong></a>(lines, comment_character, magic_character)</dt><dd><tt>convert&nbsp;lines&nbsp;to&nbsp;markdown</tt></dd></dl>
- <dl><dt><a name="-extract_md"><strong>extract_md</strong></a>(file_name, comment_character, magic_character)</dt><dd><tt>extract&nbsp;all&nbsp;lines&nbsp;starting&nbsp;with&nbsp;a&nbsp;combination&nbsp;of&nbsp;comment_character&nbsp;and<br>
-magic_character.</tt></dd></dl>
- <dl><dt><a name="-is_tool"><strong>is_tool</strong></a>(name)</dt><dd><tt>test&nbsp;if&nbsp;a&nbsp;program&nbsp;is&nbsp;installed</tt></dd></dl>
+<td width="100%"><dl><dt><a name="-convert"><strong>convert</strong></a>(lines, comment_character, magic_character)</dt><dd><tt>Convert&nbsp;Lines&nbsp;to&nbsp;Markdown</tt></dd></dl>
+ <dl><dt><a name="-extract_md"><strong>extract_md</strong></a>(file_name, comment_character, magic_character)</dt><dd><tt>Extract&nbsp;Matching&nbsp;Lines</tt></dd></dl>
+ <dl><dt><a name="-is_tool"><strong>is_tool</strong></a>(name)</dt><dd><tt>Test&nbsp;if&nbsp;a&nbsp;Program&nbsp;is&nbsp;Installed</tt></dd></dl>
  <dl><dt><a name="-make_parser"><strong>make_parser</strong></a>()</dt><dd><tt>Use&nbsp;a&nbsp;parser&nbsp;function&nbsp;to&nbsp;add&nbsp;argparse&nbsp;help&nbsp;to&nbsp;docstring<br>
 taken&nbsp;from&nbsp;<a href="http://stackoverflow.com/questions/22793577/">http://stackoverflow.com/questions/22793577/</a><br>
 display-argparse-help-within-pydoc.</tt></dd></dl>
+ <dl><dt><a name="-modify_path"><strong>modify_path</strong></a>(file_name, postfix='', prefix='', extension=None)</dt><dd><tt>Modify&nbsp;a&nbsp;Path</tt></dd></dl>
+ <dl><dt><a name="-pandoc"><strong>pandoc</strong></a>(file_name, compile_latex=False, formats='tex')</dt><dd><tt>Run&nbsp;Pandoc&nbsp;on&nbsp;a&nbsp;File</tt></dd></dl>
+ <dl><dt><a name="-toc"><strong>toc</strong></a>(file_name, comment_character, magic_character)</dt><dd><tt>Get&nbsp;Table&nbsp;of&nbsp;Contents</tt></dd></dl>
 </td></tr></table>
 </body></html>
