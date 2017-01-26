@@ -1,26 +1,12 @@
 ************* Module contents
-W:265, 0: TODO: get rid of that special parser (fixme)
 C: 48, 0: Unnecessary parens after 'print' keyword (superfluous-parens)
-C:158, 0: Unnecessary parens after 'return' keyword (superfluous-parens)
-C:191, 0: Unnecessary parens after 'return' keyword (superfluous-parens)
-C:212, 0: Unnecessary parens after 'return' keyword (superfluous-parens)
-C:233, 0: Unnecessary parens after 'return' keyword (superfluous-parens)
-C:249, 0: Wrong continued indentation.
-                            modify_path(file_name=file_name, extension=form)])
-                            ^| (bad-continuation)
-C:257, 0: Wrong continued indentation.
-                                    tex_file_name])
-                                    ^| (bad-continuation)
-C:263, 0: Unnecessary parens after 'return' keyword (superfluous-parens)
-W:151, 0: Anomalous backslash in string: '\s'. String constant might be missing an r prefix. (anomalous-backslash-in-string)
-W:185, 0: Anomalous backslash in string: '\s'. String constant might be missing an r prefix. (anomalous-backslash-in-string)
-W:268, 0: Redefining built-in '__doc__' (redefined-builtin)
-C:267, 0: Invalid constant name "_parser" (invalid-name)
+W:137, 0: Anomalous backslash in string: '\s'. String constant might be missing an r prefix. (anomalous-backslash-in-string)
+W:171, 0: Anomalous backslash in string: '\s'. String constant might be missing an r prefix. (anomalous-backslash-in-string)
 
 
 Report
 ======
-96 statements analysed.
+92 statements analysed.
 
 Messages by category
 --------------------
@@ -28,13 +14,13 @@ Messages by category
 +-----------+-------+---------+-----------+
 |type       |number |previous |difference |
 +===========+=======+=========+===========+
-|convention |9      |9        |=          |
+|convention |1      |1        |=          |
 +-----------+-------+---------+-----------+
 |refactor   |0      |0        |=          |
 +-----------+-------+---------+-----------+
-|warning    |4      |4        |=          |
+|warning    |2      |2        |=          |
 +-----------+-------+---------+-----------+
-|error      |0      |2        |-2.00      |
+|error      |0      |0        |=          |
 +-----------+-------+---------+-----------+
 
 
@@ -45,24 +31,16 @@ Messages
 +------------------------------+------------+
 |message id                    |occurrences |
 +==============================+============+
-|superfluous-parens            |6           |
-+------------------------------+------------+
-|bad-continuation              |2           |
-+------------------------------+------------+
 |anomalous-backslash-in-string |2           |
 +------------------------------+------------+
-|redefined-builtin             |1           |
-+------------------------------+------------+
-|invalid-name                  |1           |
-+------------------------------+------------+
-|fixme                         |1           |
+|superfluous-parens            |1           |
 +------------------------------+------------+
 
 
 
 Global evaluation
 -----------------
-Your code has been rated at 8.65/10 (previous run: 7.60/10, +1.04)
+Your code has been rated at 9.67/10 (previous run: 9.67/10, +0.00)
 
 Statistics by type
 ------------------
@@ -72,7 +50,7 @@ Statistics by type
 +=========+=======+===========+===========+============+=========+
 |module   |1      |1          |=          |100.00      |0.00     |
 +---------+-------+-----------+-----------+------------+---------+
-|class    |1      |1          |=          |100.00      |0.00     |
+|class    |0      |0          |=          |0           |0        |
 +---------+-------+-----------+-----------+------------+---------+
 |method   |0      |0          |=          |0           |0        |
 +---------+-------+-----------+-----------+------------+---------+
@@ -87,13 +65,13 @@ Raw metrics
 +----------+-------+------+---------+-----------+
 |type      |number |%     |previous |difference |
 +==========+=======+======+=========+===========+
-|code      |153    |51.86 |153      |=          |
+|code      |147    |53.45 |147      |=          |
 +----------+-------+------+---------+-----------+
-|docstring |46     |15.59 |46       |=          |
+|docstring |43     |15.64 |43       |=          |
 +----------+-------+------+---------+-----------+
-|comment   |68     |23.05 |68       |=          |
+|comment   |58     |21.09 |61       |-3.00      |
 +----------+-------+------+---------+-----------+
-|empty     |28     |9.49  |28       |=          |
+|empty     |27     |9.82  |27       |=          |
 +----------+-------+------+---------+-----------+
 
 

@@ -53,31 +53,17 @@ def is_tool(name):
     return True
 
 
-## Just a Custom Formatter
-#
-# Internally used only.
-class CustomFormatter(argparse.ArgumentDefaultsHelpFormatter,
-                      argparse.RawDescriptionHelpFormatter):
-    """
-    Just a custom formatter
-    """
-    pass
-
-
 ## Use a Custom Parser Function
 #
-# Use a parser function to add argparse help to docstring
-# taken from http://stackoverflow.com/questions/22793577/
-# display-argparse-help-within-pydoc.
+# To keep __main__ tiny.
 def make_parser():
     """
-    Use a parser function to add argparse help to docstring
-    taken from http://stackoverflow.com/questions/22793577/
-    display-argparse-help-within-pydoc.
+    Use a Custom Parser Function
+
+    To keep __main__ tiny.
     """
 
-    parser = argparse.ArgumentParser(formatter_class=CustomFormatter,
-                                     description="convert markdown-style " +
+    parser = argparse.ArgumentParser(description="convert markdown-style " +
                                      "comments from a file to markdown and " +
                                      "html via pandoc.",
                                      epilog=textwrap.dedent("""\
@@ -155,7 +141,7 @@ def extract_md(file_name, comment_character, magic_character):
         if markdown_regex.match(line):
             matching_lines.append(line)
     infile.close()
-    return(matching_lines)
+    return matching_lines
 
 
 ## Convert Lines to Markdown
@@ -188,7 +174,7 @@ def convert(lines, comment_character, magic_character):
         if line == " " or line == "":
             line = "\n"
         converted_lines.append(line)
-    return(converted_lines)
+    return converted_lines
 
 
 ## Get Table of Contents
@@ -196,7 +182,7 @@ def convert(lines, comment_character, magic_character):
 # Just a wrapper to extract_md() and convert().
 # @param file_name The file from which the lines are to be extracted.
 # @param comment_character The comment character of the files language ("#" for
-#  example.
+#  example).
 # @param magic_character The magic character marking lines as markdown
 #  comments.
 def toc(file_name, comment_character, magic_character):
@@ -209,7 +195,7 @@ def toc(file_name, comment_character, magic_character):
     converted_lines = convert(lines=lines_matched,
                               comment_character=comment_character,
                               magic_character=magic_character)
-    return(converted_lines)
+    return converted_lines
 
 
 ## Modify a Path
@@ -230,7 +216,7 @@ def modify_path(file_name, postfix="", prefix="", extension=None):
     ext_base_name = prefix + base_name + postfix
     ext = extension.lstrip(".")
     name = os.path.join(os.path.dirname(file_name), ext_base_name) + "." + ext
-    return(name)
+    return name
 
 
 ## Run Pandoc on a File.
@@ -246,7 +232,7 @@ def pandoc(file_name, compile_latex=False, formats="tex"):
     if is_tool("pandoc"):
         for form in formats:
             subprocess.call(["pandoc", "-sN", file_name, "-o",
-                            modify_path(file_name=file_name, extension=form)])
+                             modify_path(file_name=file_name, extension=form)])
         status = 0
         if compile_latex:
             status = 1
@@ -254,31 +240,24 @@ def pandoc(file_name, compile_latex=False, formats="tex"):
             if os.name == "posix":
                 if is_tool("texi2pdf"):
                     subprocess.call(["texi2pdf", "--batch", "--clean",
-                                    tex_file_name])
+                                     tex_file_name])
                     status = 0
             else:
                 print("you are not running posix, see how to compile\n" +
                       tex_file_name +
                       "\nconsulting your operating system's documentation.")
-    return(status)
+    return status
 
-#TODO: get rid of that special parser
-## my own parser
-_parser = make_parser()
-__doc__ += _parser.format_help()
 
 #% main
 if __name__ == "__main__":
     ##% parse command line arguments
-    ## parsed command line arguments
-    ARGS = _parser.parse_args()
+    ARGS = make_parser().parse_args()
     ##% read markdown from file
-    ## markdown read from file
     MARKDOWN_LINES = toc(file_name=ARGS.file_name,
                          comment_character=ARGS.comment_character,
                          magic_character=ARGS.magic_character)
     ##% get markdown file name
-    ## file name for markdown output
     MD_FILE_NAME = modify_path(file_name=ARGS.file_name,
                                postfix=ARGS.name_postfix,
                                prefix=ARGS.name_prefix,
@@ -290,6 +269,6 @@ if __name__ == "__main__":
     MD_FILE.close()
     if ARGS.run_pandoc:
         pandoc(file_name=MD_FILE_NAME, compile_latex=ARGS.compile_latex,
-               ## doxygen misses that this is part of a functions argument list
+               ## doxygen misses that this is a function's argument.
                formats=ARGS.pandoc_formats)
     sys.exit(0)
