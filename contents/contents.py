@@ -271,5 +271,5 @@ if __name__ == "__main__":
     if ARGS.run_pandoc:
         pandoc(file_name=MD_FILE_NAME, compile_latex=ARGS.compile_latex,
                ## doxygen misses that this is a function's argument.
-               formats=ARGS.pandoc_formats)
+               formats=[ARGS.pandoc_formats])
     sys.exit(0)

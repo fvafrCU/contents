@@ -8,33 +8,41 @@ file := ${modul}.py
 
 
 #% make targets
-all: doc analyse ${modul}${postfix}.pdf 
+all: doc analyse output/${modul}${postfix}.html 
 
 ##% main
-${modul}${postfix}.pdf: ${file} install
-	${file} ${file} --pandoc --postfix ${postfix}
+output/${modul}${postfix}.html: ./${modul}/${file} install
+	./${modul}/${file} ./${modul}/${file} --pandoc --postfix ${postfix} \
+		--formats html; mv ./${modul}/${modul}${postfix}.html ./output/ ;\
+		rm ./${modul}/${modul}${postfix}.*
 
-${modul}${postfix}.md: ${file} install
-	${file} ${file} --postfix ${postfix}
+output/${modul}${postfix}.md: ./${modul}/${file} install
+	./${modul}/${file} ./${modul}/${file} --postfix ${postfix} ;\
+		mv ./${modul}/${modul}${postfix}.md ./output/
 
-install: ${file}
-	cp ${file} ~/bin/
+install: ./${modul}/${file}
+	cp ./${modul}/${file} ~/bin/
 
 ##%  analyse code
-analyse: pep8.log pylint.log
+analyse: log/pep8.log log/pylint.log
 
-pep8.log: ${file}
-	pep8 ${file} > pep8.log || true
+log/pep8.log: ./${modul}/${file}
+	pep8 ./${modul}/${file} > ./log/pep8.log || true
 
-pylint.log: ${file}
-	pylint ${file} > pylint.log || true
+log/pylint.log: ./${modul}/${file}
+	pylint ./${modul}/${file} > ./log/pylint.log || true
 
 ##% create documentation
-doc: ${modul}.html doxygen
+doc: ${modul}.html ./docs/doxygen
 
-${modul}.html: ${file}
-	python3 -m pydoc -w ${modul}
+log/${modul}.html: ./${modul}/${file}
+	python3 -m pydoc -w ${modul}; mv ${modul}.html ./output/
 
-doxygen: ${file}
-	doxygen .doxygen.conf > doxygen.log 2>&1 
-	! grep "warning:" doxygen.log 
+docs/doxygen: ./${modul}/${file}
+	doxygen .doxygen.conf > ./log/doxygen.log 2>&1 
+	! grep "warning:" ./log/doxygen.log 
+
+##% maintenance
+init:
+	pip install -r requirements.txt
+
