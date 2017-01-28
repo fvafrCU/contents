@@ -18,11 +18,6 @@
 #######% this program can be adjusted to use the comment character used in your
 #######% file by command line arguments.
 #######%
-#######% copyright: 2014-2017, Dominik Cullmann
-#######% license: BSD 2-Clause
-#######% maintainer: Dominik cullmann
-#######% email: dominik.cullmann@forst.bwl.de
-#######%
 """
 
 #% import modules
