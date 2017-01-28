@@ -11,18 +11,23 @@ file := ${modul}.py
 all: doc analyse output/${modul}${postfix}.html 
 
 ##% main
-output/${modul}${postfix}.html: ./${modul}/${file} install
+output/${modul}${postfix}.html: ./${modul}/${file} 
 	./${modul}/${file} ./${modul}/${file} --pandoc --postfix ${postfix} \
 		--formats html; mv ./${modul}/${modul}${postfix}.html ./output/ ;\
 		rm ./${modul}/${modul}${postfix}.*
 
-output/${modul}${postfix}.md: ./${modul}/${file} install
+output/${modul}${postfix}.md: ./${modul}/${file} 
 	./${modul}/${file} ./${modul}/${file} --postfix ${postfix} ;\
 		mv ./${modul}/${modul}${postfix}.md ./output/
 
-install: ./${modul}/${file}
-	cp ./${modul}/${file} ~/bin/
+##% packaging
+package: dist build
 
+dist: ./${modul}/${file} ./setup.py
+	python3 ./setup.py sdist
+
+build: ./${modul}/${file} ./setup.py
+	python3 setup.py bdist_wheel
 ##%  analyse code
 analyse: log/pep8.log log/pylint.log
 
