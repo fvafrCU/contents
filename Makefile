@@ -10,6 +10,10 @@ file := ${modul}.py
 #% make targets
 all: doc analyse output/${modul}${postfix}.html 
 
+##% installation
+install:
+	sudo pip3 install . --upgrade
+
 ##% main
 output/${modul}${postfix}.html: ./${modul}/${file} 
 	./${modul}/${file} ./${modul}/${file} --pandoc --postfix ${postfix} \
@@ -49,5 +53,8 @@ docs/doxygen: ./${modul}/${file}
 
 ##% maintenance
 init:
-	pip install -r requirements.txt
+	sudo pip3 install -r requirements.txt
 
+##% utils
+run:
+	./utils/run.py
