@@ -57,4 +57,4 @@ init:
 
 ##% utils
 run:
-	./utils/run.py
+	sudo python3 ./utils/run.py
