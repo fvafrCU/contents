@@ -11,7 +11,7 @@ with open('LICENSE') as f:
 
 setup(
     name='contents',
-    version='0.1.0',
+    version='0.2.0',
     description='XXX',
     long_description=readme,
     author='Andreas Dominik Cullmann',
