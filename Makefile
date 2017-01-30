@@ -12,7 +12,7 @@ all: doc analyse output/${modul}${postfix}.html
 
 ##% installation
 install:
-	sudo pip3 install . --upgrade
+	 pip3 install . --upgrade --user
 
 ##% main
 output/${modul}${postfix}.html: ./${modul}/${file} 
@@ -53,8 +53,8 @@ docs/doxygen: ./${modul}/${file}
 
 ##% maintenance
 init:
-	sudo pip3 install -r requirements.txt
+	pip3 install --user -r requirements.txt
 
 ##% utils
 run:
-	sudo python3 ./utils/run.py
+	python3 ./utils/run.py
