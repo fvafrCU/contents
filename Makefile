@@ -8,13 +8,14 @@ file := ${modul}.py
 
 
 #% make targets
-all: doc analyse output/${modul}${postfix}.html 
+all: doc analyse package main run
 
 ##% installation
 install:
 	 pip3 install . --upgrade --user
 
 ##% main
+main: output/${modul}${postfix}.html output/${modul}${postfix}.md
 output/${modul}${postfix}.html: ./${modul}/${file} 
 	./${modul}/${file} ./${modul}/${file} --pandoc --postfix ${postfix} \
 		--formats html; mv ./${modul}/${modul}${postfix}.html ./output/ ;\
@@ -56,5 +57,5 @@ init:
 	pip3 install --user -r requirements.txt
 
 ##% utils
-run:
+run: install
 	python3 ./utils/run.py
