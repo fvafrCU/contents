@@ -181,7 +181,7 @@ def convert(lines, comment_character, magic_character):
 #  example).
 # @param magic_character The magic character marking lines as markdown
 #  comments.
-def toc(file_name, comment_character, magic_character):
+def get_toc(file_name, comment_character, magic_character):
     """
     Get Table of Contents
     """
@@ -250,9 +250,9 @@ if __name__ == "__main__":
     ##% parse command line arguments
     ARGS = make_parser().parse_args()
     ##% read markdown from file
-    MARKDOWN_LINES = toc(file_name=ARGS.file_name,
-                         comment_character=ARGS.comment_character,
-                         magic_character=ARGS.magic_character)
+    MARKDOWN_LINES = get_toc(file_name=ARGS.file_name,
+                             comment_character=ARGS.comment_character,
+                             magic_character=ARGS.magic_character)
     ##% get markdown file name
     MD_FILE_NAME = modify_path(file_name=ARGS.file_name,
                                postfix=ARGS.name_postfix,

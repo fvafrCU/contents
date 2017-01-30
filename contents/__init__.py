@@ -1,1 +1,1 @@
-from .contents import toc
+from .contents import get_toc
