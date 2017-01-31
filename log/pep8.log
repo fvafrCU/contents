@@ -7,9 +7,27 @@
 ./contents/contents.py:176:1: E265 block comment should start with '# '
 ./contents/contents.py:197:1: E265 block comment should start with '# '
 ./contents/contents.py:218:1: E265 block comment should start with '# '
-./contents/contents.py:248:1: E265 block comment should start with '# '
-./contents/contents.py:250:5: E265 block comment should start with '# '
-./contents/contents.py:252:5: E265 block comment should start with '# '
-./contents/contents.py:256:5: E265 block comment should start with '# '
-./contents/contents.py:262:5: E265 block comment should start with '# '
-./contents/contents.py:268:16: E265 block comment should start with '# '
+./contents/contents.py:247:1: E265 block comment should start with '# '
+./contents/contents.py:248:1: E302 expected 2 blank lines, found 1
+./contents/contents.py:248:42: E251 unexpected spaces around keyword / parameter equals
+./contents/contents.py:248:44: E251 unexpected spaces around keyword / parameter equals
+./contents/contents.py:248:65: E251 unexpected spaces around keyword / parameter equals
+./contents/contents.py:248:67: E251 unexpected spaces around keyword / parameter equals
+./contents/contents.py:248:72: W291 trailing whitespace
+./contents/contents.py:249:20: E251 unexpected spaces around keyword / parameter equals
+./contents/contents.py:249:22: E251 unexpected spaces around keyword / parameter equals
+./contents/contents.py:249:34: E251 unexpected spaces around keyword / parameter equals
+./contents/contents.py:249:36: E251 unexpected spaces around keyword / parameter equals
+./contents/contents.py:249:50: E251 unexpected spaces around keyword / parameter equals
+./contents/contents.py:249:52: E251 unexpected spaces around keyword / parameter equals
+./contents/contents.py:249:69: E251 unexpected spaces around keyword / parameter equals
+./contents/contents.py:249:71: E251 unexpected spaces around keyword / parameter equals
+./contents/contents.py:249:77: W291 trailing whitespace
+./contents/contents.py:250:27: E251 unexpected spaces around keyword / parameter equals
+./contents/contents.py:250:29: E251 unexpected spaces around keyword / parameter equals
+./contents/contents.py:250:51: E251 unexpected spaces around keyword / parameter equals
+./contents/contents.py:250:53: E251 unexpected spaces around keyword / parameter equals
+./contents/contents.py:251:5: E265 block comment should start with '# '
+./contents/contents.py:255:5: E265 block comment should start with '# '
+./contents/contents.py:261:5: E265 block comment should start with '# '
+./contents/contents.py:267:16: E265 block comment should start with '# '

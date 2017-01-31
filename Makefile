@@ -17,12 +17,12 @@ install:
 ##% main
 main: output/${modul}${postfix}.html output/${modul}${postfix}.md
 output/${modul}${postfix}.html: ./${modul}/${file} 
-	./${modul}/${file} ./${modul}/${file} --pandoc --postfix ${postfix} \
+	./bin/${modul} ./${modul}/${file} --pandoc --postfix ${postfix} \
 		--formats html; mv ./${modul}/${modul}${postfix}.html ./output/ ;\
 		rm ./${modul}/${modul}${postfix}.*
 
 output/${modul}${postfix}.md: ./${modul}/${file} 
-	./${modul}/${file} ./${modul}/${file} --postfix ${postfix} ;\
+	./bin/${modul} ./${modul}/${file} --postfix ${postfix} ;\
 		mv ./${modul}/${modul}${postfix}.md ./output/
 
 ##% packaging

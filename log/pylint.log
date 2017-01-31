@@ -1,8 +1,44 @@
+************* Module contents.contents
+C:248, 0: Trailing whitespace (trailing-whitespace)
+C:248, 0: No space allowed around keyword argument assignment
+def contents(file_name, comment_character = "#", magic_character = "%", 
+                                          ^ (bad-whitespace)
+C:248, 0: No space allowed around keyword argument assignment
+def contents(file_name, comment_character = "#", magic_character = "%", 
+                                                                 ^ (bad-whitespace)
+C:249, 0: Trailing whitespace (trailing-whitespace)
+C:249, 0: No space allowed around keyword argument assignment
+             prefix = "", postfix = "", extension = "md", run_pandoc = True, 
+                    ^ (bad-whitespace)
+C:249, 0: No space allowed around keyword argument assignment
+             prefix = "", postfix = "", extension = "md", run_pandoc = True, 
+                                  ^ (bad-whitespace)
+C:249, 0: No space allowed around keyword argument assignment
+             prefix = "", postfix = "", extension = "md", run_pandoc = True, 
+                                                  ^ (bad-whitespace)
+C:249, 0: No space allowed around keyword argument assignment
+             prefix = "", postfix = "", extension = "md", run_pandoc = True, 
+                                                                     ^ (bad-whitespace)
+C:250, 0: No space allowed around keyword argument assignment
+             compile_latex = False, pandoc_formats = ("tex", "html")):
+                           ^ (bad-whitespace)
+C:250, 0: No space allowed around keyword argument assignment
+             compile_latex = False, pandoc_formats = ("tex", "html")):
+                                                   ^ (bad-whitespace)
+C:248, 0: Missing function docstring (missing-docstring)
+R:248, 0: Too many arguments (9/5) (too-many-arguments)
+E:257,39: Undefined variable 'name_postfix' (undefined-variable)
+E:258,38: Undefined variable 'name_prefix' (undefined-variable)
+E:266, 8: Unexpected keyword argument 'Compile_latex' in function call (unexpected-keyword-arg)
+W:249,40: Unused argument 'extension' (unused-argument)
+W:249,26: Unused argument 'postfix' (unused-argument)
+W:249,13: Unused argument 'prefix' (unused-argument)
+W: 30, 0: Unused import sys (unused-import)
 
 
 Report
 ======
-93 statements analysed.
+91 statements analysed.
 
 Statistics by type
 ------------------
@@ -16,7 +52,7 @@ Statistics by type
 +---------+-------+-----------+-----------+------------+---------+
 |method   |0      |0          |=          |0           |0        |
 +---------+-------+-----------+-----------+------------+---------+
-|function |7      |7          |=          |100.00      |0.00     |
+|function |8      |7          |+1.00      |87.50       |0.00     |
 +---------+-------+-----------+-----------+------------+---------+
 
 
@@ -27,20 +63,45 @@ Messages by category
 +-----------+-------+---------+-----------+
 |type       |number |previous |difference |
 +===========+=======+=========+===========+
-|convention |0      |0        |=          |
+|convention |11     |0        |+11.00     |
 +-----------+-------+---------+-----------+
-|refactor   |0      |0        |=          |
+|refactor   |1      |0        |+1.00      |
 +-----------+-------+---------+-----------+
-|warning    |0      |0        |=          |
+|warning    |4      |0        |+4.00      |
 +-----------+-------+---------+-----------+
-|error      |0      |0        |=          |
+|error      |3      |0        |+3.00      |
 +-----------+-------+---------+-----------+
+
+
+
+Messages
+--------
+
++-----------------------+------------+
+|message id             |occurrences |
++=======================+============+
+|bad-whitespace         |8           |
++-----------------------+------------+
+|unused-argument        |3           |
++-----------------------+------------+
+|undefined-variable     |2           |
++-----------------------+------------+
+|trailing-whitespace    |2           |
++-----------------------+------------+
+|unused-import          |1           |
++-----------------------+------------+
+|unexpected-keyword-arg |1           |
++-----------------------+------------+
+|too-many-arguments     |1           |
++-----------------------+------------+
+|missing-docstring      |1           |
++-----------------------+------------+
 
 
 
 Global evaluation
 -----------------
-Your code has been rated at 10.00/10 (previous run: 10.00/10, +0.00)
+Your code has been rated at 6.59/10 (previous run: 10.00/10, -3.41)
 
 Raw metrics
 -----------
@@ -48,13 +109,13 @@ Raw metrics
 +----------+-------+------+---------+-----------+
 |type      |number |%     |previous |difference |
 +==========+=======+======+=========+===========+
-|code      |148    |54.61 |148      |=          |
+|code      |149    |55.39 |148      |+1.00      |
 +----------+-------+------+---------+-----------+
-|docstring |38     |14.02 |38       |=          |
+|docstring |38     |14.13 |38       |=          |
 +----------+-------+------+---------+-----------+
-|comment   |58     |21.40 |58       |=          |
+|comment   |58     |21.56 |58       |=          |
 +----------+-------+------+---------+-----------+
-|empty     |27     |9.96  |27       |=          |
+|empty     |24     |8.92  |27       |-3.00      |
 +----------+-------+------+---------+-----------+
 
 

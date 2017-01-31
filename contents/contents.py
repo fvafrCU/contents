@@ -24,8 +24,6 @@
 from __future__ import print_function
 import re
 import subprocess
-import argparse
-import textwrap
 import os
 import sys
 
@@ -49,71 +47,6 @@ def is_tool(name):
     return True
 
 
-## Use a Custom Parser Function
-#
-# To keep __main__ tiny.
-def make_parser():
-    """
-    Use a Custom Parser Function
-
-    To keep __main__ tiny.
-    """
-
-    parser = argparse.ArgumentParser(description="convert markdown-style " +
-                                     "comments from a file to markdown and " +
-                                     "html via pandoc.",
-                                     epilog=textwrap.dedent("""\
-markdown style comments are headed by one or more comment characters giving
-the markdown heading level and a magic character marking it as
-markdown.
-try --example for an example
-            """))
-    parser.add_argument("file_name", metavar="file",
-                        help="The name of the file to convert comments from.")
-    parser.add_argument("-o", "--postfix", dest="name_postfix",
-                        default="",
-                        help="Change the postfix added to the files created.")
-    parser.add_argument("-e", "--prefix", dest="name_prefix",
-                        default="",
-                        help="Change the prefix added to the files created.")
-    parser.add_argument("-c", "--comment", dest="comment_character",
-                        default="#",
-                        help="Change the comment character.")
-    parser.add_argument("-m", "--magic", dest="magic_character",
-                        default="%",
-                        help="Change the magic character.")
-    parser.add_argument("-v", "--version", action="version",
-                        version="0.3.0")
-    parser.add_argument("-x", "--example", action="version",
-                        help="Give an example and exit.",
-                        version=("""
-##% *This* is an example markdown comment of heading level 2
-#######% **This** is an example of a markdown paragraph: markdown recognizes
-#######% only six levels of heading, so we use seven levels to mark
-#######% "normal" text.
-#######% Here you can use the full
-#######% [markdown syntax](http://daringfireball.net/projects/markdown/syntax).
-#######% *Note* the trailing line: markdown needs an empty line to end a
-#######% paragraph.
-#######%
-"""))
-    parser.add_argument("-p", "--pandoc", dest="run_pandoc",
-                        help="Run pandoc on the md file created.",
-                        action="store_true")
-    parser.add_argument("-n", "--no-pandoc", dest="run_pandoc",
-                        help="Do not run pandoc on the md file created.",
-                        action="store_false")
-    parser.add_argument("-l", "--latex", dest="compile_latex",
-                        help="Run LaTex on the tex file created via pandoc.",
-                        action="store_true")
-    parser.add_argument("--no-latex", dest="compile_latex",
-                        help="Run LaTex on the tex file created via pandoc.",
-                        action="store_false")
-    parser.add_argument("--formats", dest="pandoc_formats",
-                        default=('tex', 'html', 'pdf'),
-                        help="Change the comment character.")
-    parser.set_defaults(run_pandoc=False, compile_latex=False)
-    return parser
 
 
 ## Extract Matching Lines
@@ -215,7 +148,7 @@ def modify_path(file_name, postfix="", prefix="", extension=None):
     return name
 
 
-## Run Pandoc on a File.
+## Run Pandoc on a File
 # @param file_name The file from which the lines are to be extracted.
 # @param formats The pandoc output formats to be used, could be ("tex", "pdf").
 # @param compile_latex Compile the LaTeX file?
@@ -244,27 +177,25 @@ def pandoc(file_name, compile_latex=False, formats="tex"):
                       "\nconsulting your operating system's documentation.")
     return status
 
-
-#% main
-if __name__ == "__main__":
-    ##% parse command line arguments
-    ARGS = make_parser().parse_args()
+## Extract, Convert and Save Markdown Style Comments From a File
+def contents(file_name, comment_character = "#", magic_character = "%", 
+             prefix = "", postfix = "", run_pandoc = True, 
+             compile_latex = False, pandoc_formats = ("tex", "html")):
     ##% read markdown from file
-    MARKDOWN_LINES = get_toc(file_name=ARGS.file_name,
-                             comment_character=ARGS.comment_character,
-                             magic_character=ARGS.magic_character)
+    markdown_lines = get_toc(file_name=file_name,
+                             comment_character=comment_character,
+                             magic_character=magic_character)
     ##% get markdown file name
-    MD_FILE_NAME = modify_path(file_name=ARGS.file_name,
-                               postfix=ARGS.name_postfix,
-                               prefix=ARGS.name_prefix,
+    md_file_name = modify_path(file_name=file_name,
+                               postfix=postfix,
+                               prefix=prefix,
                                extension="md")
 
     ## the file handler of markdown output
-    MD_FILE = open(MD_FILE_NAME, "w")
-    MD_FILE.writelines(MARKDOWN_LINES)
-    MD_FILE.close()
-    if ARGS.run_pandoc:
-        pandoc(file_name=MD_FILE_NAME, compile_latex=ARGS.compile_latex,
+    md_file = open(md_file_name, "w")
+    md_file.Writelines(markdown_lines)
+    md_file.Close()
+    if run_pandoc:
+        pandoc(file_name=md_file_name, Compile_latex=compile_latex,
                ## doxygen misses that this is a function's argument.
-               formats=[ARGS.pandoc_formats])
-    sys.exit(0)
+               formats=pandoc_formats)
