@@ -73,7 +73,6 @@ try --example for an example
 
 if __name__ == '__main__':
   args = make_parser().parse_args()
-  print(args)
   contents.contents(file_name=args.file_name,
                     comment_character=args.comment_character,
                     magic_character=args.magic_character,
@@ -81,7 +80,7 @@ if __name__ == '__main__':
                     postfix=args.postfix,
                     run_pandoc=args.run_pandoc,
                     compile_latex=args.compile_latex,
-                    pandoc_formats="html"
+                    pandoc_formats=args.pandoc_formats
                     )
 
 

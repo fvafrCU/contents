@@ -157,9 +157,8 @@ def pandoc(file_name, compile_latex=False, formats="tex"):
     Run Pandoc on a File
     """
     status = 1
-
     if is_tool("pandoc"):
-        for form in formats:
+        for form in [formats]:
             subprocess.call(["pandoc", "-sN", file_name, "-o",
                              modify_path(file_name=file_name, extension=form)])
         status = 0
@@ -190,12 +189,12 @@ def contents(file_name, comment_character = "#", magic_character = "%",
                                postfix=postfix,
                                prefix=prefix,
                                extension="md")
-
     ## the file handler of markdown output
     md_file = open(md_file_name, "w")
-    md_file.Writelines(markdown_lines)
-    md_file.Close()
+    md_file.writelines(markdown_lines)
+    md_file.close()
     if run_pandoc:
-        pandoc(file_name=md_file_name, Compile_latex=compile_latex,
+        pandoc(file_name=md_file_name, compile_latex=compile_latex,
                ## doxygen misses that this is a function's argument.
                formats=pandoc_formats)
+    return 0
