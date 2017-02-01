@@ -1,35 +1,10 @@
 ************* Module contents.contents
-C:180, 0: Trailing whitespace (trailing-whitespace)
-C:180, 0: No space allowed around keyword argument assignment
-def contents(file_name, comment_character = "#", magic_character = "%", 
-                                          ^ (bad-whitespace)
-C:180, 0: No space allowed around keyword argument assignment
-def contents(file_name, comment_character = "#", magic_character = "%", 
-                                                                 ^ (bad-whitespace)
-C:181, 0: Trailing whitespace (trailing-whitespace)
-C:181, 0: No space allowed around keyword argument assignment
-             prefix = "", postfix = "", run_pandoc = True, 
-                    ^ (bad-whitespace)
-C:181, 0: No space allowed around keyword argument assignment
-             prefix = "", postfix = "", run_pandoc = True, 
-                                  ^ (bad-whitespace)
-C:181, 0: No space allowed around keyword argument assignment
-             prefix = "", postfix = "", run_pandoc = True, 
-                                                   ^ (bad-whitespace)
-C:182, 0: No space allowed around keyword argument assignment
-             compile_latex = False, pandoc_formats = ("tex", "html")):
-                           ^ (bad-whitespace)
-C:182, 0: No space allowed around keyword argument assignment
-             compile_latex = False, pandoc_formats = ("tex", "html")):
-                                                   ^ (bad-whitespace)
-C:180, 0: Missing function docstring (missing-docstring)
 R:180, 0: Too many arguments (8/5) (too-many-arguments)
-W: 28, 0: Unused import sys (unused-import)
 
 
 Report
 ======
-74 statements analysed.
+73 statements analysed.
 
 Statistics by type
 ------------------
@@ -43,7 +18,7 @@ Statistics by type
 +---------+-------+-----------+-----------+------------+---------+
 |method   |0      |0          |=          |0           |0        |
 +---------+-------+-----------+-----------+------------+---------+
-|function |7      |8          |-1.00      |85.71       |0.00     |
+|function |7      |7          |=          |100.00      |0.00     |
 +---------+-------+-----------+-----------+------------+---------+
 
 
@@ -54,13 +29,13 @@ Messages by category
 +-----------+-------+---------+-----------+
 |type       |number |previous |difference |
 +===========+=======+=========+===========+
-|convention |10     |11       |-1.00      |
+|convention |0      |0        |=          |
 +-----------+-------+---------+-----------+
 |refactor   |1      |1        |=          |
 +-----------+-------+---------+-----------+
-|warning    |1      |4        |-3.00      |
+|warning    |0      |0        |=          |
 +-----------+-------+---------+-----------+
-|error      |0      |3        |-3.00      |
+|error      |0      |0        |=          |
 +-----------+-------+---------+-----------+
 
 
@@ -68,42 +43,17 @@ Messages by category
 Messages
 --------
 
-+--------------------+------------+
-|message id          |occurrences |
-+====================+============+
-|bad-whitespace      |7           |
-+--------------------+------------+
-|trailing-whitespace |2           |
-+--------------------+------------+
-|unused-import       |1           |
-+--------------------+------------+
-|too-many-arguments  |1           |
-+--------------------+------------+
-|missing-docstring   |1           |
-+--------------------+------------+
++-------------------+------------+
+|message id         |occurrences |
++===================+============+
+|too-many-arguments |1           |
++-------------------+------------+
 
 
 
 Global evaluation
 -----------------
-Your code has been rated at 8.38/10 (previous run: 6.59/10, +1.78)
-
-Raw metrics
------------
-
-+----------+-------+------+---------+-----------+
-|type      |number |%     |previous |difference |
-+==========+=======+======+=========+===========+
-|code      |91     |45.27 |149      |-58.00     |
-+----------+-------+------+---------+-----------+
-|docstring |31     |15.42 |38       |-7.00      |
-+----------+-------+------+---------+-----------+
-|comment   |54     |26.87 |58       |-4.00      |
-+----------+-------+------+---------+-----------+
-|empty     |25     |12.44 |24       |+1.00      |
-+----------+-------+------+---------+-----------+
-
-
+Your code has been rated at 9.86/10 (previous run: 9.86/10, +0.00)
 
 Duplication
 -----------
@@ -115,6 +65,23 @@ Duplication
 +-------------------------+------+---------+-----------+
 |percent duplicated lines |0.000 |0.000    |=          |
 +-------------------------+------+---------+-----------+
+
+
+
+Raw metrics
+-----------
+
++----------+-------+------+---------+-----------+
+|type      |number |%     |previous |difference |
++==========+=======+======+=========+===========+
+|code      |90     |43.48 |90       |=          |
++----------+-------+------+---------+-----------+
+|docstring |36     |17.39 |36       |=          |
++----------+-------+------+---------+-----------+
+|comment   |57     |27.54 |57       |=          |
++----------+-------+------+---------+-----------+
+|empty     |24     |11.59 |26       |-2.00      |
++----------+-------+------+---------+-----------+
 
 
 

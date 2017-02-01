@@ -49,6 +49,7 @@ log/${modul}.html: ./${modul}/${file}
 	python3 -m pydoc -w ${modul}; mv ${modul}.html ./output/
 
 docs/doxygen: ./${modul}/${file}
+	mkdir docs/ || true
 	doxygen .doxygen.conf > ./log/doxygen.log 2>&1 
 	! grep "warning:" ./log/doxygen.log 
 

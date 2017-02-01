@@ -25,7 +25,6 @@ from __future__ import print_function
 import re
 import subprocess
 import os
-import sys
 
 
 ## Test if a Program is Installed
@@ -45,8 +44,6 @@ def is_tool(name):
                   'library("installr"); install.pandoc()\n' + "in GNU R")
         raise
     return True
-
-
 
 
 ## Extract Matching Lines
@@ -158,7 +155,7 @@ def pandoc(file_name, compile_latex=False, formats="tex"):
     """
     status = 1
     if is_tool("pandoc"):
-        for form in [formats]:
+        for form in formats:
             subprocess.call(["pandoc", "-sN", file_name, "-o",
                              modify_path(file_name=file_name, extension=form)])
         status = 0
@@ -176,10 +173,18 @@ def pandoc(file_name, compile_latex=False, formats="tex"):
                       "\nconsulting your operating system's documentation.")
     return status
 
+
 ## Extract, Convert and Save Markdown Style Comments From a File
-def contents(file_name, comment_character = "#", magic_character = "%", 
-             prefix = "", postfix = "", run_pandoc = True, 
-             compile_latex = False, pandoc_formats = ("tex", "html")):
+#
+# This is merely a wrapper to get_toc(), modify_path() and pandoc().
+def contents(file_name, comment_character="#", magic_character="%",
+             prefix="", postfix="", run_pandoc=True,
+             compile_latex=False, pandoc_formats=["tex", "html"]):
+    """
+    ## Extract, Convert and Save Markdown Style Comments From a File
+    #
+    # This is merely a wrapper to get_toc(), modify_path() and pandoc().
+    """
     ##% read markdown from file
     markdown_lines = get_toc(file_name=file_name,
                              comment_character=comment_character,

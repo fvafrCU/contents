@@ -43,15 +43,15 @@ try --example for an example
     parser.add_argument("-x", "--example", action="version",
                         help="Give an example and exit.",
                         version=("""
-##% *This* is an example markdown comment of heading level 2
-#######% **This** is an example of a markdown paragraph: markdown recognizes
-#######% only six levels of heading, so we use seven levels to mark
-#######% "normal" text.
-#######% Here you can use the full
-#######% [markdown syntax](http://daringfireball.net/projects/markdown/syntax).
-#######% *Note* the trailing line: markdown needs an empty line to end a
-#######% paragraph.
-#######%
+##% *This* is an example markdown comment of heading level 2  
+#######% **This** is an example of a markdown paragraph: markdown recognizes  
+#######% only six levels of heading, so we use seven levels to mark  
+#######% "normal" text.  
+#######% Here you can use the full  
+#######% [markdown syntax](http://daringfireball.net/projects/markdown/syntax).  
+#######% *Note* the trailing line: markdown needs an empty line to end a  
+#######% paragraph.  
+#######%  
 """))
     parser.add_argument("-p", "--pandoc", dest="run_pandoc",
                         help="Run pandoc on the md file created.",
@@ -66,23 +66,24 @@ try --example for an example
                         help="Run LaTex on the tex file created via pandoc.",
                         action="store_false")
     parser.add_argument("--formats", dest="pandoc_formats",
-                        default=("tex", "html", "pdf"),
-                        help="Change the comment character.")
+                        default="tex,html,pdf",
+                        help="Comma seperated list of pandoc output formats. " + 
+                        "Only interpreted if --pandoc is given.")
     parser.set_defaults(run_pandoc=False, compile_latex=False)
     return parser
 
 if __name__ == '__main__':
   args = make_parser().parse_args()
-  contents.contents(file_name=args.file_name,
-                    comment_character=args.comment_character,
-                    magic_character=args.magic_character,
-                    prefix=args.prefix,
-                    postfix=args.postfix,
-                    run_pandoc=args.run_pandoc,
-                    compile_latex=args.compile_latex,
-                    pandoc_formats=args.pandoc_formats
-                    )
+  status = contents.contents(file_name=args.file_name,
+                             comment_character=args.comment_character,
+                             magic_character=args.magic_character,
+                             prefix=args.prefix,
+                             postfix=args.postfix,
+                             run_pandoc=args.run_pandoc,
+                             compile_latex=args.compile_latex,
+                             pandoc_formats=args.pandoc_formats.split(",")
+                             )
 
 
-  sys.exit(0)
+  sys.exit(status)
   
