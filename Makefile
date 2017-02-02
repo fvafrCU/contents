@@ -36,9 +36,9 @@ build: ./${modul}/${file} ./setup.py
 
 ##% testing
 testing: log/unittest.log log/coverage.log
-log/unittest.log:
+log/unittest.log: tests/test_basic.py
 	python3 ./tests/test_basic.py > log/unittest.log 2>&1
-log/coverage.log:
+log/coverage.log: tests/test_basic.py
 	python3-coverage run tests/test_basic.py
 	python3-coverage report -m > log/coverage.log
 

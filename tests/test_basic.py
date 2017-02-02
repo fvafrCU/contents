@@ -9,18 +9,18 @@ class BasicTestSuite(unittest.TestCase):
     """Basic test cases."""
 
     def test_get_toc(self): 
-        result = contents.get_toc(file_name="tests/files/some_file.py", 
+        result = contents.get_toc(file_name="tests/files/some_file.txt", 
                                   comment_character='#', 
                                   magic_character='%')
-        expectation = ['% markdown comments for various source files\n', 
-                '% Dominik Cullmann\n', '\n', 
-                'extract markdown-like comments from (source code) file, convert them\n', 
-                'to valid markdown and run pandoc on it.\n', 
-                'Since the comment characters for different languages differ,\n', 
-                'this program can be adjusted to use the comment character used in your\n', 
-                'file by command line arguments.\n', '\n', 
-                '# import modules\n', '## read markdown from file\n', 
-                '## get markdown file name\n']
+        expectation =  ['% All About Me\n', '% Me\n', 
+        '**This** is an example of a markdown paragraph: markdown recognizes\n',
+        'only six levels of heading, so we use seven or more levels to mark\n', 
+        '"normal" text.\n', 
+        'Here you can use the full\n', 
+        '[markdown syntax](http://daringfireball.net/projects/markdown/syntax).\n', 
+        '*Note* the trailing line: markdown needs an empty line to end a\n', 
+        'paragraph.\n', '\n', '# A section\n', '# A subsection\n', 
+        'Another markdown paragraph.\n', '\n']
         self.assertEqual(expectation, result)
 
 

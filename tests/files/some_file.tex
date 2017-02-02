@@ -32,8 +32,8 @@
 \fi
 \hypersetup{breaklinks=true,
             bookmarks=true,
-            pdfauthor={Dominik Cullmann},
-            pdftitle={markdown comments for various source files},
+            pdfauthor={Me},
+            pdftitle={All About Me},
             colorlinks=true,
             citecolor=blue,
             urlcolor=blue,
@@ -47,8 +47,8 @@
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{5}
 
-\title{markdown comments for various source files}
-\author{Dominik Cullmann}
+\title{All About Me}
+\author{Me}
 \date{}
 
 % Redefines (sub)paragraphs to behave more like sections
@@ -64,15 +64,17 @@
 \begin{document}
 \maketitle
 
-extract markdown-like comments from (source code) file, convert them to
-valid markdown and run pandoc on it. Since the comment characters for
-different languages differ, this program can be adjusted to use the
-comment character used in your file by command line arguments.
+\textbf{This} is an example of a markdown paragraph: markdown recognizes
+only six levels of heading, so we use seven or more levels to mark
+``normal'' text. Here you can use the full
+\href{http://daringfireball.net/projects/markdown/syntax}{markdown
+syntax}. \emph{Note} the trailing line: markdown needs an empty line to
+end a paragraph.
 
-\section{import modules}\label{import-modules}
+\section{A section}\label{a-section}
 
-\subsection{read markdown from file}\label{read-markdown-from-file}
+\section{A subsection}\label{a-subsection}
 
-\subsection{get markdown file name}\label{get-markdown-file-name}
+Another markdown paragraph.
 
 \end{document}
