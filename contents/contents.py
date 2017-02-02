@@ -33,11 +33,6 @@ import os
 # @param name The name of the program to be tested for.
 # @return True if the Program is installed.
 def is_tool(name):
-    """
-    ## Test if a Program is Installed
-    #
-    # See docs/doxygen/index.html
-    """
     try:
         devnull = open(os.devnull)
         subprocess.Popen([name, "-h"], stdout=devnull,
@@ -62,11 +57,6 @@ def is_tool(name):
 #  comments.
 # @return A list of strings containing the lines extracted.
 def extract_md(file_name, comment_character, magic_character):
-    """
-    ## Extract Matching Lines
-    #
-    # See docs/doxygen/index.html
-    """
     matching_lines = []
     markdown_regex = re.compile(r"\s*" + comment_character + "+" +
                                 magic_character)
@@ -87,11 +77,6 @@ def extract_md(file_name, comment_character, magic_character):
 #  comments.
 # @return A list of strings containing the lines converted.
 def convert(lines, comment_character, magic_character):
-    """
-    ## Convert Lines to Markdown
-    #
-    # See docs/doxygen/index.html
-    """
     converted_lines = []
     for line in lines:
         line = line.lstrip()
@@ -124,11 +109,6 @@ def convert(lines, comment_character, magic_character):
 #  comments.
 # @return A list of strings containing the lines extracted and converted.
 def get_toc(file_name, comment_character, magic_character):
-    """
-    ## Get Table of Contents
-    #
-    # See docs/doxygen/index.html
-    """
     lines_matched = extract_md(file_name=file_name,
                                comment_character=comment_character,
                                magic_character=magic_character)
@@ -148,11 +128,6 @@ def get_toc(file_name, comment_character, magic_character):
 # @param extension Set a new file extension.
 # @return A string containing the modified path.
 def modify_path(file_name, postfix="", prefix="", extension=None):
-    """
-    ## Modify a Path
-    #
-    # See docs/doxygen/index.html
-    """
     if extension is None:
         extension = os.path.splitext(file_name)[1]
     base_name = os.path.basename(os.path.splitext(file_name)[0])
@@ -169,31 +144,24 @@ def modify_path(file_name, postfix="", prefix="", extension=None):
 # @param compile_latex Compile the LaTeX file?
 # @return True if parsing was successful.
 def pandoc(file_name, compile_latex=False, formats="tex"):
-    """
-    ## Run Pandoc on a File
-    #
-    # See docs/doxygen/index.html
-    """
     status = 1
     if is_tool("pandoc"):
         for form in formats.split(","):
             subprocess.call(["pandoc", "-sN", file_name, "-o",
                              modify_path(file_name=file_name, extension=form)])
-        status = 0
-        if compile_latex:
-            status = 1
-            subprocess.call(["pandoc", "-sN", file_name, "-o",
-                             modify_path(file_name=file_name, extension="tex")])
-            tex_file_name = modify_path(file_name=file_name, extension="tex")
-            if os.name == "posix":
-                if is_tool("texi2pdf"):
-                    subprocess.call(["texi2pdf", "--batch", "--clean",
-                                     tex_file_name])
-                    status = 0
-            else:
-                print("you are not running posix, see how to compile\n" +
-                      tex_file_name +
-                      "\nconsulting your operating system's documentation.")
+            if compile_latex & (form == "tex"):
+                tex_file_name = modify_path(file_name=file_name,
+                                            extension="tex")
+                if os.name == "posix":
+                    if is_tool("texi2pdf"):
+                        subprocess.call(["texi2pdf", "--batch", "--clean",
+                                         tex_file_name])
+                else:
+                    print("you are not running posix, see how to compile\n" +
+                          tex_file_name +
+                          "\nconsulting your operating system's " +
+                          "documentation.")
+    status = 0
     return status
 
 
@@ -214,11 +182,6 @@ def pandoc(file_name, compile_latex=False, formats="tex"):
 def contents(file_name, comment_character="#", magic_character="%",
              prefix="", postfix="", run_pandoc=True,
              compile_latex=False, pandoc_formats="tex"):
-    """
-    ## Extract, Convert and Save Markdown Style Comments From a File
-    #
-    # See docs/doxygen/index.html
-    """
     status = 1
     ##% read markdown from file
     markdown_lines = get_toc(file_name=file_name,

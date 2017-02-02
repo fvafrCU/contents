@@ -40,7 +40,8 @@ log/pep8.log: ./${modul}/${file}
 	pep8 ./${modul}/${file} > ./log/pep8.log || true
 
 log/pylint.log: ./${modul}/${file}
-	pylint ./${modul}/${file} > ./log/pylint.log || true
+	pylint --disable=missing-docstring ./${modul}/${file} \
+		> ./log/pylint.log || true
 
 ##% create documentation
 doc: ./docs/${modul}.html ./docs/doxygen

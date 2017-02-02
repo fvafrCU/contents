@@ -112,5 +112,5 @@ Generating Sqlite3 output for file setup.py
 Generating Sqlite3 output for file TODO.md
 Generating Sqlite3 output for page md_TODO
 Running dot...
-lookup cache used 19/65536 hits=25 misses=19
+lookup cache used 19/65536 hits=24 misses=19
 finished...
