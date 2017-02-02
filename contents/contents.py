@@ -235,7 +235,7 @@ def contents(file_name, comment_character="#", magic_character="%",
     md_file.close()
     status = 0
     if run_pandoc:
-        status <- pandoc(file_name=md_file_name, compile_latex=compile_latex,
-                  ## doxygen misses that this is a function's argument.
-                  formats=pandoc_formats)
+        status = pandoc(file_name=md_file_name, compile_latex=compile_latex,
+                        ## doxygen misses that this is a function's argument.
+                        formats=pandoc_formats)
     return status

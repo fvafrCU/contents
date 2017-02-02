@@ -11,7 +11,4 @@
 ./contents/contents.py:223:5: E265 block comment should start with '# '
 ./contents/contents.py:227:5: E265 block comment should start with '# '
 ./contents/contents.py:232:5: E265 block comment should start with '# '
-./contents/contents.py:238:17: E225 missing whitespace around operator
-./contents/contents.py:239:19: E128 continuation line under-indented for visual indent
-./contents/contents.py:239:19: E265 block comment should start with '# '
-./contents/contents.py:240:19: E128 continuation line under-indented for visual indent
+./contents/contents.py:239:25: E265 block comment should start with '# '
