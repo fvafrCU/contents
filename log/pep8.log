@@ -1,13 +1,17 @@
 ./contents/contents.py:2:1: E265 block comment should start with '# '
 ./contents/contents.py:23:1: E265 block comment should start with '# '
 ./contents/contents.py:30:1: E265 block comment should start with '# '
-./contents/contents.py:49:1: E265 block comment should start with '# '
-./contents/contents.py:73:1: E265 block comment should start with '# '
-./contents/contents.py:106:1: E265 block comment should start with '# '
-./contents/contents.py:127:1: E265 block comment should start with '# '
-./contents/contents.py:148:1: E265 block comment should start with '# '
-./contents/contents.py:177:1: E265 block comment should start with '# '
-./contents/contents.py:188:5: E265 block comment should start with '# '
-./contents/contents.py:192:5: E265 block comment should start with '# '
-./contents/contents.py:197:5: E265 block comment should start with '# '
-./contents/contents.py:203:16: E265 block comment should start with '# '
+./contents/contents.py:54:1: E265 block comment should start with '# '
+./contents/contents.py:81:1: E265 block comment should start with '# '
+./contents/contents.py:117:1: E265 block comment should start with '# '
+./contents/contents.py:141:1: E265 block comment should start with '# '
+./contents/contents.py:165:1: E265 block comment should start with '# '
+./contents/contents.py:186:80: E501 line too long (80 > 79 characters)
+./contents/contents.py:200:1: E265 block comment should start with '# '
+./contents/contents.py:223:5: E265 block comment should start with '# '
+./contents/contents.py:227:5: E265 block comment should start with '# '
+./contents/contents.py:232:5: E265 block comment should start with '# '
+./contents/contents.py:238:17: E225 missing whitespace around operator
+./contents/contents.py:239:19: E128 continuation line under-indented for visual indent
+./contents/contents.py:239:19: E265 block comment should start with '# '
+./contents/contents.py:240:19: E128 continuation line under-indented for visual indent

@@ -43,14 +43,16 @@ log/pylint.log: ./${modul}/${file}
 	pylint ./${modul}/${file} > ./log/pylint.log || true
 
 ##% create documentation
-doc: ${modul}.html ./docs/doxygen
+doc: ./docs/${modul}.html ./docs/doxygen
 
-log/${modul}.html: ./${modul}/${file}
-	python3 -m pydoc -w ${modul}; mv ${modul}.html ./output/
+docs/${modul}.html: ./${modul}/${file}
+	python3 -m pydoc -w ${modul}/${file}; mv ${modul}.html ./docs/
 
-docs/doxygen: ./${modul}/${file}
+docs/doxygen: ./${modul}/${file} .doxygen.conf
 	mkdir docs/ || true
+	ln -s ./${modul}/${file} . ## create a link to run doxygen in .
 	doxygen .doxygen.conf > ./log/doxygen.log 2>&1 
+	rm ${file}
 	! grep "warning:" ./log/doxygen.log 
 
 ##% maintenance

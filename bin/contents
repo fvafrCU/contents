@@ -81,9 +81,8 @@ if __name__ == '__main__':
                              postfix=args.postfix,
                              run_pandoc=args.run_pandoc,
                              compile_latex=args.compile_latex,
-                             pandoc_formats=args.pandoc_formats.split(",")
+                             pandoc_formats=args.pandoc_formats
                              )
 
 
   sys.exit(status)
-  
