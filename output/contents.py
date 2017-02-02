@@ -37,6 +37,7 @@ def is_tool(name):
         devnull = open(os.devnull)
         subprocess.Popen([name, "-h"], stdout=devnull,
                          stderr=devnull).communicate()
+        devnull.close()
     except OSError:
         print("please install " + name)
         if name == "pandoc" and os.name != "posix":
