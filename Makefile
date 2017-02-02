@@ -33,6 +33,15 @@ dist: ./${modul}/${file} ./setup.py
 
 build: ./${modul}/${file} ./setup.py
 	python3 setup.py bdist_wheel
+
+##% testing
+testing: log/unittest.log log/coverage.log
+log/unittest.log:
+	python3 ./tests/test_basic.py > log/unittest.log
+log/coverage.log:
+	python3-coverage run tests/test_basic.py
+	python3-coverage report -m > log/coverage.log
+
 ##%  analyse code
 analyse: log/pep8.log log/pylint.log
 

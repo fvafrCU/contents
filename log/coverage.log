@@ -1,0 +1,8 @@
+Name                Stmts   Miss  Cover   Missing
+-------------------------------------------------
+contents/__init__       2      0   100%   
+contents/contents      73     38    48%   36-46, 131-137, 147-165, 185-204
+tests/context           4      0   100%   
+tests/test_basic        9      0   100%   
+-------------------------------------------------
+TOTAL                  88     38    57%   
