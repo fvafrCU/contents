@@ -1,3 +1,2 @@
-* unit testing
-* coverage
-* https://python-packaging.readthedocs.io/en/latest/command-line-scripts.html
+* improve unit test coverage
+* improve README.rst
