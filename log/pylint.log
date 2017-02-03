@@ -1,10 +1,10 @@
 ************* Module contents.contents
-R:182, 0: Too many arguments (8/5) (too-many-arguments)
+R:183, 0: Too many arguments (8/5) (too-many-arguments)
 
 
 Report
 ======
-73 statements analysed.
+74 statements analysed.
 
 Messages by category
 --------------------
@@ -61,13 +61,13 @@ Raw metrics
 +----------+-------+------+---------+-----------+
 |type      |number |%     |previous |difference |
 +==========+=======+======+=========+===========+
-|code      |91     |45.73 |91       |=          |
+|code      |92     |46.00 |91       |+1.00      |
 +----------+-------+------+---------+-----------+
-|docstring |14     |7.04  |14       |=          |
+|docstring |14     |7.00  |14       |=          |
 +----------+-------+------+---------+-----------+
-|comment   |76     |38.19 |76       |=          |
+|comment   |76     |38.00 |76       |=          |
 +----------+-------+------+---------+-----------+
-|empty     |18     |9.05  |18       |=          |
+|empty     |18     |9.00  |18       |=          |
 +----------+-------+------+---------+-----------+
 
 
