@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-## @file 
+## @file
 #  module functions
 
 #######% % markdown comments for various source files
@@ -15,6 +15,7 @@
 #% import modules
 from __future__ import print_function
 import re
+import os
 
 
 ## Extract Matching Lines
@@ -106,5 +107,3 @@ def modify_path(file_name, postfix="", prefix="", extension=None):
     ext = extension.lstrip(".")
     name = os.path.join(os.path.dirname(file_name), ext_base_name) + "." + ext
     return name
-
-

@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
-## @file 
+## @file
 #  user interface functions
+from . import cmain
+from . import cos
+
 
 ## Extract, Convert and Save Markdown Style Comments From a File
 #
@@ -21,23 +24,23 @@ def contents(file_name, comment_character="#", magic_character="%",
              compile_latex=False, pandoc_formats="tex"):
     status = 1
     ##% read markdown from file
-    markdown_lines = get_toc(file_name=file_name,
-                             comment_character=comment_character,
-                             magic_character=magic_character)
+    markdown_lines = cmain.get_toc(file_name=file_name,
+                                   comment_character=comment_character,
+                                   magic_character=magic_character)
     ##% get markdown file name
-    md_file_name = modify_path(file_name=file_name,
-                               postfix=postfix,
-                               prefix=prefix,
-                               extension="md")
+    md_file_name = cmain.modify_path(file_name=file_name,
+                                     postfix=postfix,
+                                     prefix=prefix,
+                                     extension="md")
     ## the file handler of markdown output
     md_file = open(md_file_name, "w")
     md_file.writelines(markdown_lines)
     md_file.close()
     status = 0
     if run_pandoc:
-        status = pandoc(file_name=md_file_name, compile_latex=compile_latex,
-                        ## doxygen misses that this is a function's argument.
-                        formats=pandoc_formats)
+        status = cos.pandoc(file_name=md_file_name,
+                            ## doxygen misses: this is a function's argument.
+                            compile_latex=compile_latex,
+                            ## doxygen misses: this is a function's argument.
+                            formats=pandoc_formats)
     return status
-
-

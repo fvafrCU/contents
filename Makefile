@@ -18,13 +18,10 @@ install:
 ##% main
 main: output/${modul}${postfix}.html output/${modul}${postfix}.md
 output/${modul}${postfix}.html: ${SOURCE}
-	./bin/${modul} ${TEST_FILE} --pandoc --postfix ${postfix} \
-		--formats html; mv ./${modul}/${modul}${postfix}.html ./output/ ;\
-		rm ./${modul}/${modul}${postfix}.*
+	./bin/${modul} ${TEST_FILE} --pandoc --postfix ${postfix} --formats html
 
 output/${modul}${postfix}.md: ${SOURCE}
-	./bin/${modul} ${TEST_FILE} --postfix ${postfix} ;\
-		mv ./${modul}/${modul}${postfix}.md ./output/
+	./bin/${modul} ${TEST_FILE} --postfix ${postfix} 
 
 ##% packaging
 package: dist build
@@ -57,7 +54,8 @@ log/pylint.log: ${SOURCE}
 doc: ./docs/${modul}.html ./docs/doxygen
 
 docs/${modul}.html: ${SOURCE}
-	python3 -m pydoc -w ${modul}/; mv ${modul}.html ./docs/
+	./utils/pydoc.cl
+
 
 docs/doxygen: ${SOURCE} .doxygen.conf
 	rm -rf docs/doxygen || true

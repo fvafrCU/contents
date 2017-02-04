@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
-## @file 
+## @file
 #  operating system functions
+from __future__ import print_function
 import subprocess
 import os
+from . import cmain
 
 
 ## Test if a Program is Installed
@@ -23,6 +25,8 @@ def is_tool(name):
                   'library("installr"); install.pandoc()\n' + "in GNU R")
         raise
     return True
+
+
 ## Run Pandoc on a File
 #
 # @param file_name The file from which the lines are to be extracted.
@@ -34,10 +38,11 @@ def pandoc(file_name, compile_latex=False, formats="tex"):
     if is_tool("pandoc"):
         for form in formats.split(","):
             subprocess.call(["pandoc", "-sN", file_name, "-o",
-                             modify_path(file_name=file_name, extension=form)])
+                             cmain.modify_path(file_name=file_name,
+                                               extension=form)])
             if compile_latex & (form == "tex"):
-                tex_file_name = modify_path(file_name=file_name,
-                                            extension="tex")
+                tex_file_name = cmain.modify_path(file_name=file_name,
+                                                  extension="tex")
                 if os.name == "posix":
                     if is_tool("texi2pdf"):
                         subprocess.call(["texi2pdf", "--batch", "--clean",
@@ -49,5 +54,3 @@ def pandoc(file_name, compile_latex=False, formats="tex"):
                           "documentation.")
     status = 0
     return status
-
-
