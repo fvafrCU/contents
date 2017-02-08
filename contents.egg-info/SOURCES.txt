@@ -1,0 +1,10 @@
+README.rst
+setup.py
+contents/__init__.py
+contents/cmain.py
+contents/cos.py
+contents/cui.py
+contents.egg-info/PKG-INFO
+contents.egg-info/SOURCES.txt
+contents.egg-info/dependency_links.txt
+contents.egg-info/top_level.txt
