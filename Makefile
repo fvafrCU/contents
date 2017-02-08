@@ -23,6 +23,12 @@ output/${modul}${postfix}.html: ${SOURCE}
 output/${modul}${postfix}.md: ${SOURCE}
 	./bin/${modul} ${TEST_FILE} --postfix ${postfix} 
 
+##% testpypi
+.PHONY: testpypi
+testpypi: package
+	python setup.py register -r https://testpypi.python.org/pypi
+	twine upload dist/* -r testpypi
+
 ##% packaging
 package: dist build
 

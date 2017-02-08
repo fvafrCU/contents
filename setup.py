@@ -11,7 +11,7 @@ with open('LICENSE') as f:
 
 setup(
     name='contents',
-    version='0.3.1',
+    version='0.3.2',
     description='Exract markdown style comments from a file.',
     author='Andreas Dominik Cullmann',
     author_email='dominik.cullmann@forst.bwl.de',
