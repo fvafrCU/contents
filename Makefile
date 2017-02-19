@@ -39,7 +39,7 @@ build: ${SOURCE} ./setup.py
 	python3 setup.py bdist_wheel
 
 ##% testing
-testing: log/unittest.log log/coverage.log
+testing: log/unittest.log log/coverage.log 
 log/unittest.log: tests/test_basic.py ${SOURCE}
 	python3 ./tests/test_basic.py > log/unittest.log 2>&1
 log/coverage.log: tests/test_basic.py ${SOURCE}
@@ -47,6 +47,12 @@ log/coverage.log: tests/test_basic.py ${SOURCE}
 	python3-coverage report -m > log/coverage.log
 	python3-coverage html
 
+tests: tests/files/glm.md tests/files/phy.md
+tests/files/glm.md:
+	./bin/${modul} -c '#' -m '%' tests/files/glm.R
+
+tests/files/phy.md: 
+	./bin/${modul} -c '///' -m '%' tests/files/phy.c
 ##%  analyse code
 analyse: log/pep8.log log/pylint.log
 
