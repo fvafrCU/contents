@@ -10,8 +10,8 @@ with open('LICENSE') as f:
     license = f.read()
 
 setup(
-    name='contents',
-    version='0.3.2',
+    name='excerpts',
+    version='0.4.0',
     description='Exract markdown style comments from a file.',
     author='Andreas Dominik Cullmann',
     author_email='dominik.cullmann@forst.bwl.de',
