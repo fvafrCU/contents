@@ -11,11 +11,11 @@ with open('LICENSE') as f:
 
 setup(
     name='excerpts',
-    version='0.4.0',
+    version='0.4.1',
     description='Exract markdown style comments from a file.',
     author='Andreas Dominik Cullmann',
     author_email='dominik.cullmann@forst.bwl.de',
-    url='https://github.com/fvafrcu/contents',
+    url='https://github.com/fvafrcu/excerpts',
     license='BSD_2_CLAUSE',
     packages=find_packages(exclude=('tests', 'docs', 'output', 'utils'))
 )

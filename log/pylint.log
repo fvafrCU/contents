@@ -1,20 +1,10 @@
-************* Module contents.cui
+************* Module excerpts.ui
 R: 22, 0: Too many arguments (8/5) (too-many-arguments)
 
 
 Report
 ======
 81 statements analysed.
-
-External dependencies
----------------------
-::
-
-    contents 
-      \-cos (contents.cui)
-      \-cui (contents)
-
-
 
 Statistics by type
 ------------------
@@ -33,13 +23,23 @@ Statistics by type
 
 
 
+External dependencies
+---------------------
+::
+
+    excerpts 
+      \-main (excerpts,excerpts.ui,excerpts.op)
+      \-ui (excerpts)
+
+
+
 Messages by category
 --------------------
 
 +-----------+-------+---------+-----------+
 |type       |number |previous |difference |
 +===========+=======+=========+===========+
-|convention |0      |0        |=          |
+|convention |0      |1        |-1.00      |
 +-----------+-------+---------+-----------+
 |refactor   |1      |1        |=          |
 +-----------+-------+---------+-----------+
@@ -63,7 +63,7 @@ Messages
 
 Global evaluation
 -----------------
-Your code has been rated at 9.88/10 (previous run: 9.88/10, +0.00)
+Your code has been rated at 9.88/10 (previous run: 9.75/10, +0.12)
 
 Raw metrics
 -----------

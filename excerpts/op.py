@@ -4,7 +4,7 @@
 from __future__ import print_function
 import subprocess
 import os
-from . import cmain
+from . import main
 
 
 ## Test if a Program is Installed
@@ -38,11 +38,11 @@ def pandoc(file_name, compile_latex=False, formats="tex"):
     if is_tool("pandoc"):
         for form in formats.split(","):
             subprocess.call(["pandoc", "-sN", file_name, "-o",
-                             cmain.modify_path(file_name=file_name,
-                                               extension=form)])
+                             main.modify_path(file_name=file_name,
+                                              extension=form)])
             if compile_latex & (form == "tex"):
-                tex_file_name = cmain.modify_path(file_name=file_name,
-                                                  extension="tex")
+                tex_file_name = main.modify_path(file_name=file_name,
+                                                 extension="tex")
                 if os.name == "posix":
                     if is_tool("texi2pdf"):
                         subprocess.call(["texi2pdf", "--batch", "--clean",

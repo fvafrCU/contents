@@ -1,9 +1,9 @@
 Name                Stmts   Miss  Cover   Missing
 -------------------------------------------------
-contents/__init__       2      0   100%   
-contents/cmain         37      1    97%   104
-contents/cos           28     10    64%   21-26, 44-51
-contents/cui           13      0   100%   
+excerpts/__init__       2      0   100%   
+excerpts/main          37      1    97%   104
+excerpts/op            28     10    64%   21-26, 44-51
+excerpts/ui            13      0   100%   
 tests/context           4      0   100%   
 tests/test_basic       16      0   100%   
 -------------------------------------------------

@@ -1,6 +1,6 @@
 #% define variables
 ##% user set variables
-modul := contents
+modul := excerpts
 postfix := _o
 TEST_FILE := tests/files/some_file.txt
 
@@ -9,18 +9,18 @@ SOURCE := $(shell find ${modul} -type f -name "*.py")
 
 
 #% make targets
-all: doc analyse package main run
+all: doc analyse package run
 
 ##% installation
 install:
 	 pip3 install . --upgrade --user
 
 ##% main
-main: output/${modul}${postfix}.html output/${modul}${postfix}.md
-output/${modul}${postfix}.html: ${SOURCE}
+main: tests/files/${modul}${postfix}.html tests/files/${modul}${postfix}.md
+tests/files/${modul}${postfix}.html: ${SOURCE}
 	./bin/${modul} ${TEST_FILE} --pandoc --postfix ${postfix} --formats html
 
-output/${modul}${postfix}.md: ${SOURCE}
+tests/files/${modul}${postfix}.md: ${SOURCE}
 	./bin/${modul} ${TEST_FILE} --postfix ${postfix} 
 
 ##% testpypi

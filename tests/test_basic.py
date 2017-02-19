@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from context import contents
+from context import excerpts
 
 import unittest
 
@@ -9,7 +9,7 @@ class BasicTestSuite(unittest.TestCase):
     """Basic test cases."""
 
     def test_get_toc(self): 
-        result = contents.get_toc(file_name="tests/files/some_file.txt", 
+        result = excerpts.get_toc(file_name="tests/files/some_file.txt", 
                                   comment_character='#', 
                                   magic_character='%')
         expectation =  ['% All About Me\n', '% Me\n', 
@@ -23,8 +23,8 @@ class BasicTestSuite(unittest.TestCase):
         'Another markdown paragraph.\n', '\n']
         self.assertEqual(expectation, result)
 
-    def test_contents(self): 
-        contents.contents(file_name="tests/files/some_file.txt", 
+    def test_excerpts(self): 
+        excerpts.excerpt(file_name="tests/files/some_file.txt", 
                           comment_character='#', 
                           magic_character='%')
         with open("tests/files/some_file.md") as f:

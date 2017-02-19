@@ -1,4 +1,4 @@
-modul=contents
+modul=excerpts
 for src in $(find ${modul}/ -name "*py") 
 do 
     file=$(basename $src .py) 

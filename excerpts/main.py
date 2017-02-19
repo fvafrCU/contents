@@ -95,8 +95,8 @@ def get_toc(file_name, comment_character, magic_character):
 # Add a postfix and a prefix to the basename of a path and optionally change
 # it's extension.
 # @param file_name The file to be modified.
-# @param postfix Set the content's file postfix.
-# @param prefix Set the content's file prefix.
+# @param postfix Set the output file postfix.
+# @param prefix Set the output file prefix.
 # @param extension Set a new file extension.
 # @return A string containing the modified path.
 def modify_path(file_name, postfix="", prefix="", extension=None):

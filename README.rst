@@ -1,4 +1,4 @@
-Contents
+Excerpts
 ========
 
 Exract markdown style comments from a file.
@@ -15,6 +15,6 @@ Contents needs python3.
 Installation
 ------------
 Try 
-  pip3 install git+git://github.com/fvafrcu/contents --upgrade --user
+  pip3 install git+git://github.com/fvafrcu/excerpts --upgrade --user
 
   
