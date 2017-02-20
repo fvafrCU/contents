@@ -10,7 +10,7 @@ set a table of contents.
 Requirements
 ------------
 
-Contents needs python3.
+Excerpts needs python3.
 
 Installation
 ------------
