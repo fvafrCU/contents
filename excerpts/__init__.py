@@ -1,5 +1,5 @@
 """
-#  extract markdown-like comments from a file and convert them to markdown.
+# extract markdown-like comments from a file and convert them to markdown.
 #
 # extract markdown-like comments from (source code) file, convert them
 # to valid markdown and run pandoc on it.
