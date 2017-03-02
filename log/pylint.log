@@ -1,10 +1,10 @@
 ************* Module excerpts.ui
-R: 22, 0: Too many arguments (8/5) (too-many-arguments)
+R: 23, 0: Too many arguments (9/5) (too-many-arguments)
 
 
 Report
 ======
-81 statements analysed.
+86 statements analysed.
 
 Statistics by type
 ------------------
@@ -39,7 +39,7 @@ Messages by category
 +-----------+-------+---------+-----------+
 |type       |number |previous |difference |
 +===========+=======+=========+===========+
-|convention |0      |1        |-1.00      |
+|convention |0      |0        |=          |
 +-----------+-------+---------+-----------+
 |refactor   |1      |1        |=          |
 +-----------+-------+---------+-----------+
@@ -63,7 +63,7 @@ Messages
 
 Global evaluation
 -----------------
-Your code has been rated at 9.88/10 (previous run: 9.75/10, +0.12)
+Your code has been rated at 9.88/10 (previous run: 9.88/10, +0.00)
 
 Raw metrics
 -----------
@@ -71,13 +71,13 @@ Raw metrics
 +----------+-------+------+---------+-----------+
 |type      |number |%     |previous |difference |
 +==========+=======+======+=========+===========+
-|code      |101    |44.30 |101      |=          |
+|code      |111    |46.25 |111      |=          |
 +----------+-------+------+---------+-----------+
-|docstring |12     |5.26  |12       |=          |
+|docstring |12     |5.00  |12       |=          |
 +----------+-------+------+---------+-----------+
-|comment   |94     |41.23 |94       |=          |
+|comment   |96     |40.00 |94       |+2.00      |
 +----------+-------+------+---------+-----------+
-|empty     |21     |9.21  |21       |=          |
+|empty     |21     |8.75  |21       |=          |
 +----------+-------+------+---------+-----------+
 
 

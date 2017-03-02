@@ -27,7 +27,7 @@
 <font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
     
 <tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><dl><dt><a name="-excerpt"><strong>excerpt</strong></a>(file_name, comment_character='#', magic_character='%', prefix='', postfix='', run_pandoc=True, compile_latex=False, pandoc_formats='tex')</dt><dd><tt>##&nbsp;Extract,&nbsp;Convert&nbsp;and&nbsp;Save&nbsp;Markdown&nbsp;Style&nbsp;Comments&nbsp;From&nbsp;a&nbsp;File<br>
+<td width="100%"><dl><dt><a name="-excerpt"><strong>excerpt</strong></a>(file_name, comment_character='#', magic_character='%', output_path='', prefix='', postfix='', run_pandoc=True, compile_latex=False, pandoc_formats='tex')</dt><dd><tt>##&nbsp;Extract,&nbsp;Convert&nbsp;and&nbsp;Save&nbsp;Markdown&nbsp;Style&nbsp;Comments&nbsp;From&nbsp;a&nbsp;File<br>
 #<br>
 #&nbsp;This&nbsp;is&nbsp;merely&nbsp;a&nbsp;wrapper&nbsp;to&nbsp;get_toc(),&nbsp;modify_path()&nbsp;and&nbsp;pandoc().<br>
 #&nbsp;@param&nbsp;file_name&nbsp;The&nbsp;file&nbsp;from&nbsp;which&nbsp;the&nbsp;lines&nbsp;are&nbsp;to&nbsp;be&nbsp;extracted.<br>
@@ -38,8 +38,9 @@
 #&nbsp;@param&nbsp;prefix&nbsp;Set&nbsp;the&nbsp;output&nbsp;file&nbsp;prefix.<br>
 #&nbsp;@param&nbsp;comment_character&nbsp;The&nbsp;comment&nbsp;character&nbsp;of&nbsp;the&nbsp;files&nbsp;language&nbsp;("#"&nbsp;for<br>
 #&nbsp;example.<br>
+#&nbsp;@param&nbsp;output_path&nbsp;Set&nbsp;a&nbsp;new&nbsp;file&nbsp;name&nbsp;or&nbsp;an&nbsp;output&nbsp;directory.<br>
 #&nbsp;@param&nbsp;magic_character&nbsp;The&nbsp;magic&nbsp;character&nbsp;marking&nbsp;lines&nbsp;as&nbsp;markdown<br>
 #&nbsp;&nbsp;comments.<br>
-#&nbsp;@return&nbsp;True&nbsp;if&nbsp;output&nbsp;generation&nbsp;was&nbsp;successful.</tt></dd></dl>
+#&nbsp;@return&nbsp;0&nbsp;if&nbsp;output&nbsp;generation&nbsp;was&nbsp;successful.</tt></dd></dl>
 </td></tr></table>
 </body></html>

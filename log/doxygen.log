@@ -113,6 +113,7 @@ Generating Sqlite3 output for namespace excerpts
 Generating Sqlite3 output for namespace excerpts::main
 unable to read file loc from[excerpts.main::extract_md]
 unable to read file loc from[excerpts.main::convert]
+unable to read file loc from[excerpts.main::modify_path]
 Generating Sqlite3 output for namespace excerpts::op
 unable to read file loc from[excerpts.op::is_tool]
 Generating Sqlite3 output for namespace excerpts::ui

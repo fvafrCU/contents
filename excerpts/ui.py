@@ -16,10 +16,12 @@ from . import op
 # @param prefix Set the output file prefix.
 # @param comment_character The comment character of the files language ("#" for
 # example.
+# @param output_path Set a new file name or an output directory.
 # @param magic_character The magic character marking lines as markdown
 #  comments.
-# @return True if output generation was successful.
+# @return 0 if output generation was successful.
 def excerpt(file_name, comment_character="#", magic_character="%",
+            output_path="",
             prefix="", postfix="", run_pandoc=True,
             compile_latex=False, pandoc_formats="tex"):
     status = 1
@@ -29,6 +31,7 @@ def excerpt(file_name, comment_character="#", magic_character="%",
                                   magic_character=magic_character)
     ##% get markdown file name
     md_file_name = main.modify_path(file_name=file_name,
+                                    output_path=output_path,
                                     postfix=postfix,
                                     prefix=prefix,
                                     extension="md")

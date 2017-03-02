@@ -23,6 +23,7 @@ class BasicTestSuite(unittest.TestCase):
         'Another markdown paragraph.\n', '\n']
         self.assertEqual(expectation, result)
 
+
     def test_excerpts(self): 
         excerpts.excerpt(file_name="tests/files/some_file.txt", 
                           comment_character='#', 
@@ -40,6 +41,32 @@ class BasicTestSuite(unittest.TestCase):
         'paragraph.\n', '\n', '# A section\n', '# A subsection\n', 
         'Another markdown paragraph.\n', '\n']
         self.assertEqual(expectation, result)
+
+
+class PathModificationSuite(unittest.TestCase):
+    """path modification test cases."""
+
+
+    def test_output_file_name(self): 
+        result = excerpts.main.modify_path(file_name="files/some_file.txt", 
+                                  output_path='/tmp/foo.txt')
+        expectation = "/tmp/foo.txt"
+        self.assertEqual(expectation, result)
+
+
+    def test_output_dir(self): 
+        result = excerpts.main.modify_path(file_name="files/some_file.txt", 
+                                  output_path='/tmp/')
+        expectation = "/tmp/some_file.txt"
+        self.assertEqual(expectation, result)
+
+
+    def test_no_output(self): 
+        result = excerpts.main.modify_path(file_name="files/some_file.txt",
+                extension="bar", postfix="_post", prefix="pre_")
+        expectation = "files/pre_some_file_post.bar"
+        self.assertEqual(expectation, result)
+
 
 if __name__ == '__main__':
     unittest.main()

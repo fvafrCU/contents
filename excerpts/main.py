@@ -98,12 +98,21 @@ def get_toc(file_name, comment_character, magic_character):
 # @param postfix Set the output file postfix.
 # @param prefix Set the output file prefix.
 # @param extension Set a new file extension.
+# @param output_path Set a new file name or an output directory.
 # @return A string containing the modified path.
-def modify_path(file_name, postfix="", prefix="", extension=None):
-    if extension is None:
-        extension = os.path.splitext(file_name)[1]
-    base_name = os.path.basename(os.path.splitext(file_name)[0])
-    ext_base_name = prefix + base_name + postfix
-    ext = extension.lstrip(".")
-    name = os.path.join(os.path.dirname(file_name), ext_base_name) + "." + ext
+def modify_path(file_name, postfix="", prefix="", output_path="",
+                extension=None):
+    if output_path != "" and not os.path.isdir(output_path):
+        name = output_path
+    else:
+        base_name = os.path.basename(os.path.splitext(file_name)[0])
+        ext_base_name = prefix + base_name + postfix
+        if extension is None:
+            extension = os.path.splitext(file_name)[1]
+        ext = extension.lstrip(".")
+        if output_path == "":
+            directory = os.path.dirname(file_name)
+        else:
+            directory = output_path
+        name = os.path.join(directory, ext_base_name) + "." + ext
     return name

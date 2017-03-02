@@ -9,7 +9,7 @@ SOURCE := $(shell find ${modul} -type f -name "*.py")
 
 
 #% make targets
-all: doc analyse package run
+all: doc analyse package run testing tests main
 
 ##% installation
 install:
