@@ -5,3 +5,4 @@ docs/doxygen/
 build/
 dist/
 .coverage
+htmlcov/

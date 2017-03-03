@@ -4,11 +4,9 @@
 #
 
 
-#% import modules
 from __future__ import print_function
 import re
 import os
-
 
 
 ## @brief     Extract Matching Lines
@@ -38,7 +36,9 @@ def extract_md(file_name, comment_character, magic_character):
 
 ## @brief     Convert Lines to Markdown
 #
-#    Remove whitespace and magic characters from lines and output valid markdown.
+#    Remove whitespace and magic characters from lines and output valid
+#    markdown.
+#
 #
 # @param		lines	The lines to be converted.
 # @param		comment_character	The comment character of the files language.

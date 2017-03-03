@@ -60,7 +60,7 @@ log/pylint.log: ${SOURCE}
 	pylint ./${modul}/ > ./log/pylint.log || true
 
 ##% create documentation
-doc: ./docs/${modul}.html ./docs/doxygen doxy_code
+doc: ./docs/${modul}.html ./docs/doxygen doxygenize
 
 docs/${modul}.html: ${SOURCE}
 	./utils/pydoc.cl
@@ -72,8 +72,8 @@ docs/doxygen: ${SOURCE} .doxygen.conf
 	doxygen .doxygen.conf > ./log/doxygen.log 2>&1 
 	! grep "warning:" ./log/doxygen.log 
 
-.PHONY: doxy_code
-doxy_code: ${SOURCE}
+.PHONY: doxygenize
+doxygenize: ${SOURCE}
 	./utils/doxygenize.cl 
 
 ##% maintenance

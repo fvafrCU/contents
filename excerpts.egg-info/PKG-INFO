@@ -1,0 +1,10 @@
+Metadata-Version: 1.0
+Name: excerpts
+Version: 0.6.0
+Summary: Exract markdown style comments from a file.
+Home-page: https://github.com/fvafrcu/excerpts
+Author: Andreas Dominik Cullmann
+Author-email: dominik.cullmann@forst.bwl.de
+License: BSD_2_CLAUSE
+Description: UNKNOWN
+Platform: UNKNOWN
