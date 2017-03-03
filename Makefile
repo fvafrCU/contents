@@ -60,7 +60,7 @@ log/pylint.log: ${SOURCE}
 	pylint --disable=missing-docstring ./${modul}/ > ./log/pylint.log || true
 
 ##% create documentation
-doc: ./docs/${modul}.html ./docs/doxygen
+doc: ./docs/${modul}.html ./docs/doxygen doxy_code
 
 docs/${modul}.html: ${SOURCE}
 	./utils/pydoc.cl
@@ -71,6 +71,10 @@ docs/doxygen: ${SOURCE} .doxygen.conf
 	mkdir docs/ || true
 	doxygen .doxygen.conf > ./log/doxygen.log 2>&1 
 	! grep "warning:" ./log/doxygen.log 
+
+.PHONY: doxy_code
+doxy_code: ${SOURCE}
+	./utils/doxygenize.cl 
 
 ##% maintenance
 init:

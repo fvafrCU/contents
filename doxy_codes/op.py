@@ -1,24 +1,24 @@
 #!/usr/bin/env python3
-"""
- @file
- operating system functions
-"""
+# @file
+# operating system functions
+#
+
 from __future__ import print_function
 import subprocess
 import os
 from . import main
 
 
-def is_tool(name):
-    """
-    Test if a Program is Installed
+## @brief     Test if a Program is Installed
+#
+#    Will raise an error if the programm is not found.
+#
+# @param		name	The name of the program to be tested for.
+# @return
+#        True if the Program is installed.
+#
 
-    Will raise an error if the programm is not found.
-    Kwargs:
-        name: The name of the program to be tested for.
-    Returns:
-        True if the Program is installed.
-    """
+def is_tool(name):
     try:
         devnull = open(os.devnull)
         subprocess.Popen([name, "-h"], stdout=devnull,
@@ -33,16 +33,16 @@ def is_tool(name):
     return True
 
 
-def pandoc(file_name, compile_latex=False, formats="tex"):
-    """
-    Run Pandoc on a File
+## @brief     Run Pandoc on a File
+#
+# 	file_name	The file from which the lines are to be extracted.
+# 	formats	The pandoc output formats to be used.
+# 	compile_latex	Compile the LaTeX file?
+# @return
+#        0 if parsing was successful.
+#
 
-        file_name: The file from which the lines are to be extracted.
-        formats: The pandoc output formats to be used.
-        compile_latex: Compile the LaTeX file?
-    Returns:
-        0 if parsing was successful.
-    """
+def pandoc(file_name, compile_latex=False, formats="tex"):
     status = 1
     if is_tool("pandoc"):
         for form in formats.split(","):

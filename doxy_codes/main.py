@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""
- @file
- module functions
-"""
+# @file
+# module functions
+#
+
 
 #% import modules
 from __future__ import print_function
@@ -11,20 +11,20 @@ import os
 
 
 
+## @brief     Extract Matching Lines
+#
+#    Extract all lines starting with a combination of comment_character and
+#    magic_character from a file.
+#
+#
+# @param		file_name	The file from which the lines are to be extracted.
+# @param		comment_character	The comment character of the files language.
+# @param		magic_character	The magic character marking lines as excerpts.
+# @return
+#         A list of strings containing the lines extracted.
+#
+
 def extract_md(file_name, comment_character, magic_character):
-    """
-    Extract Matching Lines
-    
-    Extract all lines starting with a combination of comment_character and
-    magic_character from a file.
-    
-    Kwargs:
-        file_name: The file from which the lines are to be extracted.
-        comment_character: The comment character of the files language.
-        magic_character: The magic character marking lines as excerpts.
-     Returns:
-         A list of strings containing the lines extracted.
-    """
     matching_lines = []
     markdown_regex = re.compile(r"\s*" + comment_character + "+" +
                                 magic_character)
@@ -36,18 +36,18 @@ def extract_md(file_name, comment_character, magic_character):
     return matching_lines
 
 
-def convert(lines, comment_character, magic_character):
-    """
-    Convert Lines to Markdown
+## @brief     Convert Lines to Markdown
+#
+#    Remove whitespace and magic characters from lines and output valid markdown.
+#
+# @param		lines	The lines to be converted.
+# @param		comment_character	The comment character of the files language.
+# @param		magic_character	The magic character marking lines as excerpts.
+# @return
+#        A list of strings containing the lines converted.
+#
 
-    Remove whitespace and magic characters from lines and output valid markdown.
-    Kwargs:
-        lines: The lines to be converted.
-        comment_character: The comment character of the files language.
-        magic_character: The magic character marking lines as excerpts.
-    Returns:
-        A list of strings containing the lines converted.
-    """
+def convert(lines, comment_character, magic_character):
     converted_lines = []
     for line in lines:
         line = line.lstrip()
@@ -70,19 +70,19 @@ def convert(lines, comment_character, magic_character):
     return converted_lines
 
 
+## @brief     Get Table of Contents
+#
+#    Just a wrapper to extract_md() and convert().
+#
+#
+# @param		file_name	The file from which the lines are to be extracted.
+# @param		comment_character	The comment character of the files language.
+# @param		magic_character	The magic character marking lines as excerpts.
+# @return
+#        A list of strings containing the lines extracted and converted.
+#
+
 def get_toc(file_name, comment_character, magic_character):
-    """
-    Get Table of Contents
-
-    Just a wrapper to extract_md() and convert().
-
-    Kwargs:
-        file_name: The file from which the lines are to be extracted.
-        comment_character: The comment character of the files language.
-        magic_character: The magic character marking lines as excerpts.
-    Returns:
-        A list of strings containing the lines extracted and converted.
-    """
     lines_matched = extract_md(file_name=file_name,
                                comment_character=comment_character,
                                magic_character=magic_character)
@@ -92,22 +92,22 @@ def get_toc(file_name, comment_character, magic_character):
     return converted_lines
 
 
+## @brief     Modify a Path
+#
+#    Add a postfix and a prefix to the basename of a path and optionally change
+#    it's extension.
+#
+# @param		file_name	The file to be modified.
+# @param		postfix	Set the output file postfix.
+# @param		prefix	Set the output file prefix.
+# @param		extension	Set a new file extension.
+# @param		output_path	Set a new file name or an output directory.
+# @return
+#        A string containing the modified path.
+#
+
 def modify_path(file_name, postfix="", prefix="", output_path="",
                 extension=None):
-    """
-    Modify a Path
-
-    Add a postfix and a prefix to the basename of a path and optionally change
-    it's extension.
-    Kwargs:
-        file_name: The file to be modified.
-        postfix: Set the output file postfix.
-        prefix: Set the output file prefix.
-        extension: Set a new file extension.
-        output_path: Set a new file name or an output directory.
-    Returns:
-        A string containing the modified path.
-    """
     if output_path != "" and not os.path.isdir(output_path):
         name = output_path
     else:

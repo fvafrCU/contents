@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""
- @file
- command line interface
-"""
+# @file
+# command line interface
+#
+
 
 
 import sys
@@ -11,12 +11,12 @@ import argparse
 import textwrap
 
 
+## @brief     Use a Custom Parser Function
+#
+#    To keep main() tiny.
+#
+
 def make_parser():
-    """
-    Use a Custom Parser Function
-   
-    To keep main() tiny.
-    """
     parser = argparse.ArgumentParser(description="convert markdown-style " +
                                      "comments from a file to markdown and " +
                                      "html via pandoc.",
@@ -78,10 +78,10 @@ try --example for an example
     return parser
 
 
+## @brief     A User Command Line Interface
+#
+
 def main():
-    """
-    A User Command Line Interface
-    """
     args = make_parser().parse_args()
     status = excerpts.excerpt(file_name=args.file_name,
                               comment_character=args.comment_character,
