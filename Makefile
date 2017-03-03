@@ -9,19 +9,16 @@ SOURCE := $(shell find ${modul} -type f -name "*.py")
 
 
 #% make targets
-all: doc analyse package run testing tests main
+all: doc analyse package run testing tests 
 
 ##% installation
 install:
 	 pip3 install . --upgrade --user
 
-##% main
-main: tests/files/${modul}${postfix}.html tests/files/${modul}${postfix}.md
-tests/files/${modul}${postfix}.html: ${SOURCE}
-	./bin/${modul} ${TEST_FILE} --pandoc --postfix ${postfix} --formats html
-
-tests/files/${modul}${postfix}.md: ${SOURCE}
-	./bin/${modul} ${TEST_FILE} --postfix ${postfix} 
+##% cli
+cli:
+	~/.local/bin/${modul} tests/files/some_file.txt -o _cli -O output \
+		-p --formats html
 
 ##% testpypi
 .PHONY: testpypi
