@@ -8,14 +8,8 @@ import textwrap
 
 ## Use a Custom Parser Function
 #
-# To keep __main__ tiny.
+# To keep main() tiny.
 def make_parser():
-    """
-    Use a Custom Parser Function
-
-    To keep __main__ tiny.
-    """
-
     parser = argparse.ArgumentParser(description="convert markdown-style " +
                                      "comments from a file to markdown and " +
                                      "html via pandoc.",
@@ -77,6 +71,9 @@ try --example for an example
     return parser
 
 
+## a user command line interface
+#
+#
 def main():
     args = make_parser().parse_args()
     status = excerpts.excerpt(file_name=args.file_name,
