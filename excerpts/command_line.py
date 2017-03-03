@@ -5,7 +5,6 @@
 """
 
 
-import sys
 import excerpts
 import argparse
 import textwrap
@@ -14,7 +13,7 @@ import textwrap
 def make_parser():
     """
     Use a Custom Parser Function
-   
+
     To keep main() tiny.
     """
     parser = argparse.ArgumentParser(description="convert markdown-style " +

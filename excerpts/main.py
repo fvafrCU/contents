@@ -4,20 +4,19 @@
  module functions
 """
 
-#% import modules
+# % import modules
 from __future__ import print_function
 import re
 import os
 
 
-
 def extract_md(file_name, comment_character, magic_character):
     """
     Extract Matching Lines
-    
+
     Extract all lines starting with a combination of comment_character and
     magic_character from a file.
-    
+
     Kwargs:
         file_name: The file from which the lines are to be extracted.
         comment_character: The comment character of the files language.
@@ -40,7 +39,9 @@ def convert(lines, comment_character, magic_character):
     """
     Convert Lines to Markdown
 
-    Remove whitespace and magic characters from lines and output valid markdown.
+    Remove whitespace and magic characters from lines and output valid
+    markdown.
+
     Kwargs:
         lines: The lines to be converted.
         comment_character: The comment character of the files language.

@@ -26,29 +26,26 @@ def excerpt(file_name, comment_character="#", magic_character="%",
         comment_character: The comment character of the files language.
         output_path: Set a new file name or an output directory.
         magic_character: The magic character marking lines as excerpts.
-    Returns: 
+    Returns:
         0 if output generation was successful.
     """
     status = 1
-    ##% read markdown from file
     markdown_lines = main.get_toc(file_name=file_name,
                                   comment_character=comment_character,
                                   magic_character=magic_character)
-    ##% get markdown file name
     md_file_name = main.modify_path(file_name=file_name,
                                     output_path=output_path,
                                     postfix=postfix,
                                     prefix=prefix,
                                     extension="md")
-    ## the file handler of markdown output
     md_file = open(md_file_name, "w")
     md_file.writelines(markdown_lines)
     md_file.close()
     status = 0
     if run_pandoc:
         status = op.pandoc(file_name=md_file_name,
-                           ## doxygen misses: this is a function's argument.
+                           # doxygen misses: this is a function's argument.
                            compile_latex=compile_latex,
-                           ## doxygen misses: this is a function's argument.
+                           # doxygen misses: this is a function's argument.
                            formats=pandoc_formats)
     return status
