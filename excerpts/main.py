@@ -55,10 +55,10 @@ def convert(lines, comment_character, magic_character):
         line = re.sub(comment_character + "{7,}", "", line)
         line = line.replace(comment_character, "#")
         if magic_character != "":
-            # remove the first occurence of the magic_character
+            # remove the first occurence of the magic_character only
             # (the header definition of pandoc's markdown uses the
             # percent sign, if that was the magic pattern, all pandoc
-            # standard headers would end up to be simple text.
+            # standard headers would end up to be simple text).
             line = re.sub(magic_character, "", line, count=1)
             # get rid of leading blanks
             line = re.sub(r"^\s*", "", line)
