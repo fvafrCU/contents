@@ -12,7 +12,7 @@
 #######%
 
 #% A section
-#% A subsection
+##% A subsection
 ### Not a subsubsection but a plain comment.
 ############% Another markdown paragraph.
 ############%

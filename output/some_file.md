@@ -9,6 +9,6 @@ Here you can use the full
 paragraph.
 
 # A section
-# A subsection
+## A subsection
 Another markdown paragraph.
 

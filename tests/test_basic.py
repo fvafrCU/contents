@@ -19,7 +19,7 @@ class BasicTestSuite(unittest.TestCase):
         'Here you can use the full\n', 
         '[markdown syntax](http://daringfireball.net/projects/markdown/syntax).\n', 
         '*Note* the trailing line: markdown needs an empty line to end a\n', 
-        'paragraph.\n', '\n', '# A section\n', '# A subsection\n', 
+        'paragraph.\n', '\n', '# A section\n', '## A subsection\n', 
         'Another markdown paragraph.\n', '\n']
         self.assertEqual(expectation, result)
 
@@ -38,7 +38,7 @@ class BasicTestSuite(unittest.TestCase):
         'Here you can use the full\n', 
         '[markdown syntax](http://daringfireball.net/projects/markdown/syntax).\n', 
         '*Note* the trailing line: markdown needs an empty line to end a\n', 
-        'paragraph.\n', '\n', '# A section\n', '# A subsection\n', 
+        'paragraph.\n', '\n', '# A section\n', '## A subsection\n', 
         'Another markdown paragraph.\n', '\n']
         self.assertEqual(expectation, result)
 
