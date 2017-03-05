@@ -73,7 +73,10 @@ try --example for an example
                         default="tex,html,pdf",
                         help="Comma seperated list of pandoc output " +
                         "formats. Only interpreted if --pandoc is given.")
-    parser.set_defaults(run_pandoc=False, compile_latex=False)
+    parser.add_argument("--no-pep8", dest="allow_pep8",
+                        help="Allow for pep8 block comments.",
+                        action="store_false")
+    parser.set_defaults(run_pandoc=False, compile_latex=False, allow_pep8=True)
     return parser
 
 
@@ -86,6 +89,7 @@ def main():
                                comment_character=args.comment_character,
                                magic_character=args.magic_character,
                                output_path=args.output_path,
+                               allow_pep8=args.allow_pep8,
                                prefix=args.prefix,
                                postfix=args.postfix,
                                run_pandoc=args.run_pandoc,

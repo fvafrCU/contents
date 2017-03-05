@@ -20,19 +20,21 @@ from . import op
 # @param		prefix	Set the output file prefix.
 # @param		comment_character	The comment character of the files language.
 # @param		output_path	Set a new file name or an output directory.
+# @param		allow_pep8	Remove a leading single comment character and blank.
 # @param		magic_character	The magic character marking lines as excerpts.
 # @return
 #        0 if output generation was successful.
 #
 
 def excerpts(file_name, comment_character="#", magic_character="%",
-             output_path="",
+             output_path="", allow_pep8=True,
              prefix="", postfix="", run_pandoc=True,
              compile_latex=False, pandoc_formats="tex"):
     status = 1
     markdown_lines = main.excerpt(file_name=file_name,
                                   comment_character=comment_character,
-                                  magic_character=magic_character)
+                                  magic_character=magic_character,
+                                  allow_pep8=allow_pep8)
     md_file_name = main.modify_path(file_name=file_name,
                                     output_path=output_path,
                                     postfix=postfix,

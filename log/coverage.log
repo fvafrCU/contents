@@ -1,10 +1,10 @@
 Name                Stmts   Miss  Cover   Missing
 -------------------------------------------------
 excerpts/__init__       2      0   100%   
-excerpts/main          43      0   100%   
+excerpts/main          45      0   100%   
 excerpts/op            29     10    66%   27-32, 53-60
 excerpts/ui            14      0   100%   
 tests/context           4      0   100%   
 tests/test_basic       29      0   100%   
 -------------------------------------------------
-TOTAL                 121     10    92%   
+TOTAL                 123     10    92%   

@@ -34,7 +34,7 @@ def extract_md(file_name, comment_character, magic_character):
     return matching_lines
 
 
-def convert(lines, comment_character, magic_character):
+def convert(lines, comment_character, magic_character, allow_pep8=True):
     """
     Convert Lines to Markdown
 
@@ -45,12 +45,16 @@ def convert(lines, comment_character, magic_character):
         lines: The lines to be converted.
         comment_character: The comment character of the files language.
         magic_character: The magic character marking lines as excerpts.
+        allow_pep8: Remove a leading single comment character and blank.
     Returns:
         A list of strings containing the lines converted.
     """
     converted_lines = []
     for line in lines:
         line = line.lstrip()
+        if allow_pep8:
+            # allow for pep8 conforming block comments.
+            line = re.sub(comment_character + " ", "", line)
         # remove 7 or more heading levels.
         line = re.sub(comment_character + "{7,}", "", line)
         line = line.replace(comment_character, "#")
@@ -70,7 +74,7 @@ def convert(lines, comment_character, magic_character):
     return converted_lines
 
 
-def excerpt(file_name, comment_character, magic_character):
+def excerpt(file_name, comment_character, magic_character, allow_pep8=True):
     """
     Extract and Convert Matching Lines
 
@@ -80,6 +84,7 @@ def excerpt(file_name, comment_character, magic_character):
         file_name: The file from which the lines are to be extracted.
         comment_character: The comment character of the files language.
         magic_character: The magic character marking lines as excerpts.
+        allow_pep8: Remove a leading single comment character and blank.
     Returns:
         A list of strings containing the lines extracted and converted.
     """
@@ -88,7 +93,8 @@ def excerpt(file_name, comment_character, magic_character):
                                magic_character=magic_character)
     converted_lines = convert(lines=lines_matched,
                               comment_character=comment_character,
-                              magic_character=magic_character)
+                              magic_character=magic_character,
+                              allow_pep8=allow_pep8)
     return converted_lines
 
 

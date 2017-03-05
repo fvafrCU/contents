@@ -43,22 +43,26 @@ def extract_md(file_name, comment_character, magic_character):
 # @param		lines	The lines to be converted.
 # @param		comment_character	The comment character of the files language.
 # @param		magic_character	The magic character marking lines as excerpts.
+# @param		allow_pep8	Remove a leading single comment character and blank.
 # @return
 #        A list of strings containing the lines converted.
 #
 
-def convert(lines, comment_character, magic_character):
+def convert(lines, comment_character, magic_character, allow_pep8=True):
     converted_lines = []
     for line in lines:
         line = line.lstrip()
+        if allow_pep8:
+            # allow for pep8 conforming block comments.
+            line = re.sub(comment_character + " ", "", line)
         # remove 7 or more heading levels.
         line = re.sub(comment_character + "{7,}", "", line)
         line = line.replace(comment_character, "#")
         if magic_character != "":
-            # remove the first occurence of the magic_character
+            # remove the first occurence of the magic_character only
             # (the header definition of pandoc's markdown uses the
             # percent sign, if that was the magic pattern, all pandoc
-            # standard headers would end up to be simple text.
+            # standard headers would end up to be simple text).
             line = re.sub(magic_character, "", line, count=1)
             # get rid of leading blanks
             line = re.sub(r"^\s*", "", line)
@@ -78,17 +82,19 @@ def convert(lines, comment_character, magic_character):
 # @param		file_name	The file from which the lines are to be extracted.
 # @param		comment_character	The comment character of the files language.
 # @param		magic_character	The magic character marking lines as excerpts.
+# @param		allow_pep8	Remove a leading single comment character and blank.
 # @return
 #        A list of strings containing the lines extracted and converted.
 #
 
-def excerpt(file_name, comment_character, magic_character):
+def excerpt(file_name, comment_character, magic_character, allow_pep8=True):
     lines_matched = extract_md(file_name=file_name,
                                comment_character=comment_character,
                                magic_character=magic_character)
     converted_lines = convert(lines=lines_matched,
                               comment_character=comment_character,
-                              magic_character=magic_character)
+                              magic_character=magic_character,
+                              allow_pep8=allow_pep8)
     return converted_lines
 
 
