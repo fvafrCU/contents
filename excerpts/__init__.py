@@ -8,5 +8,5 @@ extract markdown-like comments from a file and convert them to markdown.
  file by command line arguments.
 """
 
-from .main import get_toc
-from .ui import excerpt
+from .main import excerpt
+from .ui import excerpts

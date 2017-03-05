@@ -8,15 +8,15 @@ dir = os.path.dirname(sink)
 if not os.path.exists(dir):
     os.makedirs(dir)
 shutil.copyfile(source, sink)
-print(excerpts.excerpt(file_name=sink, 
+print(excerpts.excerpts(file_name=sink, 
                        comment_character='#', 
                        magic_character='%',
                        pandoc_formats="html,tex", 
                        compile_latex=True))
-print(excerpts.excerpt(file_name = sink, 
+print(excerpts.excerpts(file_name = sink, 
                        comment_character='#', 
                        magic_character='%',
                        prefix="standard_"))
-print(excerpts.get_toc(file_name = sink, 
+print(excerpts.excerpt(file_name = sink, 
                        comment_character='#', 
                        magic_character='%'))

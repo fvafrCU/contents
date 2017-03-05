@@ -8,5 +8,5 @@
 #
 
 
-from .main import get_toc
-from .ui import excerpt
+from .main import excerpt
+from .ui import excerpts

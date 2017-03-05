@@ -70,7 +70,7 @@ def convert(lines, comment_character, magic_character):
     return converted_lines
 
 
-## @brief     Get Table of Contents
+## @brief     Extract and Convert Matching Lines
 #
 #    Just a wrapper to extract_md() and convert().
 #
@@ -82,7 +82,7 @@ def convert(lines, comment_character, magic_character):
 #        A list of strings containing the lines extracted and converted.
 #
 
-def get_toc(file_name, comment_character, magic_character):
+def excerpt(file_name, comment_character, magic_character):
     lines_matched = extract_md(file_name=file_name,
                                comment_character=comment_character,
                                magic_character=magic_character)

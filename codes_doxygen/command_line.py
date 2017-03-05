@@ -82,13 +82,13 @@ try --example for an example
 
 def main():
     args = make_parser().parse_args()
-    status = excerpts.excerpt(file_name=args.file_name,
-                              comment_character=args.comment_character,
-                              magic_character=args.magic_character,
-                              output_path=args.output_path,
-                              prefix=args.prefix,
-                              postfix=args.postfix,
-                              run_pandoc=args.run_pandoc,
-                              compile_latex=args.compile_latex,
-                              pandoc_formats=args.pandoc_formats)
+    status = excerpts.excerpts(file_name=args.file_name,
+                               comment_character=args.comment_character,
+                               magic_character=args.magic_character,
+                               output_path=args.output_path,
+                               prefix=args.prefix,
+                               postfix=args.postfix,
+                               run_pandoc=args.run_pandoc,
+                               compile_latex=args.compile_latex,
+                               pandoc_formats=args.pandoc_formats)
     return status

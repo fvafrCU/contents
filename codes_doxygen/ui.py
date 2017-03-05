@@ -9,7 +9,7 @@ from . import op
 
 ## @brief     Extract, Convert and Save Markdown Style Comments From a File
 #
-#    This is merely a wrapper to get_toc(), modify_path() and pandoc().
+#    This is merely a wrapper to excerpt(), modify_path() and pandoc().
 #
 #
 # @param		file_name	The file from which the lines are to be extracted.
@@ -25,12 +25,12 @@ from . import op
 #        0 if output generation was successful.
 #
 
-def excerpt(file_name, comment_character="#", magic_character="%",
-            output_path="",
-            prefix="", postfix="", run_pandoc=True,
-            compile_latex=False, pandoc_formats="tex"):
+def excerpts(file_name, comment_character="#", magic_character="%",
+             output_path="",
+             prefix="", postfix="", run_pandoc=True,
+             compile_latex=False, pandoc_formats="tex"):
     status = 1
-    markdown_lines = main.get_toc(file_name=file_name,
+    markdown_lines = main.excerpt(file_name=file_name,
                                   comment_character=comment_character,
                                   magic_character=magic_character)
     md_file_name = main.modify_path(file_name=file_name,
