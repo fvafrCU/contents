@@ -41,6 +41,65 @@ class BasicTestSuite(unittest.TestCase):
         self.assertEqual(expectation, result)
 
 
+    def test_extract_py_nopep(self): 
+        file_name="tests/files/some_code.py"
+        with open(file_name) as infile:
+            lines = infile.readlines()
+        result = excerpts.main.extract_md(lines, 
+                                          comment_character='#', 
+                                          magic_character='%',
+                                          allow_pep8=False)
+        expectation = [] 
+        self.assertEqual(expectation, result)
+
+
+    def test_extract_py(self): 
+        file_name="tests/files/some_code.py"
+        with open(file_name) as infile:
+            lines = infile.readlines()
+        result = excerpts.main.extract_md(lines, 
+                                          comment_character='#', 
+                                          magic_character='%',
+                                          allow_pep8=True)
+        expectation =  ['# #######% % All About Me\n',
+                '# #######% % Me\n',
+                '# #######% **This** is an example of a markdown paragraph: markdown recognizes\n',
+                '# #######% only six levels of heading, so we use seven or more levels to mark\n',
+                '# #######% "normal" text.\n',
+                '# #######% Here you can use the full\n',
+                '# #######% [markdown syntax](http://daringfireball.net/projects/markdown/syntax).\n',
+                '# #######% *Note* the trailing line: markdown needs an empty line to end a\n',
+                '# #######% paragraph.\n',
+                '# #######%\n',
+                '# #% A section\n',
+                '# ##% A subsection\n',
+                '# ############% Another markdown paragraph.\n',
+                '# ############%\n']
+        self.assertEqual(expectation, result)
+        
+
+    def test_excerpt_nopep_py(self): 
+        result = excerpts.excerpt(file_name="tests/files/some_code.py", 
+                                  comment_character='#', 
+                                  magic_character='%',
+                                  allow_pep8=False)
+        expectation =  ['#  % All About Me\n',
+                '#  % Me\n',
+                '#  **This** is an example of a markdown paragraph: markdown recognizes\n',
+                '#  only six levels of heading, so we use seven or more levels to mark\n',
+                '#  "normal" text.\n',
+                '#  Here you can use the full\n',
+                '#  [markdown syntax](http://daringfireball.net/projects/markdown/syntax).\n',
+                '#  *Note* the trailing line: markdown needs an empty line to end a\n',
+                '#  paragraph.\n',
+                '# \n',
+                '# # A section\n',
+                '# ## A subsection\n',
+                '#  Another markdown paragraph.\n',
+                '# \n']
+        self.assertEqual(expectation, result)
+        
+
     def test_excerpts(self): 
         excerpts.excerpts(file_name="tests/files/some_file.txt", 
                           comment_character='#', 
