@@ -50,7 +50,7 @@ Kwargs:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;allow_pep8:&nbsp;Remove&nbsp;a&nbsp;leading&nbsp;single&nbsp;comment&nbsp;character&nbsp;and&nbsp;blank.<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;list&nbsp;of&nbsp;strings&nbsp;containing&nbsp;the&nbsp;lines&nbsp;extracted&nbsp;and&nbsp;converted.</tt></dd></dl>
- <dl><dt><a name="-extract_md"><strong>extract_md</strong></a>(lines, comment_character, magic_character)</dt><dd><tt>Extract&nbsp;Matching&nbsp;Lines<br>
+ <dl><dt><a name="-extract_md"><strong>extract_md</strong></a>(lines, comment_character, magic_character, allow_pep8=True)</dt><dd><tt>Extract&nbsp;Matching&nbsp;Lines<br>
 &nbsp;<br>
 Extract&nbsp;all&nbsp;lines&nbsp;starting&nbsp;with&nbsp;a&nbsp;combination&nbsp;of&nbsp;comment_character&nbsp;and<br>
 magic_character&nbsp;from&nbsp;a&nbsp;list.<br>
@@ -59,6 +59,8 @@ Kwargs:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;lines:&nbsp;a&nbsp;list&nbsp;containing&nbsp;the&nbsp;code&nbsp;lines.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;comment_character:&nbsp;The&nbsp;comment&nbsp;character&nbsp;of&nbsp;the&nbsp;language.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;magic_character:&nbsp;The&nbsp;magic&nbsp;character&nbsp;marking&nbsp;lines&nbsp;as&nbsp;excerpts.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;allow_pep8:&nbsp;Allow&nbsp;for&nbsp;a&nbsp;leading&nbsp;comment&nbsp;character&nbsp;and&nbsp;space&nbsp;to&nbsp;confrom<br>
+&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;<a href="http://www.python.org/dev/peps/pep-0008/">PEP&nbsp;8</a>&nbsp;block&nbsp;comments.<br>
 &nbsp;Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;list&nbsp;of&nbsp;strings&nbsp;containing&nbsp;the&nbsp;lines&nbsp;extracted.</tt></dd></dl>
  <dl><dt><a name="-modify_path"><strong>modify_path</strong></a>(file_name, postfix='', prefix='', output_path='', extension=None)</dt><dd><tt>Modify&nbsp;a&nbsp;Path<br>

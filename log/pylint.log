@@ -4,7 +4,7 @@ R: 10, 0: Too many arguments (10/5) (too-many-arguments)
 
 Report
 ======
-113 statements analysed.
+115 statements analysed.
 
 Messages by category
 --------------------
@@ -36,7 +36,7 @@ Messages
 
 Global evaluation
 -----------------
-Your code has been rated at 9.91/10 (previous run: 9.73/10, +0.18)
+Your code has been rated at 9.91/10 (previous run: 9.74/10, +0.17)
 
 Duplication
 -----------
@@ -84,13 +84,13 @@ Raw metrics
 +----------+-------+------+---------+-----------+
 |type      |number |%     |previous |difference |
 +==========+=======+======+=========+===========+
-|code      |193    |51.60 |193      |=          |
+|code      |197    |51.71 |197      |=          |
 +----------+-------+------+---------+-----------+
-|docstring |135    |36.10 |135      |=          |
+|docstring |137    |35.96 |137      |=          |
 +----------+-------+------+---------+-----------+
-|comment   |10     |2.67  |10       |=          |
+|comment   |10     |2.62  |10       |=          |
 +----------+-------+------+---------+-----------+
-|empty     |36     |9.63  |36       |=          |
+|empty     |37     |9.71  |37       |=          |
 +----------+-------+------+---------+-----------+
 
 

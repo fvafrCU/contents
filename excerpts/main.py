@@ -9,7 +9,7 @@ import re
 import os
 
 
-def extract_md(lines, comment_character, magic_character):
+def extract_md(lines, comment_character, magic_character, allow_pep8=True):
     """
     Extract Matching Lines
 
@@ -20,12 +20,19 @@ def extract_md(lines, comment_character, magic_character):
         lines: a list containing the code lines.
         comment_character: The comment character of the language.
         magic_character: The magic character marking lines as excerpts.
+        allow_pep8: Allow for a leading comment character and space to confrom
+        to PEP 8 block comments.
      Returns:
          A list of strings containing the lines extracted.
     """
     matching_lines = []
-    markdown_regex = re.compile(r"\s*" + comment_character + "+" +
-                                magic_character)
+    if allow_pep8:
+        # allow for pep8 conforming block comments.
+        markdown_regex = re.compile(r"\s*" + comment_character + "? ?" +
+                                    comment_character + "+" + magic_character)
+    else:
+        markdown_regex = re.compile(r"\s*" +
+                                    comment_character + "+" + magic_character)
     for line in lines:
         if markdown_regex.match(line):
             matching_lines.append(line)
