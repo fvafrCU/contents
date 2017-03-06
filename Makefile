@@ -69,7 +69,8 @@ docs/${modul}.html: ${SOURCE}
 docs/doxygen: ${SOURCE} .doxygen.conf
 	rm -rf docs/doxygen || true
 	mkdir docs/ || true
-	doxygen .doxygen.conf > ./log/doxygen.log 2>&1 
+	doxygen .doxygen.conf | sed -e "s#/home/.*\(${modul}\)#./\1#" \
+		> ./log/doxygen.log 2>&1 
 	! grep "warning:" ./log/doxygen.log 
 
 .PHONY: doxygenize
