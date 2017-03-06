@@ -9,14 +9,14 @@ if not os.path.exists(dir):
     os.makedirs(dir)
 shutil.copyfile(source, sink)
 print(excerpts.excerpts(file_name=sink, 
-                       comment_character='#', 
-                       magic_character='%',
-                       pandoc_formats="html,tex", 
-                       compile_latex=False))
+                        comment_character='#', 
+                        magic_character='%',
+                        pandoc_formats="html,tex", 
+                        compile_latex=False))
 print(excerpts.excerpts(file_name=sink, 
-                       comment_character='#', 
-                       magic_character='%',
-                       prefix="standard_"))
-print(excerpts.excerpt(file_name=sink, 
-                       comment_character='#', 
-                       magic_character='%'))
+                        comment_character='#', 
+                        magic_character='%',
+                        prefix="standard_"))
+print(excerpts.excerpts(file_name=sink, 
+                        comment_character='#', 
+                        magic_character='%'))

@@ -31,23 +31,22 @@ def excerpts(file_name, comment_character="#", magic_character="%",
         0 if output generation was successful.
     """
     status = 1
-    markdown_lines = main.excerpt(file_name=file_name,
-                                  comment_character=comment_character,
-                                  magic_character=magic_character,
-                                  allow_pep8=allow_pep8)
+    with open(file_name) as infile:
+        lines = infile.readlines()
+    lines = main.excerpt(lines=lines,
+                         comment_character=comment_character,
+                         magic_character=magic_character,
+                         allow_pep8=allow_pep8)
     md_file_name = main.modify_path(file_name=file_name,
                                     output_path=output_path,
                                     postfix=postfix,
                                     prefix=prefix,
                                     extension="md")
     md_file = open(md_file_name, "w")
-    md_file.writelines(markdown_lines)
+    md_file.writelines(lines)
     md_file.close()
     status = 0
     if run_pandoc:
-        status = op.pandoc(file_name=md_file_name,
-                           # doxygen misses: this is a function's argument.
-                           compile_latex=compile_latex,
-                           # doxygen misses: this is a function's argument.
+        status = op.pandoc(file_name=md_file_name, compile_latex=compile_latex,
                            formats=pandoc_formats)
     return status

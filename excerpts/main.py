@@ -79,22 +79,20 @@ def convert(lines, comment_character, magic_character, allow_pep8=True):
     return converted_lines
 
 
-def excerpt(file_name, comment_character, magic_character, allow_pep8=True):
+def excerpt(lines, comment_character, magic_character, allow_pep8=True):
     """
     Extract and Convert Matching Lines
 
     Just a wrapper to extract_md() and convert().
 
     Kwargs:
-        file_name: The file from which the lines are to be extracted.
+        lines: a list containing the code lines.
         comment_character: The comment character of the files language.
         magic_character: The magic character marking lines as excerpts.
         allow_pep8: Remove a leading single comment character and blank.
     Returns:
         A list of strings containing the lines extracted and converted.
     """
-    with open(file_name) as infile:
-        lines = infile.readlines()
     lines_matched = extract_md(lines=lines,
                                comment_character=comment_character,
                                magic_character=magic_character)

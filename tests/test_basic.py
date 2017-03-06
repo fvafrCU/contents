@@ -9,7 +9,10 @@ class BasicTestSuite(unittest.TestCase):
     """Basic test cases."""
 
     def test_excerpt(self): 
-        result = excerpts.excerpt(file_name="tests/files/some_file.txt", 
+        file_name="tests/files/some_file.txt"
+        with open(file_name) as infile:
+            txt_lines = infile.readlines()
+        result = excerpts.excerpt(lines=txt_lines,
                                   comment_character='#', 
                                   magic_character='%')
         expectation =  ['% All About Me\n', '% Me\n', 
@@ -25,7 +28,10 @@ class BasicTestSuite(unittest.TestCase):
 
 
     def test_excerpt_nopep(self): 
-        result = excerpts.excerpt(file_name="tests/files/some_file.txt", 
+        file_name="tests/files/some_file.txt"
+        with open(file_name) as infile:
+            txt_lines = infile.readlines()
+        result = excerpts.excerpt(lines=txt_lines, 
                                   comment_character='#', 
                                   magic_character='%',
                                   allow_pep8=False)
@@ -44,8 +50,8 @@ class BasicTestSuite(unittest.TestCase):
     def test_extract_py_nopep(self): 
         file_name="tests/files/some_code.py"
         with open(file_name) as infile:
-            lines = infile.readlines()
-        result = excerpts.main.extract_md(lines, 
+            py_lines = infile.readlines()
+        result = excerpts.main.extract_md(py_lines, 
                                           comment_character='#', 
                                           magic_character='%',
                                           allow_pep8=False)
@@ -56,8 +62,8 @@ class BasicTestSuite(unittest.TestCase):
     def test_extract_py(self): 
         file_name="tests/files/some_code.py"
         with open(file_name) as infile:
-            lines = infile.readlines()
-        result = excerpts.main.extract_md(lines, 
+            py_lines = infile.readlines()
+        result = excerpts.main.extract_md(py_lines, 
                                           comment_character='#', 
                                           magic_character='%',
                                           allow_pep8=True)
@@ -79,7 +85,10 @@ class BasicTestSuite(unittest.TestCase):
         
 
     def test_excerpt_nopep_py(self): 
-        result = excerpts.excerpt(file_name="tests/files/some_code.py", 
+        file_name="tests/files/some_code.py"
+        with open(file_name) as infile:
+            py_lines = infile.readlines()
+        result = excerpts.excerpt(lines=py_lines, 
                                   comment_character='#', 
                                   magic_character='%',
                                   allow_pep8=False)
