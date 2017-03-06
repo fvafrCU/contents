@@ -3,21 +3,21 @@
 modul := excerpts
 postfix := _o
 TEST_FILE := tests/files/some_file.txt
-
+CLI := ~/.local/bin/${modul}
 ##% derived variables
 SOURCE := $(shell find ${modul} -type f -name "*.py")
 
 
 #% make targets
-all: doc analyse package run testing tests 
+all: install doc analyse package run testing tests 
 
 ##% installation
 install:
 	 pip3 install . --upgrade --user
 
 ##% cli
-cli:
-	~/.local/bin/${modul} tests/files/some_file.txt -o _cli -O output \
+cli: install
+	${CLI} ${TEST_FILE} -o _cli -O output \
 		-p --formats html
 
 ##% testpypi
@@ -44,12 +44,12 @@ log/coverage.log: tests/test_basic.py ${SOURCE}
 	python3-coverage report -m > log/coverage.log
 	python3-coverage html
 
-tests: tests/files/glm.md tests/files/phy.md
-tests/files/glm.md:
-	./bin/${modul} -c '#' -m '%' tests/files/glm.R
+tests: tests/files/glm.md tests/files/phy.md ${SOURCE}
+tests/files/glm.md: tests/files/glm.R
+	${CLI} -c '#' -m '%' tests/files/glm.R
 
-tests/files/phy.md: 
-	./bin/${modul} -c '///' -m '%' tests/files/phy.c
+tests/files/phy.md: tests/files/phy.c
+	${CLI} -c '///' -m '%' tests/files/phy.c
 ##%  analyse code
 analyse: log/pep8.log log/pylint.log
 
@@ -69,7 +69,8 @@ docs/${modul}.html: ${SOURCE}
 docs/doxygen: ${SOURCE} .doxygen.conf
 	rm -rf docs/doxygen || true
 	mkdir docs/ || true
-	doxygen .doxygen.conf > ./log/doxygen.log 2>&1 
+	doxygen .doxygen.conf | sed -e "s#/home/.*\(${modul}\)#./\1#" \
+		> ./log/doxygen.log 2>&1 
 	! grep "warning:" ./log/doxygen.log 
 
 .PHONY: doxygenize

@@ -9,28 +9,33 @@ import re
 import os
 
 
-def extract_md(file_name, comment_character, magic_character):
+def extract_md(lines, comment_character, magic_character, allow_pep8=True):
     """
     Extract Matching Lines
 
     Extract all lines starting with a combination of comment_character and
-    magic_character from a file.
+    magic_character from a list.
 
     Kwargs:
-        file_name: The file from which the lines are to be extracted.
-        comment_character: The comment character of the files language.
+        lines: a list containing the code lines.
+        comment_character: The comment character of the language.
         magic_character: The magic character marking lines as excerpts.
+        allow_pep8: Allow for a leading comment character and space to confrom
+        to PEP 8 block comments.
      Returns:
          A list of strings containing the lines extracted.
     """
     matching_lines = []
-    markdown_regex = re.compile(r"\s*" + comment_character + "+" +
-                                magic_character)
-    infile = open(file_name, "r")
-    for line in infile:
+    if allow_pep8:
+        # allow for pep8 conforming block comments.
+        markdown_regex = re.compile(r"\s*" + comment_character + "? ?" +
+                                    comment_character + "+" + magic_character)
+    else:
+        markdown_regex = re.compile(r"\s*" +
+                                    comment_character + "+" + magic_character)
+    for line in lines:
         if markdown_regex.match(line):
             matching_lines.append(line)
-    infile.close()
     return matching_lines
 
 
@@ -88,7 +93,9 @@ def excerpt(file_name, comment_character, magic_character, allow_pep8=True):
     Returns:
         A list of strings containing the lines extracted and converted.
     """
-    lines_matched = extract_md(file_name=file_name,
+    with open(file_name) as infile:
+        lines = infile.readlines()
+    lines_matched = extract_md(lines=lines,
                                comment_character=comment_character,
                                magic_character=magic_character)
     converted_lines = convert(lines=lines_matched,
