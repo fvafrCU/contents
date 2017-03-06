@@ -50,14 +50,14 @@ Kwargs:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;allow_pep8:&nbsp;Remove&nbsp;a&nbsp;leading&nbsp;single&nbsp;comment&nbsp;character&nbsp;and&nbsp;blank.<br>
 Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;list&nbsp;of&nbsp;strings&nbsp;containing&nbsp;the&nbsp;lines&nbsp;extracted&nbsp;and&nbsp;converted.</tt></dd></dl>
- <dl><dt><a name="-extract_md"><strong>extract_md</strong></a>(file_name, comment_character, magic_character)</dt><dd><tt>Extract&nbsp;Matching&nbsp;Lines<br>
+ <dl><dt><a name="-extract_md"><strong>extract_md</strong></a>(lines, comment_character, magic_character)</dt><dd><tt>Extract&nbsp;Matching&nbsp;Lines<br>
 &nbsp;<br>
 Extract&nbsp;all&nbsp;lines&nbsp;starting&nbsp;with&nbsp;a&nbsp;combination&nbsp;of&nbsp;comment_character&nbsp;and<br>
-magic_character&nbsp;from&nbsp;a&nbsp;file.<br>
+magic_character&nbsp;from&nbsp;a&nbsp;list.<br>
 &nbsp;<br>
 Kwargs:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;file_name:&nbsp;The&nbsp;file&nbsp;from&nbsp;which&nbsp;the&nbsp;lines&nbsp;are&nbsp;to&nbsp;be&nbsp;extracted.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;comment_character:&nbsp;The&nbsp;comment&nbsp;character&nbsp;of&nbsp;the&nbsp;files&nbsp;language.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;lines:&nbsp;a&nbsp;list&nbsp;containing&nbsp;the&nbsp;code&nbsp;lines.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;comment_character:&nbsp;The&nbsp;comment&nbsp;character&nbsp;of&nbsp;the&nbsp;language.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;magic_character:&nbsp;The&nbsp;magic&nbsp;character&nbsp;marking&nbsp;lines&nbsp;as&nbsp;excerpts.<br>
 &nbsp;Returns:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;list&nbsp;of&nbsp;strings&nbsp;containing&nbsp;the&nbsp;lines&nbsp;extracted.</tt></dd></dl>
