@@ -74,7 +74,12 @@ try --example for an example
                         help="Comma seperated list of pandoc output " +
                         "formats. Only interpreted if --pandoc is given.")
     parser.add_argument("--no-pep8", dest="allow_pep8",
-                        help="Allow for pep8 block comments.",
+                        help="Do not adjust for pep8 block comments." + 
+                        "PEP 8 requires block comments start with a single " + 
+                        "comment character and a single space. This is " +
+                        "why excerpts by default removes a leading comment " +
+                        "character and a single space. Set to False to " +
+                        "disable this behaviour.",
                         action="store_false")
     parser.set_defaults(run_pandoc=False, compile_latex=False, allow_pep8=True)
     return parser
