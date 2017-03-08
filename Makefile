@@ -3,9 +3,10 @@
 modul := excerpts
 postfix := _o
 TEST_FILE := tests/files/some_file.txt
-CLI := ~/.local/bin/${modul}
 ##% derived variables
+CLI := ~/.local/bin/${modul}
 SOURCE := $(shell find ${modul} -type f -name "*.py")
+VERSION := $(shell grep version ./setup.py | cut -f2 -d"'")
 
 
 #% make targets
@@ -23,8 +24,8 @@ cli: install
 ##% testpypi
 .PHONY: testpypi
 testpypi: package
-	python setup.py register -r https://testpypi.python.org/pypi
-	twine upload dist/* -r testpypi
+	python3 setup.py register -r https://testpypi.python.org/pypi
+	twine upload dist/*${VERSION}* -r testpypi
 
 ##% packaging
 package: dist build
@@ -78,8 +79,8 @@ doxygenize: ${SOURCE}
 	./utils/doxygenize.cl 
 
 ##% maintenance
-init:
-	pip3 install --user -r requirements.txt
+dependencies:
+	pip3 install --user -r dependencies.txt
 
 ##% utils
 run: install
