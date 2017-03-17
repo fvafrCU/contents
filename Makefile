@@ -13,7 +13,7 @@ VERSION := $(shell grep version ./setup.py | cut -f2 -d"'")
 all: install doc analyse package run testing tests 
 
 ##% installation
-install:
+install: README.rst
 	 pip3 install . --upgrade --user
 
 ##% cli
@@ -28,7 +28,7 @@ testpypi: package
 	twine upload dist/*${VERSION}* -r testpypi
 
 ##% packaging
-package: dist build
+package: dist build README.rst
 
 dist: ${SOURCE} ./setup.py
 	python3 ./setup.py sdist
@@ -61,7 +61,7 @@ log/pylint.log: ${SOURCE}
 	pylint ./${modul}/ > ./log/pylint.log || true
 
 ##% create documentation
-doc: ./docs/${modul}.html ./docs/doxygen doxygenize README.rst
+doc: ./docs/${modul}.html ./docs/doxygen doxygenize 
 
 docs/${modul}.html: ${SOURCE}
 	./utils/pydoc.cl
@@ -74,6 +74,7 @@ docs/doxygen: ${SOURCE} .doxygen.conf
 		> ./log/doxygen.log 2>&1 
 	! grep "warning:" ./log/doxygen.log 
 
+##% README
 README.rst: README.rstw
 	sudo pweave README.rstw
 
@@ -82,7 +83,7 @@ doxygenize: ${SOURCE}
 	./utils/doxygenize.cl 
 
 ##% maintenance
-dependencies:
+requirements:
 	pip3 install --user -r requirements.txt
 
 ##% utils
