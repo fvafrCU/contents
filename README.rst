@@ -1,7 +1,7 @@
 Excerpts
 ========
 
-Exract markdown style comments from a file.
+Excerpt markdown style comments from a file.
 
 Ever read or wrote source files containing sectioning comments?
 If these comments are markdown style section comments, we can extract them and
@@ -53,6 +53,14 @@ Then excperting the marked comments
     
     excerpted = excerpts.excerpt(lines = lines, comment_character="#",
         magic_character="%")
+    
+
+
+
+gives
+
+.. code:: python
+
     print(*excerpted)
     
 
@@ -77,7 +85,25 @@ Then excperting the marked comments
     
 
 
+which is valid 
+`markdown <https://daringfireball.net/projects/markdown/>`_
+for 
+`pandoc <https://www.pandoc.org>`_
+.
 
+If you want to excerpt from a file an run pandoc on the result, you can use
+
+
+.. code:: python
+
+    excerpts.excerpts(file_name = file_name, comment_character="#",
+        magic_character="%", output_path="output", run_pandoc=True,
+        pandoc_formats="html")
+    
+
+
+to generate 
+`this file. <output/some_file.html>`_
 
 
 Requirements
