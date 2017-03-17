@@ -7,9 +7,26 @@ Ever read or wrote source files containing sectioning comments?
 If these comments are markdown style section comments, we can extract them and
 set a table of contents.
 
+Suppose you have a file reading:
 <<>>=
-print('hello, world')
+file_name = 'tests/files/some_file.txt'
+with open(file_name, 'r') as fin:
+    print(fin.read())
 @
+
+Then excperting the marked comments
+<<>>=
+import excerpts
+with open(file_name) as infile:
+    lines = infile.readlines()
+
+excerpted = excerpts.excerpt(lines = lines, comment_character="#", 
+    magic_character="%")
+print(*excerpted)
+@
+
+
+
 Requirements
 ------------
 

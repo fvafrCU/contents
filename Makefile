@@ -75,8 +75,8 @@ docs/doxygen: ${SOURCE} .doxygen.conf
 	! grep "warning:" ./log/doxygen.log 
 
 ##% README
-README.rst: README.rstw
-	sudo pweave README.rstw
+README.rst: README.rstw tests/files/some_file.txt
+	pweave README.rstw && pandoc README.rst -o tmp_README.html
 
 .PHONY: doxygenize
 doxygenize: ${SOURCE}
