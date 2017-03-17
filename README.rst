@@ -43,7 +43,7 @@ Suppose you have a file reading:
 
 
 
-Then excperting the marked comments
+Then excerpting the marked comments
 
 .. code:: python
 
