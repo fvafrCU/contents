@@ -61,7 +61,7 @@ log/pylint.log: ${SOURCE}
 	pylint ./${modul}/ > ./log/pylint.log || true
 
 ##% create documentation
-doc: ./docs/${modul}.html ./docs/doxygen doxygenize
+doc: ./docs/${modul}.html ./docs/doxygen doxygenize README.rst
 
 docs/${modul}.html: ${SOURCE}
 	./utils/pydoc.cl
@@ -73,6 +73,9 @@ docs/doxygen: ${SOURCE} .doxygen.conf
 	doxygen .doxygen.conf | sed -e "s#/home/.*\(${modul}\)#./\1#" \
 		> ./log/doxygen.log 2>&1 
 	! grep "warning:" ./log/doxygen.log 
+
+README.rst: README.rstw
+	sudo pweave README.rstw
 
 .PHONY: doxygenize
 doxygenize: ${SOURCE}

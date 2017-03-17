@@ -7,19 +7,9 @@ Ever read or wrote source files containing sectioning comments?
 If these comments are markdown style section comments, we can extract them and
 set a table of contents.
 
-
-.. code:: python
-
-    print('hello, world')
-    
-
-.. code::
-
-    hello, world
-    
-    
-
-
+<<>>=
+print('hello, world')
+@
 Requirements
 ------------
 
