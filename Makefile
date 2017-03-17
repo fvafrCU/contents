@@ -80,7 +80,7 @@ doxygenize: ${SOURCE}
 
 ##% maintenance
 dependencies:
-	pip3 install --user -r dependencies.txt
+	pip3 install --user -r requirements.txt
 
 ##% utils
 run: install
