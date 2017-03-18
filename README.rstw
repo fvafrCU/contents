@@ -1,12 +1,16 @@
 Excerpts
 ========
 
+Introduction
+------------
 Excerpt markdown style comments from a file.
 
 Ever read or wrote source files containing sectioning comments?
 If these comments are markdown style section comments, we can extract them and
 set a table of contents.
 
+By Example
+----------
 Suppose you have a file reading:
 <<>>=
 file_name = 'tests/files/some_file.txt'
@@ -14,7 +18,7 @@ with open(file_name, 'r') as fin:
     print(fin.read())
 @
 
-Then excerpting the marked comments
+Then excerpting the marked comments via
 <<>>=
 import excerpts
 with open(file_name) as infile:
@@ -24,9 +28,12 @@ excerpted = excerpts.excerpt(lines = lines, comment_character="#",
     magic_character="%")
 @
 
+<<evaluate = False>>=
+print (''.join(str(p) for p in excerpted))
+@
 gives
-<<>>=
-print(*excerpted)
+<<echo = False>>=
+print (''.join(str(p) for p in excerpted))
 @
 which is valid 
 `markdown <https://daringfireball.net/projects/markdown/>`_
@@ -34,7 +41,9 @@ for
 `pandoc <https://www.pandoc.org>`_
 .
 
-If you want to excerpt from a file an run pandoc on the result, you can use
+Working with Files
+~~~~~~~~~~~~~~~~~~
+If you want to excerpt from a file and run pandoc on the result, you can use
 
 <<>>=
 excerpts.excerpts(file_name = file_name, comment_character="#", 
@@ -43,6 +52,13 @@ excerpts.excerpts(file_name = file_name, comment_character="#",
 @
 to generate 
 `this file. <output/some_file.html>`_
+
+PEP8 
+----
+PEP8 requires each "line of a block comment starts with a # and a single space".
+excerpts takes care of this requirement by removing a single comment character
+that is followed by a space and a sequence of comments characters.
+Should you need to disable this behaviour, you can set allow_pep8 to False.
 
 
 Requirements

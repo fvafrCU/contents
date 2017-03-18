@@ -24,7 +24,7 @@ cli: install
 ##% testpypi
 .PHONY: testpypi
 testpypi: package
-	python3 setup.py register -r https://testpypi.python.org/pypi
+	# python3 setup.py register -r https://testpypi.python.org/pypi
 	twine upload dist/*${VERSION}* -r testpypi
 
 ##% packaging
@@ -76,7 +76,7 @@ docs/doxygen: ${SOURCE} .doxygen.conf
 
 ##% README
 README.rst: README.rstw tests/files/some_file.txt
-	pweave README.rstw 
+	pweave README.rstw && pandoc README.rst -o tmp_README.pdf
 
 .PHONY: doxygenize
 doxygenize: ${SOURCE}
@@ -89,3 +89,5 @@ requirements:
 ##% utils
 run: install
 	python3 ./utils/run.py
+tests/files/some_code.py: tests/files/some_file.txt
+	./utils/python_file.cl

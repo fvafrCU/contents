@@ -1,12 +1,16 @@
 Excerpts
 ========
 
+Introduction
+------------
 Excerpt markdown style comments from a file.
 
 Ever read or wrote source files containing sectioning comments?
 If these comments are markdown style section comments, we can extract them and
 set a table of contents.
 
+By Example
+----------
 Suppose you have a file reading:
 
 .. code:: python
@@ -43,7 +47,7 @@ Suppose you have a file reading:
 
 
 
-Then excerpting the marked comments
+Then excerpting the marked comments via
 
 .. code:: python
 
@@ -57,28 +61,30 @@ Then excerpting the marked comments
 
 
 
-gives
 
 .. code:: python
 
-    print(*excerpted)
+    print (''.join(str(p) for p in excerpted))
     
+
+
+gives
 
 .. code::
 
     % All About Me
-     % Me
-     **This** is an example of a markdown paragraph: markdown
-     recognizes only six levels of heading, so we use seven or
-     more levels to mark "normal" text.
-     Here you can use the full markdown
-     [syntax](http://daringfireball.net/projects/markdown/syntax).
-     *Note* the trailing line: markdown needs an empty line to end
-     a paragraph.
+    % Me
+    **This** is an example of a markdown paragraph: markdown
+    recognizes only six levels of heading, so we use seven or
+    more levels to mark "normal" text.
+    Here you can use the full markdown
+    [syntax](http://daringfireball.net/projects/markdown/syntax).
+    *Note* the trailing line: markdown needs an empty line to end
+    a paragraph.
     
-     # A section
-     ## A subsection
-     Another markdown paragraph.
+    # A section
+    ## A subsection
+    Another markdown paragraph.
     
     
     
@@ -91,7 +97,9 @@ for
 `pandoc <https://www.pandoc.org>`_
 .
 
-If you want to excerpt from a file an run pandoc on the result, you can use
+Working with Files
+~~~~~~~~~~~~~~~~~~
+If you want to excerpt from a file and run pandoc on the result, you can use
 
 
 .. code:: python
