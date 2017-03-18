@@ -12,7 +12,7 @@ set a table of contents.
 By Example
 ----------
 Suppose you have a file reading:
-<<>>=
+<<echo = False>>=
 file_name = 'tests/files/some_file.txt'
 with open(file_name, 'r') as fin:
     print(fin.read())

@@ -13,13 +13,6 @@ By Example
 ----------
 Suppose you have a file reading:
 
-.. code:: python
-
-    file_name = 'tests/files/some_file.txt'
-    with open(file_name, 'r') as fin:
-        print(fin.read())
-    
-
 .. code::
 
     #######% % All About Me
