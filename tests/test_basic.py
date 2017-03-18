@@ -15,15 +15,20 @@ class BasicTestSuite(unittest.TestCase):
         result = excerpts.excerpt(lines=txt_lines,
                                   comment_character='#', 
                                   magic_character='%')
-        expectation =  ['% All About Me\n', '% Me\n', 
-        '**This** is an example of a markdown paragraph: markdown recognizes\n',
-        'only six levels of heading, so we use seven or more levels to mark\n', 
-        '"normal" text.\n', 
-        'Here you can use the full\n', 
-        '[markdown syntax](http://daringfireball.net/projects/markdown/syntax).\n', 
-        '*Note* the trailing line: markdown needs an empty line to end a\n', 
-        'paragraph.\n', '\n', '# A section\n', '## A subsection\n', 
-        'Another markdown paragraph.\n', '\n']
+        expectation =  ['% All About Me\n',
+                '% Me\n',
+                '**This** is an example of a markdown paragraph: markdown \n',
+                'recognizes only six levels of heading, so we use seven or\n',
+                'more levels to mark "normal" text.\n',
+                'Here you can use the full markdown \n',
+                '[syntax](http://daringfireball.net/projects/markdown/syntax).\n',
+                '*Note* the trailing line: markdown needs an empty line to end\n',
+                'a paragraph.\n',
+                '\n',
+                '# A section\n',
+                '## A subsection\n',
+                'Another markdown paragraph.\n',
+                '\n']
         self.assertEqual(expectation, result)
 
 
@@ -35,15 +40,20 @@ class BasicTestSuite(unittest.TestCase):
                                   comment_character='#', 
                                   magic_character='%',
                                   allow_pep8=False)
-        expectation =  ['% All About Me\n', '% Me\n', 
-        '**This** is an example of a markdown paragraph: markdown recognizes\n',
-        'only six levels of heading, so we use seven or more levels to mark\n', 
-        '"normal" text.\n', 
-        'Here you can use the full\n', 
-        '[markdown syntax](http://daringfireball.net/projects/markdown/syntax).\n', 
-        '*Note* the trailing line: markdown needs an empty line to end a\n', 
-        'paragraph.\n', '\n', '# A section\n', '## A subsection\n', 
-        'Another markdown paragraph.\n', '\n']
+        expectation =  ['% All About Me\n',
+                '% Me\n',
+                '**This** is an example of a markdown paragraph: markdown \n',
+                'recognizes only six levels of heading, so we use seven or\n',
+                'more levels to mark "normal" text.\n',
+                'Here you can use the full markdown \n',
+                '[syntax](http://daringfireball.net/projects/markdown/syntax).\n',
+                '*Note* the trailing line: markdown needs an empty line to end\n',
+                'a paragraph.\n',
+                '\n',
+                '# A section\n',
+                '## A subsection\n',
+                'Another markdown paragraph.\n',
+                '\n']
         self.assertEqual(expectation, result)
 
 
@@ -67,15 +77,15 @@ class BasicTestSuite(unittest.TestCase):
                                           comment_character='#', 
                                           magic_character='%',
                                           allow_pep8=True)
-        expectation =  ['# #######% % All About Me\n',
+        expectation = ['# #######% % All About Me\n',
                 '# #######% % Me\n',
-                '# #######% **This** is an example of a markdown paragraph: markdown recognizes\n',
-                '# #######% only six levels of heading, so we use seven or more levels to mark\n',
-                '# #######% "normal" text.\n',
-                '# #######% Here you can use the full\n',
-                '# #######% [markdown syntax](http://daringfireball.net/projects/markdown/syntax).\n',
-                '# #######% *Note* the trailing line: markdown needs an empty line to end a\n',
-                '# #######% paragraph.\n',
+                '# #######% **This** is an example of a markdown paragraph: markdown \n',
+                '# #######% recognizes only six levels of heading, so we use seven or\n',
+                '# #######% more levels to mark "normal" text.\n',
+                '# #######% Here you can use the full markdown \n',
+                '# #######% [syntax](http://daringfireball.net/projects/markdown/syntax).\n',
+                '# #######% *Note* the trailing line: markdown needs an empty line to end\n',
+                '# #######% a paragraph.\n',
                 '# #######%\n',
                 '# #% A section\n',
                 '# ##% A subsection\n',
@@ -92,15 +102,15 @@ class BasicTestSuite(unittest.TestCase):
                                   comment_character='#', 
                                   magic_character='%',
                                   allow_pep8=False)
-        expectation =  ['#  % All About Me\n',
+        expectation = ['#  % All About Me\n',
                 '#  % Me\n',
-                '#  **This** is an example of a markdown paragraph: markdown recognizes\n',
-                '#  only six levels of heading, so we use seven or more levels to mark\n',
-                '#  "normal" text.\n',
-                '#  Here you can use the full\n',
-                '#  [markdown syntax](http://daringfireball.net/projects/markdown/syntax).\n',
-                '#  *Note* the trailing line: markdown needs an empty line to end a\n',
-                '#  paragraph.\n',
+                '#  **This** is an example of a markdown paragraph: markdown \n',
+                '#  recognizes only six levels of heading, so we use seven or\n',
+                '#  more levels to mark "normal" text.\n',
+                '#  Here you can use the full markdown \n',
+                '#  [syntax](http://daringfireball.net/projects/markdown/syntax).\n',
+                '#  *Note* the trailing line: markdown needs an empty line to end\n',
+                '#  a paragraph.\n',
                 '# \n',
                 '# # A section\n',
                 '# ## A subsection\n',
@@ -116,15 +126,20 @@ class BasicTestSuite(unittest.TestCase):
         with open("tests/files/some_file.md") as f:
             result = f.readlines() 
         f.close()
-        expectation =  ['% All About Me\n', '% Me\n', 
-        '**This** is an example of a markdown paragraph: markdown recognizes\n',
-        'only six levels of heading, so we use seven or more levels to mark\n', 
-        '"normal" text.\n', 
-        'Here you can use the full\n', 
-        '[markdown syntax](http://daringfireball.net/projects/markdown/syntax).\n', 
-        '*Note* the trailing line: markdown needs an empty line to end a\n', 
-        'paragraph.\n', '\n', '# A section\n', '## A subsection\n', 
-        'Another markdown paragraph.\n', '\n']
+        expectation =  ['% All About Me\n',
+                '% Me\n',
+                '**This** is an example of a markdown paragraph: markdown \n',
+                'recognizes only six levels of heading, so we use seven or\n',
+                'more levels to mark "normal" text.\n',
+                'Here you can use the full markdown \n',
+                '[syntax](http://daringfireball.net/projects/markdown/syntax).\n',
+                '*Note* the trailing line: markdown needs an empty line to end\n',
+                'a paragraph.\n',
+                '\n',
+                '# A section\n',
+                '## A subsection\n',
+                'Another markdown paragraph.\n',
+                '\n']
         self.assertEqual(expectation, result)
 
 

@@ -11,8 +11,8 @@ with open('LICENSE') as f:
 
 setup(
     name='excerpts',
-    version='0.10.0',
-    description='Exract markdown style comments from a file.',
+    version='0.10.1',
+    description='Excerpt markdown style comments from a file.',
     author='Andreas Dominik Cullmann',
     author_email='dominik.cullmann@forst.bwl.de',
     url='https://github.com/fvafrcu/excerpts',

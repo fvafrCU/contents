@@ -52,6 +52,12 @@ excerpts.excerpts(file_name = file_name, comment_character="#",
 @
 to generate 
 `this file. <output/some_file.html>`_
+Excerpts ships with a command line interface that you may call from your
+operating systems' command line instead of from python3:
+<<echo = False >>=
+import subprocess
+print(subprocess.check_output(['excerpts', '-h']).decode('UTF-8').split(sep = 'file')[0])
+@
 
 PEP8 
 ----

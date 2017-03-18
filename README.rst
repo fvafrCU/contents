@@ -112,6 +112,28 @@ If you want to excerpt from a file and run pandoc on the result, you can use
 
 to generate 
 `this file. <output/some_file.html>`_
+Excerpts ships with a command line interface that you may call from your
+operating systems' command line instead of from python3:
+
+.. code::
+
+    usage: excerpts [-h] [-O OUTPUT_PATH] [-o POSTFIX] [-e PREFIX]
+                    [-c COMMENT_CHARACTER] [-m MAGIC_CHARACTER] [-v] [-x]
+    [-p]
+                    [-n] [-l] [--no-latex] [--formats PANDOC_FORMATS]
+    [--no-pep8]
+    
+    
+    
+
+
+
+PEP8 
+----
+PEP8 requires each "line of a block comment starts with a # and a single space".
+excerpts takes care of this requirement by removing a single comment character
+that is followed by a space and a sequence of comments characters.
+Should you need to disable this behaviour, you can set allow_pep8 to False.
 
 
 Requirements

@@ -1,7 +1,7 @@
 Metadata-Version: 1.0
 Name: excerpts
-Version: 0.9.1
-Summary: Exract markdown style comments from a file.
+Version: 0.10.1
+Summary: Excerpt markdown style comments from a file.
 Home-page: https://github.com/fvafrcu/excerpts
 Author: Andreas Dominik Cullmann
 Author-email: dominik.cullmann@forst.bwl.de

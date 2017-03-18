@@ -43,7 +43,7 @@ try --example for an example
                         default="%",
                         help="Change the magic character.")
     parser.add_argument("-v", "--version", action="version",
-                        version="0.3.0")
+                        version="0.10.1")
     parser.add_argument("-x", "--example", action="version",
                         help="Give an example and exit.",
                         version=("""
