@@ -9,18 +9,16 @@ Especially in scientific and/or data analysis scripts I see a lot like
 
 .. code:: python
 
-    ### Collect data
+    ### Collect Data
     
-
 
 
 or 
 
-
 .. code:: python
 
     ###
-    ### Remove outliers
+    ### Remove Outliers
     ###
     
 
@@ -33,7 +31,8 @@ or even
     
 
 
-`RStudio <https://rstudio.com>`_, an IDE for the 
+
+(`RStudio <https://rstudio.com>`_, an IDE for the
 `programming language R <https://www.r-project.org/>`_ has
 even come up with their own
 `code sectioning and folding feature
@@ -46,15 +45,66 @@ that requires comments like
     
 
 
-
-
+)
 
 If these comments are markdown style section comments, we can extract them and
 set a table of contents.
 
-By Example
-----------
-Suppose you have a file reading:
+A First Example
+---------------
+Suppose you have the following code:
+
+.. code::
+
+    #!/usr/bin/env python3
+    
+    # #% A Tutorial Introduction
+    
+    # ##% Getting Started
+    
+    # no need to import anything
+    print('hello, world')
+    
+    # ###% The First Python Function
+    def main():
+        print('hello, world')
+    
+    
+    main()
+    
+    # ##% Variables and Arithmetic Expressions
+    print('some code')
+    
+    # a comment
+    print('more code')
+    
+    
+    
+    
+
+
+We can excerpt the comments marked by '%':
+
+.. code::
+
+    # A Tutorial Introduction
+    ## Getting Started
+    ### The First Python Function
+    ## Variables and Arithmetic Expressions
+    
+    
+    
+
+
+which is valid 
+`markdown <https://daringfireball.net/projects/markdown/>`_
+that we can convert using 
+`pandoc <https://www.pandoc.org>`_
+.
+
+A Bit More Elaborated
+---------------------
+Suppose you have a file 'tests/files/some_file.txt' reading:
 
 .. code::
 
@@ -88,6 +138,7 @@ Then excerpting the marked comments via
 .. code:: python
 
     import excerpts
+    file_name = 'tests/files/some_file.txt'
     with open(file_name) as infile:
         lines = infile.readlines()
     
@@ -127,7 +178,7 @@ gives
     
 
 
-which is valid 
+which again is valid 
 `markdown <https://daringfireball.net/projects/markdown/>`_
 for 
 `pandoc <https://www.pandoc.org>`_
@@ -148,7 +199,10 @@ If you want to excerpt from a file and run pandoc on the result, you can use
 
 to generate 
 `this file. <output/some_file.html>`_
-Excerpts ships with a command line interface that you may call from your
+
+Command Line Interface
+......................
+Excerpts has a command line interface that you may call from your
 operating systems' command line instead of from python3:
 
 .. code::
@@ -158,6 +212,8 @@ operating systems' command line instead of from python3:
     [-p]
                     [-n] [-l] [--no-latex] [--formats PANDOC_FORMATS]
     [--no-pep8]
+                    file
+    
     
     
     

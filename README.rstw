@@ -7,21 +7,20 @@ Introduction
 Ever read or wrote source files containing sectioning comments?
 Especially in scientific and/or data analysis scripts I see a lot like
 <<>>=
-### Collect data
+### Collect Data
 @
-
 or 
-
 <<>>=
 ###
-### Remove outliers 
+### Remove Outliers 
 ###
 @
 or even
 <<>>=
 ### 2.1 Descriptive Statistics
 @
-`RStudio <https://rstudio.com>`_, an IDE for the 
+
+(`RStudio <https://rstudio.com>`_, an IDE for the
 `programming language R <https://www.r-project.org/>`_ has
 even come up with their own
 `code sectioning and folding feature
@@ -30,15 +29,38 @@ that requires comments like
 <<>>=
 # Hypothesis Testing ----
 @
-
-
+)
 
 If these comments are markdown style section comments, we can extract them and
 set a table of contents.
 
-By Example
-----------
-Suppose you have a file reading:
+A First Example
+---------------
+Suppose you have the following code:
+<<echo = False>>=
+file_name = 'tests/files/hello.py'
+with open(file_name, 'r') as fin:
+    print(fin.read())
+@
+We can excerpt the comments marked by '%':
+<<echo = False>>=
+import excerpts
+with open(file_name) as infile:
+    lines = infile.readlines()
+
+excerpted = excerpts.excerpt(lines = lines, comment_character="#", 
+    magic_character="%")
+print (''.join(str(p) for p in excerpted))
+@
+which is valid 
+`markdown <https://daringfireball.net/projects/markdown/>`_
+that we can convert using 
+`pandoc <https://www.pandoc.org>`_
+.
+
+A Bit More Elaborated
+---------------------
+Suppose you have a file 'tests/files/some_file.txt' reading:
 <<echo = False>>=
 file_name = 'tests/files/some_file.txt'
 with open(file_name, 'r') as fin:
@@ -48,6 +70,7 @@ with open(file_name, 'r') as fin:
 Then excerpting the marked comments via
 <<>>=
 import excerpts
+file_name = 'tests/files/some_file.txt'
 with open(file_name) as infile:
     lines = infile.readlines()
 
@@ -62,7 +85,7 @@ gives
 <<echo = False>>=
 print (''.join(str(p) for p in excerpted))
 @
-which is valid 
+which again is valid 
 `markdown <https://daringfireball.net/projects/markdown/>`_
 for 
 `pandoc <https://www.pandoc.org>`_
@@ -79,11 +102,14 @@ excerpts.excerpts(file_name = file_name, comment_character="#",
 @
 to generate 
 `this file. <output/some_file.html>`_
-Excerpts ships with a command line interface that you may call from your
+
+Command Line Interface
+......................
+Excerpts has a command line interface that you may call from your
 operating systems' command line instead of from python3:
 <<echo = False >>=
 import subprocess
-print(subprocess.check_output(['excerpts', '-h']).decode('UTF-8').split(sep = 'file')[0])
+print(subprocess.check_output(['excerpts', '-h']).decode('UTF-8').split(sep = 'convert')[0])
 @
 
 PEP8 
