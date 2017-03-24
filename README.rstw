@@ -1,11 +1,38 @@
-Excerpts
-========
+Excerpt Lines from Files
+========================
 
 Introduction
 ------------
-Excerpt markdown style comments from a file.
 
 Ever read or wrote source files containing sectioning comments?
+Especially in scientific and/or data analysis scripts I see a lot like
+<<>>=
+### Collect data
+@
+
+or 
+
+<<>>=
+###
+### Remove outliers 
+###
+@
+or even
+<<>>=
+### 2.1 Descriptive Statistics
+@
+`RStudio <https://rstudio.com>`_, an IDE for the 
+`programming language R <https://www.r-project.org/>`_ has
+even come up with their own
+`code sectioning and folding feature
+<https://support.rstudio.com/hc/en-us/articles/200484568-Code-Folding-and-Sections>`_
+that requires comments like
+<<>>=
+# Hypothesis Testing ----
+@
+
+
+
 If these comments are markdown style section comments, we can extract them and
 set a table of contents.
 
