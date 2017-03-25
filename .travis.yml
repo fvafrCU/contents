@@ -10,7 +10,7 @@ python:
   - "3.7-dev" # 3.7 development branch
 sudo: false
 install:
-  - pip install --user codecov
+  - pip install codecov
 after_success:
   - codecov
 script: make test    
