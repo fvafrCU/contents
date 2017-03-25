@@ -10,7 +10,7 @@ VERSION := $(shell grep version ./setup.py | cut -f2 -d"'")
 
 
 #% make targets
-all: install doc analyse package run testing tests 
+all: install doc analyse package run test tests 
 
 ##% installation
 install: README.rst
@@ -37,7 +37,7 @@ build: ${SOURCE} ./setup.py
 	python3 setup.py bdist_wheel
 
 ##% testing
-testing: log/unittest.log log/coverage.log 
+test: log/unittest.log log/coverage.log 
 log/unittest.log: tests/test_basic.py ${SOURCE}
 	python3 ./tests/test_basic.py > log/unittest.log 2>&1
 log/coverage.log: tests/test_basic.py ${SOURCE}
