@@ -11,6 +11,6 @@ addons:
 install:
   - pip install codecov
 script:
-    coverage run ./tests/test_basic.py
+  - coverage run ./tests/test_basic.py
 after_success:
   - codecov
