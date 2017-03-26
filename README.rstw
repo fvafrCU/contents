@@ -1,9 +1,9 @@
+Excerpt Lines from Files
+========================
 .. image:: https://travis-ci.org/fvafrCU/excerpts.svg?branch=master
     :target: https://travis-ci.org/fvafrCU/excerpts
 .. image:: https://codecov.io/github/fvafrCU/excerpts/coverage.svg?branch=master
     :target: https://codecov.io/github/fvafrCU/excerpts
-Excerpt Lines from Files
-========================
 
 Introduction
 ------------

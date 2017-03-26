@@ -77,8 +77,8 @@ docs/doxygen: ${SOURCE} .doxygen.conf
 ##% README
 README.rst: README.rstw tests/files/some_file.txt
 	pweave README.rstw 
-tmp_README.pdf: README.rst
-	pandoc README.rst -o tmp_README.pdf
+tmp_README.html: README.rst
+	pandoc README.rst -o tmp_README.html
 
 .PHONY: doxygenize
 doxygenize: ${SOURCE}
