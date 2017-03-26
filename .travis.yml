@@ -6,4 +6,5 @@ python:
 sudo: false
 install:
   - pip install codecov
-script: py.test
+script:
+    python3 ./tests/test_basic.py
