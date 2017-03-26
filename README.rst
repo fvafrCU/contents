@@ -1,3 +1,6 @@
+.. image:: https://travis-ci.org/fvafrCU/excerpts.svg?branch=master
+    :target: https://travis-ci.org/fvafrCU/excerpts
+
 Excerpt Lines from Files
 ========================
 

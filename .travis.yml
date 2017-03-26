@@ -12,3 +12,5 @@ install:
   - pip install codecov
 script:
     python3 ./tests/test_basic.py
+after_success:
+  - codecov
