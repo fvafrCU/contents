@@ -1,10 +1,5 @@
 README.rst
 setup.py
-codes_doxygen/__init__.py
-codes_doxygen/command_line.py
-codes_doxygen/main.py
-codes_doxygen/op.py
-codes_doxygen/ui.py
 excerpts/__init__.py
 excerpts/command_line.py
 excerpts/main.py
@@ -14,4 +9,5 @@ excerpts.egg-info/PKG-INFO
 excerpts.egg-info/SOURCES.txt
 excerpts.egg-info/dependency_links.txt
 excerpts.egg-info/entry_points.txt
+excerpts.egg-info/requires.txt
 excerpts.egg-info/top_level.txt

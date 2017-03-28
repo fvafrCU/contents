@@ -13,13 +13,28 @@ setup(
     name='excerpts',
     version='0.12.0',
     description='Excerpt Markdown Style Comments From a File',
+    long_description='Set a table of contents from structuring comments in your script files.',
     author='Andreas Dominik Cullmann',
     author_email='dominik.cullmann@forst.bwl.de',
     url='https://github.com/fvafrcu/excerpts',
-    license='BSD_2_CLAUSE',
-    packages=find_packages(exclude=('tests', 'docs', 'output', 'utils')),
-        entry_points = {
+    license='BSD',
+    # See https://pypi.python.org/pypi?%3Aaction=list_classifiers
+    classifiers=[
+        'Development Status :: 3 - Alpha',
+        'Intended Audience :: Science/Research',
+        'Topic :: Documentation',
+        'License :: OSI Approved :: BSD License',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.4',
+        'Operating System :: OS Independent',
+    ],
+    keywords='sample setuptools development',
+    extras_require={
+        'test': ['coverage'],
+    },
+    packages=find_packages(exclude=('tests', 'docs', 'output', 'utils', 'codes_doxygen')),
+    entry_points = {
         'console_scripts': ['excerpts=excerpts.command_line:main'],
-    }
+        }
 )
 
