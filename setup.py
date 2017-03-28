@@ -11,7 +11,7 @@ with open('LICENSE') as f:
 
 setup(
     name='excerpts',
-    version='0.12.0',
+    version='0.12.1',
     description='Excerpt Markdown Style Comments From a File',
     long_description='Set a table of contents from structuring comments in your script files.',
     author='Andreas Dominik Cullmann',
