@@ -51,7 +51,7 @@ that requires comments like
 
 )
 
-If these comments are markdown style section comments, we can extract them and
+If these comments are markdown style section comments, we can excerpt them and
 set a table of contents.
 
 A First Example
