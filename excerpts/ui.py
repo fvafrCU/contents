@@ -8,9 +8,8 @@ from . import op
 
 
 def excerpts(file_name, comment_character="#", magic_character="%",
-             output_path="", allow_pep8=True,
-             prefix="", postfix="", run_pandoc=True,
-             compile_latex=False, pandoc_formats="tex"):
+             allow_pep8=True, output_path="", prefix="", postfix="",
+             run_pandoc=True, compile_latex=False, pandoc_formats="tex"):
     """
     Extract, Convert and Save Markdown Style Comments From a File
 
@@ -18,17 +17,17 @@ def excerpts(file_name, comment_character="#", magic_character="%",
 
     Kwargs:
         file_name: The file from which the lines are to be extracted.
-        pandoc_formats: The pandoc output formats to be used.
-        run_pandoc: Run pandoc on the markdown file created?
-        compile_latex: Compile the LaTeX file?
+        comment_character: The comment character of the files language.
+        magic_character: The magic character marking lines as excerpts.
+        allow_pep8: Remove a leading single comment character and blank.
+        output_path: Set a new file name or an output directory.
         postfix: Set the output file postfix.
         prefix: Set the output file prefix.
-        comment_character: The comment character of the files language.
-        output_path: Set a new file name or an output directory.
-        allow_pep8: Remove a leading single comment character and blank.
-        magic_character: The magic character marking lines as excerpts.
+        run_pandoc: Run pandoc on the markdown file created?
+        compile_latex: Compile the LaTeX file?
+        pandoc_formats: The pandoc output formats to be used.
     Returns:
-        0 if output generation was successful.
+        0 if output generation was successful, 1 otherwise.
     """
     status = 1
     with open(file_name) as infile:
@@ -45,8 +44,8 @@ def excerpts(file_name, comment_character="#", magic_character="%",
     md_file = open(md_file_name, "w")
     md_file.writelines(lines)
     md_file.close()
-    status = 0
     if run_pandoc:
         status = op.pandoc(file_name=md_file_name, compile_latex=compile_latex,
                            formats=pandoc_formats)
+    status = 0
     return status

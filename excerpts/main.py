@@ -9,7 +9,7 @@ import re
 import os
 
 
-def extract_md(lines, comment_character, magic_character, allow_pep8=True):
+def extract(lines, comment_character, magic_character, allow_pep8=True):
     """
     Extract Matching Lines
 
@@ -48,9 +48,10 @@ def convert(lines, comment_character, magic_character, allow_pep8=True):
 
     Kwargs:
         lines: The lines to be converted.
-        comment_character: The comment character of the files language.
+        comment_character: The comment character of the language.
         magic_character: The magic character marking lines as excerpts.
-        allow_pep8: Remove a leading single comment character and blank.
+        allow_pep8: Allow for a leading comment character and space to confrom
+        to PEP 8 block comments.
     Returns:
         A list of strings containing the lines converted.
     """
@@ -83,19 +84,20 @@ def excerpt(lines, comment_character, magic_character, allow_pep8=True):
     """
     Extract and Convert Matching Lines
 
-    Just a wrapper to extract_md() and convert().
+    Just a wrapper to extract() and convert().
 
     Kwargs:
         lines: a list containing the code lines.
         comment_character: The comment character of the files language.
         magic_character: The magic character marking lines as excerpts.
-        allow_pep8: Remove a leading single comment character and blank.
+        allow_pep8: Allow for a leading comment character and space to confrom
+        to PEP 8 block comments.
     Returns:
         A list of strings containing the lines extracted and converted.
     """
-    lines_matched = extract_md(lines=lines,
-                               comment_character=comment_character,
-                               magic_character=magic_character)
+    lines_matched = extract(lines=lines,
+                            comment_character=comment_character,
+                            magic_character=magic_character)
     converted_lines = convert(lines=lines_matched,
                               comment_character=comment_character,
                               magic_character=magic_character,
@@ -108,10 +110,10 @@ def modify_path(file_name, postfix="", prefix="", output_path="",
     """
     Modify a Path
 
-    Add a postfix and a prefix to the basename of a path and optionally change
+    Add a postfix and a prefix to the basename of a path and change
     it's extension.
     Kwargs:
-        file_name: The file to be modified.
+        file_name: The file name to be modified.
         postfix: Set the output file postfix.
         prefix: Set the output file prefix.
         extension: Set a new file extension.

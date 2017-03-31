@@ -37,11 +37,11 @@ def pandoc(file_name, compile_latex=False, formats="tex"):
     """
     Run Pandoc on a File
 
-        file_name: The file from which the lines are to be extracted.
+        file_name: The file on which to run pandoc.
         formats: The pandoc output formats to be used.
         compile_latex: Compile the LaTeX file?
     Returns:
-        0 if parsing was successful.
+        0 if parsing was successful, 1 otherwise.
     """
     status = 1
     if is_tool("pandoc"):
