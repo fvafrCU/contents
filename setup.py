@@ -11,7 +11,7 @@ with open('LICENSE') as f:
 
 setup(
     name='excerpts',
-    version='0.12.1',
+    version='0.12.2',
     description='Excerpt Markdown Style Comments From a File',
     long_description='Set a table of contents from structuring comments in your script files.',
     author='Andreas Dominik Cullmann',
@@ -20,7 +20,7 @@ setup(
     license='BSD',
     # See https://pypi.python.org/pypi?%3Aaction=list_classifiers
     classifiers=[
-        'Development Status :: 3 - Alpha',
+        'Development Status :: 4 - Beta',
         'Intended Audience :: Science/Research',
         'Topic :: Documentation',
         'License :: OSI Approved :: BSD License',

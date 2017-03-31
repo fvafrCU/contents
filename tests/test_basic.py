@@ -61,7 +61,7 @@ class BasicTestSuite(unittest.TestCase):
         file_name="tests/files/some_code.py"
         with open(file_name) as infile:
             py_lines = infile.readlines()
-        result = excerpts.main.extract_md(py_lines, 
+        result = excerpts.main.extract(py_lines, 
                                           comment_character='#', 
                                           magic_character='%',
                                           allow_pep8=False)
@@ -73,7 +73,7 @@ class BasicTestSuite(unittest.TestCase):
         file_name="tests/files/some_code.py"
         with open(file_name) as infile:
             py_lines = infile.readlines()
-        result = excerpts.main.extract_md(py_lines, 
+        result = excerpts.main.extract(py_lines, 
                                           comment_character='#', 
                                           magic_character='%',
                                           allow_pep8=True)

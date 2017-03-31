@@ -27,22 +27,22 @@ user&nbsp;interface&nbsp;functions</tt></p>
 <font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
     
 <tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><dl><dt><a name="-excerpts"><strong>excerpts</strong></a>(file_name, comment_character='#', magic_character='%', output_path='', allow_pep8=True, prefix='', postfix='', run_pandoc=True, compile_latex=False, pandoc_formats='tex')</dt><dd><tt>Extract,&nbsp;Convert&nbsp;and&nbsp;Save&nbsp;Markdown&nbsp;Style&nbsp;Comments&nbsp;From&nbsp;a&nbsp;File<br>
+<td width="100%"><dl><dt><a name="-excerpts"><strong>excerpts</strong></a>(file_name, comment_character='#', magic_character='%', allow_pep8=True, output_path='', prefix='', postfix='', run_pandoc=True, compile_latex=False, pandoc_formats='tex')</dt><dd><tt>Extract,&nbsp;Convert&nbsp;and&nbsp;Save&nbsp;Markdown&nbsp;Style&nbsp;Comments&nbsp;From&nbsp;a&nbsp;File<br>
 &nbsp;<br>
 This&nbsp;is&nbsp;merely&nbsp;a&nbsp;wrapper&nbsp;to&nbsp;excerpt(),&nbsp;modify_path()&nbsp;and&nbsp;pandoc().<br>
 &nbsp;<br>
 Kwargs:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;file_name:&nbsp;The&nbsp;file&nbsp;from&nbsp;which&nbsp;the&nbsp;lines&nbsp;are&nbsp;to&nbsp;be&nbsp;extracted.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;pandoc_formats:&nbsp;The&nbsp;pandoc&nbsp;output&nbsp;formats&nbsp;to&nbsp;be&nbsp;used.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;run_pandoc:&nbsp;Run&nbsp;pandoc&nbsp;on&nbsp;the&nbsp;markdown&nbsp;file&nbsp;created?<br>
-&nbsp;&nbsp;&nbsp;&nbsp;compile_latex:&nbsp;Compile&nbsp;the&nbsp;LaTeX&nbsp;file?<br>
+&nbsp;&nbsp;&nbsp;&nbsp;comment_character:&nbsp;The&nbsp;comment&nbsp;character&nbsp;of&nbsp;the&nbsp;files&nbsp;language.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;magic_character:&nbsp;The&nbsp;magic&nbsp;character&nbsp;marking&nbsp;lines&nbsp;as&nbsp;excerpts.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;allow_pep8:&nbsp;Remove&nbsp;a&nbsp;leading&nbsp;single&nbsp;comment&nbsp;character&nbsp;and&nbsp;blank.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;output_path:&nbsp;Set&nbsp;a&nbsp;new&nbsp;file&nbsp;name&nbsp;or&nbsp;an&nbsp;output&nbsp;directory.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;postfix:&nbsp;Set&nbsp;the&nbsp;output&nbsp;file&nbsp;postfix.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;prefix:&nbsp;Set&nbsp;the&nbsp;output&nbsp;file&nbsp;prefix.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;comment_character:&nbsp;The&nbsp;comment&nbsp;character&nbsp;of&nbsp;the&nbsp;files&nbsp;language.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;output_path:&nbsp;Set&nbsp;a&nbsp;new&nbsp;file&nbsp;name&nbsp;or&nbsp;an&nbsp;output&nbsp;directory.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;allow_pep8:&nbsp;Remove&nbsp;a&nbsp;leading&nbsp;single&nbsp;comment&nbsp;character&nbsp;and&nbsp;blank.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;magic_character:&nbsp;The&nbsp;magic&nbsp;character&nbsp;marking&nbsp;lines&nbsp;as&nbsp;excerpts.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;run_pandoc:&nbsp;Run&nbsp;pandoc&nbsp;on&nbsp;the&nbsp;markdown&nbsp;file&nbsp;created?<br>
+&nbsp;&nbsp;&nbsp;&nbsp;compile_latex:&nbsp;Compile&nbsp;the&nbsp;LaTeX&nbsp;file?<br>
+&nbsp;&nbsp;&nbsp;&nbsp;pandoc_formats:&nbsp;The&nbsp;pandoc&nbsp;output&nbsp;formats&nbsp;to&nbsp;be&nbsp;used.<br>
 Returns:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;if&nbsp;output&nbsp;generation&nbsp;was&nbsp;successful.</tt></dd></dl>
+&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;if&nbsp;output&nbsp;generation&nbsp;was&nbsp;successful,&nbsp;1&nbsp;otherwise.</tt></dd></dl>
 </td></tr></table>
 </body></html>

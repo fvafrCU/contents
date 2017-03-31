@@ -24,7 +24,7 @@ import os
 #         A list of strings containing the lines extracted.
 #
 
-def extract_md(lines, comment_character, magic_character, allow_pep8=True):
+def extract(lines, comment_character, magic_character, allow_pep8=True):
     matching_lines = []
     if allow_pep8:
         # allow for pep8 conforming block comments.
@@ -46,9 +46,10 @@ def extract_md(lines, comment_character, magic_character, allow_pep8=True):
 #
 #
 # @param		lines	The lines to be converted.
-# @param		comment_character	The comment character of the files language.
+# @param		comment_character	The comment character of the language.
 # @param		magic_character	The magic character marking lines as excerpts.
-# @param		allow_pep8	Remove a leading single comment character and blank.
+# @param		allow_pep8	Allow for a leading comment character and space to confrom
+#        to PEP 8 block comments.
 # @return
 #        A list of strings containing the lines converted.
 #
@@ -81,21 +82,22 @@ def convert(lines, comment_character, magic_character, allow_pep8=True):
 
 ## @brief     Extract and Convert Matching Lines
 #
-#    Just a wrapper to extract_md() and convert().
+#    Just a wrapper to extract() and convert().
 #
 #
 # @param		lines	a list containing the code lines.
 # @param		comment_character	The comment character of the files language.
 # @param		magic_character	The magic character marking lines as excerpts.
-# @param		allow_pep8	Remove a leading single comment character and blank.
+# @param		allow_pep8	Allow for a leading comment character and space to confrom
+#        to PEP 8 block comments.
 # @return
 #        A list of strings containing the lines extracted and converted.
 #
 
 def excerpt(lines, comment_character, magic_character, allow_pep8=True):
-    lines_matched = extract_md(lines=lines,
-                               comment_character=comment_character,
-                               magic_character=magic_character)
+    lines_matched = extract(lines=lines,
+                            comment_character=comment_character,
+                            magic_character=magic_character)
     converted_lines = convert(lines=lines_matched,
                               comment_character=comment_character,
                               magic_character=magic_character,
@@ -105,10 +107,10 @@ def excerpt(lines, comment_character, magic_character, allow_pep8=True):
 
 ## @brief     Modify a Path
 #
-#    Add a postfix and a prefix to the basename of a path and optionally change
+#    Add a postfix and a prefix to the basename of a path and change
 #    it's extension.
 #
-# @param		file_name	The file to be modified.
+# @param		file_name	The file name to be modified.
 # @param		postfix	Set the output file postfix.
 # @param		prefix	Set the output file prefix.
 # @param		extension	Set a new file extension.

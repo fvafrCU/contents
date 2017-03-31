@@ -95,7 +95,7 @@ Generating call graph for function excerpts.command_line.make_parser
 Generating docs for namespace excerpts::main
 Generating call graph for function excerpts.main.convert
 Generating call graph for function excerpts.main.excerpt
-Generating call graph for function excerpts.main.extract_md
+Generating call graph for function excerpts.main.extract
 Generating docs for namespace excerpts::op
 Generating call graph for function excerpts.op.is_tool
 Generating call graph for function excerpts.op.pandoc
@@ -126,9 +126,9 @@ unable to read file loc from[excerpts.command_line::make_parser]
 Generating Sqlite3 output for namespace excerpts::main
 unable to read file loc from[excerpts.main::convert]
 unable to read file loc from[excerpts.main::excerpt]
-unable to read file loc from[excerpts.main::extract_md]
 unable to read file loc from[excerpts.main::convert]
 unable to read file loc from[excerpts.main::modify_path]
+unable to read file loc from[excerpts.main::extract]
 Generating Sqlite3 output for namespace excerpts::op
 unable to read file loc from[excerpts.op::pandoc]
 unable to read file loc from[excerpts.op::is_tool]

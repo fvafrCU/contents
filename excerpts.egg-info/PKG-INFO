@@ -1,6 +1,6 @@
 Metadata-Version: 1.1
 Name: excerpts
-Version: 0.12.1
+Version: 0.12.2
 Summary: Excerpt Markdown Style Comments From a File
 Home-page: https://github.com/fvafrcu/excerpts
 Author: Andreas Dominik Cullmann
@@ -9,7 +9,7 @@ License: BSD
 Description: Set a table of contents from structuring comments in your script files.
 Keywords: sample setuptools development
 Platform: UNKNOWN
-Classifier: Development Status :: 3 - Alpha
+Classifier: Development Status :: 4 - Beta
 Classifier: Intended Audience :: Science/Research
 Classifier: Topic :: Documentation
 Classifier: License :: OSI Approved :: BSD License

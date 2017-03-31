@@ -16,9 +16,9 @@ import textwrap
 #
 
 def make_parser():
-    parser = argparse.ArgumentParser(description="convert markdown-style " +
+    parser = argparse.ArgumentParser(description="excerpt markdown-style " +
                                      "comments from a file to markdown and " +
-                                     "html via pandoc.",
+                                     "convert them using pandoc.",
                                      epilog=textwrap.dedent("""\
 markdown style comments are headed by one or more comment characters giving
 the markdown heading level and a magic character marking it as
@@ -26,7 +26,7 @@ markdown.
 try --example for an example
             """))
     parser.add_argument("file_name", metavar="file",
-                        help="The name of the file to convert comments from.")
+                        help="The name of the file to excerpt comments from.")
     parser.add_argument("-O", "--output", dest="output_path",
                         default="",
                         help="Change the postfix added to the files created.")
@@ -58,16 +58,22 @@ try --example for an example
 #######%
 """))
     parser.add_argument("-p", "--pandoc", dest="run_pandoc",
-                        help="Run pandoc on the md file created.",
+                        help="Run pandoc on the file containing the lines " +
+                        "excerpted.",
                         action="store_true")
     parser.add_argument("-n", "--no-pandoc", dest="run_pandoc",
-                        help="Do not run pandoc on the md file created.",
+                        help="Do not run pandoc on the file containing the " +
+                        "lines excerpted.",
                         action="store_false")
     parser.add_argument("-l", "--latex", dest="compile_latex",
-                        help="Run LaTex on the tex file created via pandoc.",
+                        help="Run LaTex on the tex file created via pandoc." +
+                        "Only makes sense with -p and a --formats specifying" +
+                        "tex as output.",
                         action="store_true")
     parser.add_argument("--no-latex", dest="compile_latex",
-                        help="Run LaTex on the tex file created via pandoc.",
+                        help="Run LaTex on the tex file created via pandoc." +
+                        "Only makes sense with -p and a --formats specifying" +
+                        "tex as output.",
                         action="store_false")
     parser.add_argument("--formats", dest="pandoc_formats",
                         default="tex,html,pdf",

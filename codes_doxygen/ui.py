@@ -13,23 +13,22 @@ from . import op
 #
 #
 # @param		file_name	The file from which the lines are to be extracted.
-# @param		pandoc_formats	The pandoc output formats to be used.
-# @param		run_pandoc	Run pandoc on the markdown file created?
-# @param		compile_latex	Compile the LaTeX file?
+# @param		comment_character	The comment character of the files language.
+# @param		magic_character	The magic character marking lines as excerpts.
+# @param		allow_pep8	Remove a leading single comment character and blank.
+# @param		output_path	Set a new file name or an output directory.
 # @param		postfix	Set the output file postfix.
 # @param		prefix	Set the output file prefix.
-# @param		comment_character	The comment character of the files language.
-# @param		output_path	Set a new file name or an output directory.
-# @param		allow_pep8	Remove a leading single comment character and blank.
-# @param		magic_character	The magic character marking lines as excerpts.
+# @param		run_pandoc	Run pandoc on the markdown file created?
+# @param		compile_latex	Compile the LaTeX file?
+# @param		pandoc_formats	The pandoc output formats to be used.
 # @return
-#        0 if output generation was successful.
+#        0 if output generation was successful, 1 otherwise.
 #
 
 def excerpts(file_name, comment_character="#", magic_character="%",
-             output_path="", allow_pep8=True,
-             prefix="", postfix="", run_pandoc=True,
-             compile_latex=False, pandoc_formats="tex"):
+             allow_pep8=True, output_path="", prefix="", postfix="",
+             run_pandoc=True, compile_latex=False, pandoc_formats="tex"):
     status = 1
     with open(file_name) as infile:
         lines = infile.readlines()
@@ -45,8 +44,8 @@ def excerpts(file_name, comment_character="#", magic_character="%",
     md_file = open(md_file_name, "w")
     md_file.writelines(lines)
     md_file.close()
-    status = 0
     if run_pandoc:
         status = op.pandoc(file_name=md_file_name, compile_latex=compile_latex,
                            formats=pandoc_formats)
+    status = 0
     return status
