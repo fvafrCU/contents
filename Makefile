@@ -10,7 +10,7 @@ VERSION := $(shell grep version ./setup.py | cut -f2 -d"'")
 
 
 #% make targets
-all: install doc analyse package run test tests 
+all: install doc analyse package run test tests  tag
 
 ##% installation
 install: README.rst
@@ -28,7 +28,7 @@ testpypi: package
 	twine upload dist/*${VERSION}* -r testpypi
 
 ##% packaging
-package: dist build README.rst
+package: dist build README.rst tag
 
 dist: ${SOURCE} ./setup.py
 	python3 ./setup.py sdist
