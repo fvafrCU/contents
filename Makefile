@@ -80,6 +80,7 @@ README.rst: README.rstw tests/files/some_file.txt
 tmp_README.html: README.rst
 	pandoc README.rst -o tmp_README.html
 
+# I want to keep a doxypypy'ed version of my codes
 .PHONY: doxygenize
 doxygenize: ${SOURCE}
 	./utils/doxygenize.cl 
@@ -88,7 +89,12 @@ doxygenize: ${SOURCE}
 requirements:
 	pip3 install --user -r requirements.txt
 
-##% utils
+##% git tag
+.PHONY: tag
+make tag: setup.py
+	./utils/tag.cl
+
+##% old utils
 run: install
 	python3 ./utils/run.py
 tests/files/some_code.py: tests/files/some_file.txt
