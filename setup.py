@@ -1,6 +1,16 @@
 # -*- coding: utf-8 -*-
 
+# Always prefer setuptools over distutils
 from setuptools import setup, find_packages
+# To use a consistent encoding
+from codecs import open
+from os import path
+
+here = path.abspath(path.dirname(__file__))
+
+# Get the long description from the README file
+with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
+    long_description = f.read()
 
 
 with open('README.rst') as f:
@@ -13,7 +23,7 @@ setup(
     name='excerpts',
     version='0.13.3',
     description='Excerpt Markdown Style Comments From a File',
-    long_description='Set a table of contents from structuring comments in your script files.',
+    long_description=long_description,
     author='Andreas Dominik Cullmann',
     author_email='dominik.cullmann@forst.bwl.de',
     url='https://github.com/fvafrcu/excerpts',
