@@ -38,7 +38,7 @@ setup(
         'Programming Language :: Python :: 3.4',
         'Operating System :: OS Independent',
     ],
-    keywords={'table of contents, structure comments'}, 
+    keywords='table of contents, structure comments', 
     extras_require={
         'test': ['coverage'],
     },
