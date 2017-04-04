@@ -21,7 +21,7 @@ with open('LICENSE') as f:
 
 setup(
     name='excerpts',
-    version='0.14.0',
+    version='0.14.1',
     description='Excerpt Markdown Style Comments From a File',
     long_description=long_description,
     author='Andreas Dominik Cullmann',
@@ -38,7 +38,7 @@ setup(
         'Programming Language :: Python :: 3.4',
         'Operating System :: OS Independent',
     ],
-    keywords='sample setuptools development',
+    keywords={'table of contents, structure comments'}, 
     extras_require={
         'test': ['coverage'],
     },
