@@ -21,7 +21,7 @@ with open('LICENSE') as f:
 
 setup(
     name='excerpts',
-    version='0.13.3',
+    version='0.14.0',
     description='Excerpt Markdown Style Comments From a File',
     long_description=long_description,
     author='Andreas Dominik Cullmann',
