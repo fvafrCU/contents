@@ -21,6 +21,12 @@ cli: install
 	${CLI} ${TEST_FILE} -o _cli -O output \
 		-p --formats html
 
+##% pypi
+.PHONY: upload_pypi
+upload_pypi: package
+	twine upload dist/*${VERSION}* 
+
+
 ##% testpypi
 .PHONY: testpypi
 testpypi: package
