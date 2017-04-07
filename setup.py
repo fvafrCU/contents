@@ -42,7 +42,8 @@ setup(
     extras_require={
         'test': ['coverage'],
     },
-    packages=find_packages(exclude=('output', 'utils', 'codes_doxygen')),
+    packages=find_packages(exclude=('tests', 'docs', 'output', 'utils', 
+                                    'codes_doxygen')),
     entry_points = {
         'console_scripts': ['excerpts=excerpts.command_line:main'],
         }
