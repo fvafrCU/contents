@@ -28,7 +28,7 @@ testpypi: package
 	twine upload dist/*${VERSION}* -r testpypi
 
 ##% packaging
-package: dist build README.rst tag
+package: dist build README.rst 
 
 dist: ${SOURCE} ./setup.py
 	python3 ./setup.py sdist
