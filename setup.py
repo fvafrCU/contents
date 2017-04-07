@@ -21,11 +21,11 @@ with open('LICENSE') as f:
 
 setup(
     name='excerpts',
-    version='1.0.0',
+    version='1.0.1',
     description='Excerpt Markdown Style Comments From a File',
     long_description=long_description,
     author='Andreas Dominik Cullmann',
-    author_email='dominik.cullmann@forst.bwl.de',
+    author_email='fvafrcu@arcor.de',
     url='https://github.com/fvafrcu/excerpts',
     license='BSD',
     # See https://pypi.python.org/pypi?%3Aaction=list_classifiers
