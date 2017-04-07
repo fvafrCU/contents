@@ -21,7 +21,7 @@ with open('LICENSE') as f:
 
 setup(
     name='excerpts',
-    version='0.14.2',
+    version='0.15.0',
     description='Excerpt Markdown Style Comments From a File',
     long_description=long_description,
     author='Andreas Dominik Cullmann',
@@ -42,7 +42,7 @@ setup(
     extras_require={
         'test': ['coverage'],
     },
-    packages=find_packages(exclude=('tests', 'docs', 'output', 'utils', 'codes_doxygen')),
+    packages=find_packages(exclude=('output', 'utils', 'codes_doxygen')),
     entry_points = {
         'console_scripts': ['excerpts=excerpts.command_line:main'],
         }
