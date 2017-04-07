@@ -4,8 +4,8 @@ Excerpt Lines from Files
     :target: https://travis-ci.org/fvafrCU/excerpts
 .. image:: https://codecov.io/github/fvafrCU/excerpts/coverage.svg?branch=master
     :target: https://codecov.io/github/fvafrCU/excerpts
-.. image:: https://pypi.python.org/pypi/excerpts
-    :target: https://img.shields.io/pypi/v/excerpts.svg
+.. image:: https://img.shields.io/pypi/v/excerpts.svg
+    :target: https://pypi.python.org/pypi/excerpts
 
 Introduction
 ------------
