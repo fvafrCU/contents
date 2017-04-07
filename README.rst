@@ -4,6 +4,8 @@ Excerpt Lines from Files
     :target: https://travis-ci.org/fvafrCU/excerpts
 .. image:: https://codecov.io/github/fvafrCU/excerpts/coverage.svg?branch=master
     :target: https://codecov.io/github/fvafrCU/excerpts
+.. image:: https://pypi.python.org/pypi/excerpts
+    :target: https://img.shields.io/pypi/v/excerpts.svg
 
 Introduction
 ------------
@@ -218,7 +220,7 @@ operating systems' command line instead of from python3:
     [--no-pep8]
                     file
     
-    
+    excerpt markdown-style comments from a file to markdown and
     
     
 
