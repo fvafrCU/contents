@@ -58,13 +58,17 @@ tests/files/glm.md: tests/files/glm.R
 tests/files/phy.md: tests/files/phy.c
 	${CLI} -c '///' -m '%' tests/files/phy.c
 ##%  analyse code
-analyse: log/pep8.log log/pylint.log
+analyse: log/pep8.log log/pylint.log log/cleanr.log
 
 log/pep8.log: ${SOURCE}
 	pep8 ./${modul}/ > ./log/pep8.log || true
 
 log/pylint.log: ${SOURCE}
 	pylint ./${modul}/ > ./log/pylint.log || true
+
+log/cleanr.log: ${SOURCE}
+	Rscript --vanilla -e 'codes <- list.files("excerpts", pattern = ".*\\.py", full.names = TRUE); for (code in codes) print(cleanr:::check_file_layout(code)) '> log/cleanr.log 2>&1
+
 
 ##% create documentation
 doc: ./docs/${modul}.html ./docs/doxygen doxygenize 
