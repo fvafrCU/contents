@@ -54,8 +54,8 @@ def pandoc(file_name, compile_latex=False, formats="tex"):
                                                  extension="tex")
                 if os.name == "posix":
                     if is_tool("texi2pdf"):
-                        subprocess.check_call(["texi2pdf", "--batch", "--clean",
-                                               tex_file_name])
+                        subprocess.check_call(["texi2pdf", "--batch",
+                                               "--clean", tex_file_name])
                 else:
                     print("you are not running posix, see how to compile\n" +
                           tex_file_name +
