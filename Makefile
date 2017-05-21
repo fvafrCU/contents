@@ -30,7 +30,7 @@ upload_pypi: package
 ##% testpypi
 .PHONY: testpypi
 testpypi: package
-	python3 setup.py register -r https://testpypi.python.org/pypi
+	#python3 setup.py register -r https://testpypi.python.org/pypi
 	twine upload dist/*${VERSION}* -r testpypi
 
 ##% packaging

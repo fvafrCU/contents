@@ -162,15 +162,7 @@ docs/doxygen/latex/namespaceexcerpts_1_1op_afa997ba28545787455430d2b7fc92fe0_cgr
 docs/doxygen/latex/namespaceexcerpts_1_1ui.tex
 docs/doxygen/latex/namespaces.tex
 docs/doxygen/latex/op_8py.tex
-docs/doxygen/latex/refman.aux
-docs/doxygen/latex/refman.idx
-docs/doxygen/latex/refman.ilg
-docs/doxygen/latex/refman.ind
-docs/doxygen/latex/refman.log
-docs/doxygen/latex/refman.out
-docs/doxygen/latex/refman.pdf
 docs/doxygen/latex/refman.tex
-docs/doxygen/latex/refman.toc
 docs/doxygen/latex/ui_8py.tex
 excerpts/__init__.py
 excerpts/command_line.py

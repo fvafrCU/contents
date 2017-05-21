@@ -1,6 +1,6 @@
 Metadata-Version: 1.1
 Name: excerpts
-Version: 1.0.0
+Version: 1.1.0
 Summary: Excerpt Markdown Style Comments From a File
 Home-page: https://github.com/fvafrcu/excerpts
 Author: Andreas Dominik Cullmann
@@ -12,6 +12,8 @@ Description: Excerpt Lines from Files
             :target: https://travis-ci.org/fvafrCU/excerpts
         .. image:: https://codecov.io/github/fvafrCU/excerpts/coverage.svg?branch=master
             :target: https://codecov.io/github/fvafrCU/excerpts
+        .. image:: https://img.shields.io/pypi/v/excerpts.svg
+            :target: https://pypi.python.org/pypi/excerpts
         
         Introduction
         ------------
@@ -226,7 +228,7 @@ Description: Excerpt Lines from Files
             [--no-pep8]
                             file
             
-            
+            excerpt markdown-style comments from a file to markdown and
             
             
         
