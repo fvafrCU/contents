@@ -13,15 +13,16 @@ from . import op
 #
 #
 # @param		file_name	The file from which the lines are to be extracted.
-# @param		comment_character	The comment character of the files language.
+# @param		comment_character	The comment character of the file's language.
 # @param		magic_character	The magic character marking lines as excerpts.
 # @param		allow_pep8	Remove a leading single comment character and blank.
 # @param		output_path	Set a new file name or an output directory.
 # @param		postfix	Set the output file postfix.
 # @param		prefix	Set the output file prefix.
 # @param		run_pandoc	Run pandoc on the markdown file created?
-# @param		compile_latex	Compile the LaTeX file?
 # @param		pandoc_formats	The pandoc output formats to be used.
+# @param		compile_latex	Compile the LaTeX file? Only considered if "tex" is part
+#        of pandoc_formats.
 # @return
 #        0 if output generation was successful, 1 otherwise.
 #

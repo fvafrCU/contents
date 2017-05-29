@@ -11,11 +11,11 @@ import os
 
 ## @brief     Extract Matching Lines
 #
-#    Extract all lines starting with a combination of comment_character and
+#    Extract all itmes starting with a combination of comment_character and
 #    magic_character from a list.
 #
 #
-# @param		lines	a list containing the code lines.
+# @param		lines	A list containing the code lines.
 # @param		comment_character	The comment character of the language.
 # @param		magic_character	The magic character marking lines as excerpts.
 # @param		allow_pep8	Allow for a leading comment character and space to confrom
@@ -85,8 +85,8 @@ def convert(lines, comment_character, magic_character, allow_pep8=True):
 #    Just a wrapper to extract() and convert().
 #
 #
-# @param		lines	a list containing the code lines.
-# @param		comment_character	The comment character of the files language.
+# @param		lines	A list containing the code lines.
+# @param		comment_character	The comment character of the language.
 # @param		magic_character	The magic character marking lines as excerpts.
 # @param		allow_pep8	Allow for a leading comment character and space to confrom
 #        to PEP 8 block comments.
@@ -110,11 +110,13 @@ def excerpt(lines, comment_character, magic_character, allow_pep8=True):
 #    Add a postfix and a prefix to the basename of a path and change
 #    it's extension.
 #
-# @param		file_name	The file name to be modified.
+# @param		file_name	The file path to be modified.
 # @param		postfix	Set the output file postfix.
 # @param		prefix	Set the output file prefix.
 # @param		extension	Set a new file extension.
-# @param		output_path	Set a new file name or an output directory.
+# @param		output_path	Set a new file name or an output directory. If the path
+#        given is not an existing directory, it is assumed to be a file path and
+#        all other arguments are discarded.
 # @return
 #        A string containing the modified path.
 #

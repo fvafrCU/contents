@@ -13,7 +13,7 @@ def is_tool(name):
     """
     Test if a Program is Installed
 
-    Will raise an error if the programm is not found.
+    Will raise an error if the program is not found.
     Kwargs:
         name: The name of the program to be tested for.
     Returns:
@@ -37,8 +37,10 @@ def pandoc(file_name, compile_latex=False, formats="tex"):
     """
     Run Pandoc on a File
 
+    Kwargs:
         file_name: The file on which to run pandoc.
-        formats: The pandoc output formats to be used.
+        formats: The pandoc output formats to be used. A comma separated string,
+        "html,tex" for example.
         compile_latex: Compile the LaTeX file?
     Returns:
         0 if parsing was successful, 1 otherwise.

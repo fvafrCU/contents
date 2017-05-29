@@ -13,11 +13,11 @@ def extract(lines, comment_character, magic_character, allow_pep8=True):
     """
     Extract Matching Lines
 
-    Extract all lines starting with a combination of comment_character and
+    Extract all itmes starting with a combination of comment_character and
     magic_character from a list.
 
     Kwargs:
-        lines: a list containing the code lines.
+        lines: A list containing the code lines.
         comment_character: The comment character of the language.
         magic_character: The magic character marking lines as excerpts.
         allow_pep8: Allow for a leading comment character and space to confrom
@@ -87,8 +87,8 @@ def excerpt(lines, comment_character, magic_character, allow_pep8=True):
     Just a wrapper to extract() and convert().
 
     Kwargs:
-        lines: a list containing the code lines.
-        comment_character: The comment character of the files language.
+        lines: A list containing the code lines.
+        comment_character: The comment character of the language.
         magic_character: The magic character marking lines as excerpts.
         allow_pep8: Allow for a leading comment character and space to confrom
         to PEP 8 block comments.
@@ -113,11 +113,13 @@ def modify_path(file_name, postfix="", prefix="", output_path="",
     Add a postfix and a prefix to the basename of a path and change
     it's extension.
     Kwargs:
-        file_name: The file name to be modified.
+        file_name: The file path to be modified.
         postfix: Set the output file postfix.
         prefix: Set the output file prefix.
         extension: Set a new file extension.
-        output_path: Set a new file name or an output directory.
+        output_path: Set a new file name or an output directory. If the path
+        given is not an existing directory, it is assumed to be a file path and
+        all other arguments are discarded.
     Returns:
         A string containing the modified path.
     """
