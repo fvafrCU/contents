@@ -1,6 +1,6 @@
 Metadata-Version: 1.1
 Name: excerpts
-Version: 1.1.0
+Version: 1.2.0
 Summary: Excerpt Markdown Style Comments From a File
 Home-page: https://github.com/fvafrcu/excerpts
 Author: Andreas Dominik Cullmann
@@ -256,7 +256,7 @@ Description: Excerpt Lines from Files
         
 Keywords: table of contents,structure comments
 Platform: UNKNOWN
-Classifier: Development Status :: 4 - Beta
+Classifier: Development Status :: 5 - Production/Stable
 Classifier: Intended Audience :: Science/Research
 Classifier: Topic :: Documentation
 Classifier: License :: OSI Approved :: BSD License

@@ -21,7 +21,7 @@ with open('LICENSE') as f:
 
 setup(
     name='excerpts',
-    version='1.1.0',
+    version='1.2.0',
     description='Excerpt Markdown Style Comments From a File',
     long_description=long_description,
     author='Andreas Dominik Cullmann',
@@ -30,7 +30,7 @@ setup(
     license='BSD',
     # See https://pypi.python.org/pypi?%3Aaction=list_classifiers
     classifiers=[
-        'Development Status :: 4 - Beta',
+        'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Science/Research',
         'Topic :: Documentation',
         'License :: OSI Approved :: BSD License',

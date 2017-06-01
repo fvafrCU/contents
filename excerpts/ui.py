@@ -26,7 +26,7 @@ def excerpts(file_name, comment_character="#", magic_character="%",
         run_pandoc: Run pandoc on the markdown file created?
         pandoc_formats: The pandoc output formats to be used.
         compile_latex: Compile the LaTeX file? Only considered if "tex" is part
-        of pandoc_formats. 
+        of pandoc_formats.
     Returns:
         0 if output generation was successful, 1 otherwise.
     """

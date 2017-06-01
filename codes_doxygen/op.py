@@ -37,8 +37,8 @@ def is_tool(name):
 #
 #
 # @param		file_name	The file on which to run pandoc.
-# @param		formats	The pandoc output formats to be used. A comma separated string,
-#        "html,tex" for example.
+# @param		formats	The pandoc output formats to be used. A comma separated
+#        string, "html,tex" for example.
 # @param		compile_latex	Compile the LaTeX file?
 # @return
 #        0 if parsing was successful, 1 otherwise.
