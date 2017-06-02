@@ -122,7 +122,7 @@ class BasicTestSuite(unittest.TestCase):
     def test_excerpts(self): 
         excerpts.excerpts(file_name="tests/files/some_file.txt", 
                           comment_character='#', 
-                          magic_character='%', compile_latex=True)
+                          magic_character='%')
         with open("tests/files/some_file.md") as f:
             result = f.readlines() 
         f.close()

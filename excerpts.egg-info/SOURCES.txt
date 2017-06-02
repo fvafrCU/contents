@@ -175,7 +175,6 @@ excerpts.egg-info/dependency_links.txt
 excerpts.egg-info/entry_points.txt
 excerpts.egg-info/requires.txt
 excerpts.egg-info/top_level.txt
-tests/.test_basic.py.swp
 tests/__init__.py
 tests/context.py
 tests/test_basic.py
