@@ -122,7 +122,7 @@ class BasicTestSuite(unittest.TestCase):
     def test_excerpts(self): 
         excerpts.excerpts(file_name="tests/files/some_file.txt", 
                           comment_character='#', 
-                          magic_character='%')
+                          magic_character='%', compile_latex=True)
         with open("tests/files/some_file.md") as f:
             result = f.readlines() 
         f.close()
@@ -165,6 +165,40 @@ class PathModificationSuite(unittest.TestCase):
         result = excerpts.main.modify_path(file_name="files/some_file.txt",
                 extension="bar", postfix="_post", prefix="pre_")
         expectation = "files/pre_some_file_post.bar"
+        self.assertEqual(expectation, result)
+
+
+class pandocSuite(unittest.TestCase):
+    """pandoc test cases."""
+
+
+    def test_pandoc_string(self): 
+        result = excerpts.excerpts(file_name="tests/files/some_file.txt", 
+                                   comment_character='#', 
+                                   magic_character='%', 
+                                   pandoc_formats = "html,rst")
+        #result = excerpts.op.pandoc(file_name="files/some_file.md", 
+        #                          compile_latex=False,
+        #                          formats = "html")
+        expectation = 0
+        self.assertEqual(expectation, result)
+
+
+    def test_pandoc_list(self): 
+        result = excerpts.excerpts(file_name="tests/files/some_file.txt", 
+                                   comment_character='#', 
+                                   magic_character='%', 
+                                   pandoc_formats = ["html", "rst"])
+        expectation = 0
+        self.assertEqual(expectation, result)
+
+
+    def test_pandoc_tuple(self): 
+        result = excerpts.excerpts(file_name="tests/files/some_file.txt", 
+                                   comment_character='#', 
+                                   magic_character='%', 
+                                   pandoc_formats = ("html", "rst"))
+        expectation = 0
         self.assertEqual(expectation, result)
 
 

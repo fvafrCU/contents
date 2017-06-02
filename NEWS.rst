@@ -1,3 +1,9 @@
+devel (2017-06-XX)
+==================
+
+- Allow formats for pandoc to be a string, tuple or vector. Formerly only a
+  (comma separated) string was implemented.
+
 1.2.0 (2017-05-21)
 ==================
 
