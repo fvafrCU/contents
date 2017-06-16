@@ -10,7 +10,7 @@ VERSION := $(shell grep version ./setup.py | cut -f2 -d"'")
 
 
 #% make targets
-all: install doc analyse package run test tests  tag
+all: install doc analyse package run test tests  
 
 ##% installation
 install: README.rst
