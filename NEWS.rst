@@ -1,4 +1,4 @@
-devel (2017-06-XX)
+2.0.0 (2017-06-16)
 ==================
 
 - Allow formats for pandoc to be a string, tuple or vector. Formerly only a
