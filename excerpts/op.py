@@ -40,8 +40,8 @@ def pandoc(file_name, compile_latex=False, formats="tex"):
     Kwargs:
         file_name: The file on which to run pandoc.
         formats: The pandoc output formats to be used.
-                 A comma separated string ("html,tex" for example) a tuple or a
-                 list giving the formats.
+                 A comma separated string ("html,tex" for example), a tuple or
+                 a list giving the formats.
         compile_latex: Compile the LaTeX file?
     Returns:
         0 if parsing was successful, 1 otherwise.

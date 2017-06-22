@@ -12,7 +12,7 @@ Messages by category
 +-----------+-------+---------+-----------+
 |type       |number |previous |difference |
 +===========+=======+=========+===========+
-|convention |0      |1        |-1.00      |
+|convention |0      |0        |=          |
 +-----------+-------+---------+-----------+
 |refactor   |1      |1        |=          |
 +-----------+-------+---------+-----------+
@@ -36,17 +36,7 @@ Messages
 
 Global evaluation
 -----------------
-Your code has been rated at 9.91/10 (previous run: 9.83/10, +0.09)
-
-External dependencies
----------------------
-::
-
-    excerpts (excerpts.command_line)
-      \-main (excerpts,excerpts.ui,excerpts.op)
-      \-ui (excerpts)
-
-
+Your code has been rated at 9.91/10 (previous run: 9.91/10, +0.00)
 
 Raw metrics
 -----------
@@ -79,6 +69,16 @@ Statistics by type
 +---------+-------+-----------+-----------+------------+---------+
 |function |9      |9          |=          |100.00      |0.00     |
 +---------+-------+-----------+-----------+------------+---------+
+
+
+
+External dependencies
+---------------------
+::
+
+    excerpts (excerpts.command_line)
+      \-main (excerpts,excerpts.ui,excerpts.op)
+      \-ui (excerpts)
 
 
 
