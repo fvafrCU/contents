@@ -5,6 +5,6 @@ excerpts/main          45      0   100%
 excerpts/op            31     10    68%   27-32, 58-65
 excerpts/ui            16      0   100%   
 tests/context           4      0   100%   
-tests/test_basic       73      0   100%   
+tests/test_basic       85      0   100%   
 -------------------------------------------------
-TOTAL                 171     10    94%   
+TOTAL                 183     10    95%   
