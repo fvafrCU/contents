@@ -1,5 +1,0 @@
-nose
-sphinx
-doxypypy
-setuptools
-twine
